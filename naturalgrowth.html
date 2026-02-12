@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natural growth · Evidence deep page</title>
+  <!-- Font & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- GLOBAL / RESET ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f0ede8 0%, #e5dfd7 100%);
+      font-family: 'Inter', sans-serif;
+      padding: 2.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      transition: 0.1s;
+    }
+
+    body.rtl-lang {
+      font-family: 'Cairo', 'Inter', sans-serif;
+    }
+
+    .page-container {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* ---------- LANGUAGE TOGGLE & HEADER ---------- */
+    .lang-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+    }
+
+    .badge {
+      background: #1e3c4c;
+      color: #f5efe8;
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border: 1px solid #345b6b;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #1a2e3b;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      margin: 0.3rem 0 0.2rem;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #3e525c;
+      max-width: 700px;
+      font-weight: 400;
+      border-left: 5px solid #9b6b43;
+      padding-left: 1.2rem;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 0 12px 12px 0;
+      line-height: 1.5;
+    }
+
+    body.rtl-lang .subhead {
+      border-left: none;
+      border-right: 5px solid #9b6b43;
+      padding-left: 0;
+      padding-right: 1.2rem;
+      text-align: right;
+    }
+
+    /* language toggle */
+    .lang-toggle-container {
+      display: flex;
+      gap: 10px;
+      background: #f2ede7;
+      padding: 5px;
+      border-radius: 48px;
+      border: 1px solid #d6c9bd;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: 0.12s;
+      color: #4e4440;
+      font-family: inherit;
+    }
+
+    .lang-btn.active {
+      background: #9b6b43;
+      color: white;
+      box-shadow: 0 4px 10px rgba(155,107,67,0.3);
+      border: 1px solid #8b5b3a;
+    }
+
+    .lang-btn:not(.active):hover {
+      background: #e5d9d0;
+    }
+
+    /* back button */
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff4ed;
+      padding: 0.7rem 1.8rem;
+      border-radius: 50px;
+      color: #4a3f38;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid #cbbcac;
+      margin-bottom: 2rem;
+      transition: 0.1s;
+    }
+    .back-button:hover {
+      background: #f2e2d6;
+    }
+    body.rtl-lang .back-button i {
+      transform: scaleX(-1);
+    }
+
+    /* ---------- HOME PAGE (CARD) — hidden by default ---------- */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 1.2rem;
+    }
+
+    .card {
+      background: #fffcf7;
+      border-radius: 28px;
+      box-shadow: 0 12px 26px -8px rgba(0,0,0,0.12);
+      padding: 2rem 2rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s ease;
+      border: 1px solid #f1ebe5;
+      background: linear-gradient(145deg, #fffcf8, #fff9f2);
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #ad9a8a;
+      box-shadow: 0 22px 32px -12px rgba(75, 55, 40, 0.2);
+    }
+
+    .card-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #2d3e4a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid #e4d5c9;
+      padding-bottom: 0.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-desc {
+      font-size: 1.1rem;
+      color: #3f4e56;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+    }
+
+    .evidence {
+      background: #eae1d6;
+      padding: 1.3rem;
+      border-radius: 20px;
+      border-left: 6px solid #a3522c;
+    }
+
+    body.rtl-lang .evidence {
+      border-left: none;
+      border-right: 6px solid #a3522c;
+    }
+
+    .citation {
+      background: #cfc1b4;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      display: inline-block;
+      margin-top: 0.7rem;
+    }
+
+    /* ---------- DEEP EVIDENCE PAGE (NATURAL GROWTH) ---------- */
+    .evidence-deep-container {
+      background: #fffaf5;
+      border-radius: 36px;
+      padding: 2.5rem 2.8rem;
+      box-shadow: 0 20px 36px -12px rgba(40, 30, 20, 0.18);
+      border: 1px solid #ece0d6;
+    }
+
+    .deep-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #2a3a42;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      border-bottom: 3px solid #c5aa94;
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .deep-section {
+      margin-bottom: 2.2rem;
+    }
+
+    .deep-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #7b4e33;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .deep-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .deep-list li {
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%23a3522c"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>') left center no-repeat;
+      padding-left: 2rem;
+      margin-bottom: 0.9rem;
+      line-height: 1.65;
+      color: #1e323b;
+      background-size: 1.1rem;
+    }
+
+    .deep-quote {
+      background: #e7dbce;
+      padding: 1.5rem 2rem;
+      border-radius: 30px;
+      font-style: italic;
+      border-left: 8px solid #6a462f;
+      margin: 1.6rem 0;
+    }
+
+    .deep-citation {
+      font-size: 0.8rem;
+      color: #4e3a2e;
+      background: #dac9bc;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      text-align: center;
+      color: #4f5d64;
+    }
+
+    .page-hidden {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .evidence-deep-container { padding: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== TWO-PAGE SIMULATION: HOME (hidden) + DEEP NATURAL GROWTH PAGE (visible) ========== -->
+  <div class="page-container" id="appRoot">
+
+    <!-- ==================== HOME PAGE (CARD GRID) ==================== -->
+    <div id="homePage" class="page-hidden"> <!-- HIDDEN BY DEFAULT -->
+      <div class="lang-header">
+        <div>
+          <span class="badge" id="badgeText"><i class="fas fa-scale-balanced"></i> documented counter‑narratives</span>
+          <h1 id="mainTitle">⚖️ Evidence that defends<br>against Zionist propaganda</h1>
+        </div>
+        <div class="lang-toggle-container">
+          <button id="btnEnglish" class="lang-btn active"><i class="fas fa-language"></i> English</button>
+          <button id="btnArabic" class="lang-btn"><i class="fas fa-language"></i> العربية</button>
+        </div>
+      </div>
+      
+      <div class="subhead" id="subheadText">
+        Primary sources, archival records — one featured card: 'Natural growth'. Click the card for deep evidence.
+      </div>
+
+      <!-- NATURAL GROWTH CARD -->
+      <div class="cards-grid">
+        <div class="card" id="naturalCardHome">
+          <div class="card-title">
+            <i class="fas fa-baby-carriage"></i> 
+            <span class="card-title-text" data-en="'Natural growth'" data-ar="'نمو طبيعي'">'Natural growth'</span>
+          </div>
+          <div class="card-desc" data-en="Myth that settlements expand only due to births — state-funded incentives and land grabs." 
+                data-ar="أسطورة أن المستوطنات تتوسع فقط بسبب الولادات — حوافز حكومية واستيلاء على الأراضي.">
+            Myth that settlements expand only due to births — state-funded incentives and land grabs.
+          </div>
+          <div class="evidence">
+            <i class="fas fa-coins"></i>
+            <strong data-en="💰 israeli state subsidies" data-ar="💰 دعم حكومي إسرائيلي">💰 israeli state subsidies</strong>
+            <span class="evidence-text" 
+              data-en="• 2022: settler municipalities receive $2,300 per capita more than Israeli non-settler cities. • 50% of land in West Bank allocated for settlements, not 'natural growth'."
+              data-ar="• ٢٠٢٢: بلديات المستوطنات تتلقى ٢٣٠٠ دولار للفرد أكثر من المدن الإسرائيلية غير الاستيطانية. • ٥٠٪ من أراضي الضفة الغربية مخصصة للمستوطنات، وليس 'نمواً طبيعياً'.">
+              • 2022: settler municipalities receive $2,300 per capita more than Israeli non-settler cities. • 50% of land in West Bank allocated for settlements, not 'natural growth'.
+            </span>
+            <span class="citation" data-en="Sikkuy report 2023; State Comptroller 2021" data-ar="تقرير سيكوي ٢٠٢٣؛ مراقب الدولة ٢٠٢١">Sikkuy report 2023; State Comptroller 2021</span>
+          </div>
+          <div style="margin-top: 1rem; color: #8f6b4f; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-arrow-right"></i> <span data-en="Click to view full evidence dossier" data-ar="انقر لعرض الملف الكامل">Click to view full evidence dossier</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-note" id="footerText">
+        <i class="fas fa-book-open"></i> Every claim cross‑referenced. Defending propaganda requires facts.
+      </div>
+    </div> <!-- end homePage -->
+
+    <!-- ==================== DEEP EVIDENCE PAGE (NATURAL GROWTH) ==================== -->
+    <div id="naturalDeepPage"> <!-- VISIBLE BY DEFAULT -->
+      <div class="lang-header">
+        <div>
+          <span class="badge" id="deepBadge"><i class="fas fa-scale-balanced"></i> documented evidence · 'Natural growth' myth</span>
+        </div>
+        <div class="lang-toggle-container">
+          <button id="deepBtnEnglish" class="lang-btn active"><i class="fas fa-language"></i> English</button>
+          <button id="deepBtnArabic" class="lang-btn"><i class="fas fa-language"></i> العربية</button>
+        </div>
+      </div>
+
+      <!-- back to homepage button -->
+      <a href="#" id="backToHomeBtn" class="back-button"><i class="fas fa-arrow-left"></i> <span data-en="Back to cards" data-ar="عودة إلى البطاقات">Back to cards</span></a>
+
+      <!-- DEEP NATURAL GROWTH DOSSIER -->
+      <div class="evidence-deep-container">
+        <div class="deep-title">
+          <i class="fas fa-baby-carriage" style="color: #7b4e33;"></i> 
+          <span id="deepTitleText" data-en="'Natural growth': The state-subsidized expansion of settlements" data-ar="'نمو طبيعي': التوسع الاستيطاني المدعوم حكومياً">'Natural growth': The state-subsidized expansion of settlements</span>
+        </div>
+
+        <!-- section 1 - disproportional funding -->
+        <div class="deep-section">
+          <h2><i class="fas fa-coins"></i> <span data-en="Systematic financial incentives" data-ar="حوافز مالية منهجية">Systematic financial incentives</span></h2>
+          <ul class="deep-list">
+            <li data-en="Sikkuy: The Association for Civil Equality (2023): Settler municipalities receive ₪8,500 ($2,300) per capita more than non-settler Israeli cities of similar size – annual subsidy exceeding ₪4 billion." 
+                data-ar="سيكوي - جمعية المساواة المدنية (٢٠٢٣): بلديات المستوطنات تتلقى ٨٥٠٠ شيكل (٢٣٠٠ دولار) للفرد أكثر من المدن الإسرائيلية غير الاستيطانية ذات الحجم المماثل – دعم سنوي يتجاوز ٤ مليارات شيكل.">
+                Sikkuy (2023): Settler municipalities receive ₪8,500 ($2,300) per capita more than non-settler Israeli cities of similar size – annual subsidy exceeding ₪4 billion.
+            </li>
+            <li data-en="State Comptroller Report (2021): Ministry of Housing allocated 60% of its West Bank budget to settlements beyond the separation barrier, explicitly to incentivize relocation." 
+                data-ar="تقرير مراقب الدولة (٢٠٢١): وزارة الإسكان خصصت ٦٠٪ من ميزانيتها في الضفة الغربية للمستوطنات الواقعة خلف جدار الفصل، بهدف تحفيز الانتقال صراحة.">
+                State Comptroller Report (2021): Ministry of Housing allocated 60% of its West Bank budget to settlements beyond the separation barrier, explicitly to incentivize relocation.
+            </li>
+            <li data-en="Tax benefits: Settlers receive reduced income tax (5–7% lower), mortgage subsidies up to 40%, and grants for moving to 'national priority' areas – 80% of which are settlements." 
+                data-ar="مزايا ضريبية: المستوطنون يحصلون على تخفيض ضريبة الدخل (٥–٧٪)، دعم رهن عقاري حتى ٤٠٪، ومنح للانتقال إلى مناطق 'أولوية وطنية' – ٨٠٪ منها مستوطنات.">
+                Tax benefits: Settlers receive reduced income tax (5–7% lower), mortgage subsidies up to 40%, and grants for moving to 'national priority' areas – 80% of which are settlements.
+            </li>
+          </ul>
+        </div>
+
+        <!-- section 2 - land allocation & planning -->
+        <div class="deep-section">
+          <h2><i class="fas fa-map-marked-alt"></i> <span data-en="Land seizure, not natural growth" data-ar="مصادرة أراضٍ، وليس نمواً طبيعياً">Land seizure, not natural growth</span></h2>
+          <ul class="deep-list">
+            <li data-en="Peace Now (2023): 50% of West Bank land has been allocated for settlements – 9% built, 41% reserved for future expansion (outdated 'natural growth' justification)." 
+                data-ar="السلام الآن (٢٠٢٣): ٥٠٪ من أراضي الضفة الغربية خصصت للمستوطنات – ٩٪ مبني، ٤١٪ محجوز للتوسع المستقبلي (بذريعة 'النمو الطبيعي' البالية).">
+                Peace Now (2023): 50% of West Bank land has been allocated for settlements – 9% built, 41% reserved for future expansion (outdated 'natural growth' justification).
+            </li>
+            <li data-en="Civil Administration: 2022 saw record 20,000 dunams (5,000 acres) seized for settlement expansion – largest since 1992. Only 0.5% of Palestinian permit applications approved." 
+                data-ar="الإدارة المدنية: ٢٠٢٢ شهد مصادرة قياسية بلغت ٢٠ ألف دونم (٥٠٠٠ فدان) لتوسيع المستوطنات – الأكبر منذ ١٩٩٢. تمت الموافقة على ٠٫٥٪ فقط من طلبات تراخيص الفلسطينيين.">
+                Civil Administration: 2022 saw record 20,000 dunams (5,000 acres) seized for settlement expansion – largest since 1992. Only 0.5% of Palestinian permit applications approved.
+            </li>
+            <li data-en="Outpost 'legalization': 2023–2024, nine illegal outposts retroactively authorized, 18,000 housing units advanced – all framed as 'responding to natural growth'." 
+                data-ar="'شرعنة' البؤر الاستيطانية: ٢٠٢٣–٢٠٢٤، تمت شرعنة تسع بؤر استيطانية غير قانونية بأثر رجعي، والدفع بـ ١٨ ألف وحدة سكنية – كلها بذريعة 'الاستجابة للنمو الطبيعي'.">
+                Outpost 'legalization': 2023–2024, nine illegal outposts retroactively authorized, 18,000 housing units advanced – all framed as 'responding to natural growth'.
+            </li>
+          </ul>
+        </div>
+
+        <!-- section 3 - demographic manipulation -->
+        <div class="deep-section">
+          <h2><i class="fas fa-chart-bar"></i> <span data-en="Demographic engineering" data-ar="هندسة ديموغرافية">Demographic engineering</span></h2>
+          <div class="deep-quote" id="deepQuote">
+            <span data-en="B'Tselem (2023): 'The 'natural growth' argument is a smokescreen. Successive Israeli governments have pursued a deliberate policy of maximizing the settler population to prevent a viable Palestinian state.'" 
+                  data-ar="بتسيلم (٢٠٢٣): 'حجة 'النمو الطبيعي' هي ستار دخان. اتبعت الحكومات الإسرائيلية المتعاقبة سياسة متعمدة لتعظيم عدد المستوطنين لمنع قيام دولة فلسطينية قابلة للحياة.'">
+              B'Tselem (2023): 'The "natural growth" argument is a smokescreen. Successive Israeli governments have pursued a deliberate policy of maximizing the settler population to prevent a viable Palestinian state.'
+            </span>
+          </div>
+          <ul class="deep-list">
+            <li data-en="Population target: 1 million settlers by 2030. Current growth rate (4.2% annually) is triple Israel's national average – impossible without massive state intervention." 
+                data-ar="هدف سكاني: مليون مستوطن بحلول ٢٠٣٠. معدل النمو الحالي (٤٫٢٪ سنوياً) هو ثلاثة أضعاف المتوسط الوطني الإسرائيلي – مستحيل دون تدخل حكومي هائل.">
+                Population target: 1 million settlers by 2030. Current growth rate (4.2% annually) is triple Israel's national average – impossible without massive state intervention.
+            </li>
+            <li data-en="Yoav Kisch (Housing Minister, 2023): 'We will use every tool to strengthen settlement – not despite international pressure, but because of it.'" 
+                data-ar="يوآف كيش (وزير الإسكان، ٢٠٢٣): 'سنستخدم كل أداة لتعزيز الاستيطان – ليس رغم الضغط الدولي، بل بسببه.'">
+                Yoav Kisch (Housing Minister, 2023): 'We will use every tool to strengthen settlement – not despite international pressure, but because of it.'
+            </li>
+          </ul>
+        </div>
+
+        <!-- section 4 - international law -->
+        <div class="deep-section">
+          <h2><i class="fas fa-gavel"></i> <span data-en="Illegal under international law" data-ar="غير قانوني بموجب القانون الدولي">Illegal under international law</span></h2>
+          <ul class="deep-list">
+            <li data-en="UN Security Council Resolution 2334 (2016): Settlements have 'no legal validity' and constitute 'flagrant violation' of international law. 'Natural growth' is not an exception." 
+                data-ar="قرار مجلس الأمن ٢٣٣٤ (٢٠١٦): المستوطنات 'ليس لها شرعية قانونية' وتشكل 'انتهاكاً صارخاً' للقانون الدولي. 'النمو الطبيعي' ليس استثناءً.">
+                UN Security Council Resolution 2334 (2016): Settlements have 'no legal validity' and constitute 'flagrant violation' of international law. 'Natural growth' is not an exception.
+            </li>
+            <li data-en="ICJ 2004 Advisory Opinion: All settlement construction is illegal, regardless of demographic justifications." 
+                data-ar="فتوى محكمة العدل الدولية ٢٠٠٤: جميع بناء المستوطنات غير قانوني، بغض النظر عن المبررات الديموغرافية.">
+                ICJ 2004 Advisory Opinion: All settlement construction is illegal, regardless of demographic justifications.
+            </li>
+          </ul>
+        </div>
+
+        <!-- citations block -->
+        <div style="margin-top: 2rem; border-top: 2px solid #e2d2c4; padding-top: 1.8rem;">
+          <span class="deep-citation" id="deepCitation">
+            📖 Sources: Sikkuy report 2023; State Comptroller 2021; Peace Now database 2023; B'Tselem 2023; UNSC Res 2334; ICJ 2004.
+          </span>
+          <span class="deep-citation" style="margin-left: 0.8rem;" id="deepCitationAr" data-en="Official government data, NGO monitoring, UN resolutions." data-ar="بيانات حكومية رسمية، رصد منظمات غير حكومية، قرارات أممية.">
+            Official government data, NGO monitoring, UN resolutions.
+          </span>
+        </div>
+      </div>
+
+      <div class="footer-note" style="margin-top: 2.5rem;">
+        <i class="fas fa-archive"></i> <span data-en="State budgets, planning documents, declassified where available." data-ar="موازنات حكومية، وثائق تخطيط، مُفرج عنها حيثما أمكن.">State budgets, planning documents, declassified where available.</span>
+      </div>
+    </div> <!-- end naturalDeepPage -->
+
+  </div> <!-- end appRoot -->
+
+  <script>
+    (function() {
+      "use strict";
+
+      // ---------- GLOBAL LANGUAGE ----------
+      const body = document.body;
+
+      // ---- HOME elements ----
+      const btnEn = document.getElementById('btnEnglish');
+      const btnAr = document.getElementById('btnArabic');
+      // ---- DEEP page buttons ----
+      const deepBtnEn = document.getElementById('deepBtnEnglish');
+      const deepBtnAr = document.getElementById('deepBtnArabic');
+
+      // home translatable elements
+      const badgeEl = document.getElementById('badgeText');
+      const mainTitle = document.getElementById('mainTitle');
+      const subhead = document.getElementById('subheadText');
+      const footerEl = document.getElementById('footerText');
+
+      // DEEP page translatable elements
+      const deepBadge = document.getElementById('deepBadge');
+      const deepTitleText = document.getElementById('deepTitleText');
+      const backHomeSpan = document.querySelector('#backToHomeBtn span');
+      const deepQuote = document.getElementById('deepQuote')?.querySelector('span');
+      const deepCitationSpan = document.getElementById('deepCitation');
+      const deepCitationAr = document.getElementById('deepCitationAr');
+
+      // ALL elements with data-en + data-ar
+      const allLocalizedElements = document.querySelectorAll('[data-en][data-ar]');
+
+      // ---------- bilingual dictionary ----------
+      const translations = {
+        en: {
+          badge: "📜 documented counter‑narratives",
+          title: "⚖️ Evidence that defends\nagainst Zionist propaganda",
+          subhead: "Primary sources, archival records — one featured card: 'Natural growth'. Click the card for deep evidence.",
+          footer: "📚 Every claim cross‑referenced. Defending propaganda requires facts.",
+          deepBadge: "📜 documented evidence · 'Natural growth' myth",
+          deepTitle: "'Natural growth': The state-subsidized expansion of settlements",
+          backHome: "Back to cards",
+          deepCitationMain: "📖 Sources: Sikkuy report 2023; State Comptroller 2021; Peace Now database 2023; B'Tselem 2023; UNSC Res 2334; ICJ 2004.",
+          deepCitationSec: "Official government data, NGO monitoring, UN resolutions.",
+          deepQuote: "B'Tselem (2023): 'The \"natural growth\" argument is a smokescreen. Successive Israeli governments have pursued a deliberate policy of maximizing the settler population to prevent a viable Palestinian state.'",
+          footerDeep: "State budgets, planning documents, declassified where available."
+        },
+        ar: {
+          badge: "📜 روايات موثقة مضادة",
+          title: "⚖️ أدلة تدحض الدعاية الصهيونية",
+          subhead: "مصادر أولية، وثائق أرشيفية — بطاقة مميزة: 'نمو طبيعي'. انقر على البطاقة للملف الكامل.",
+          footer: "📚 كل معلومة موثقة بمصادر. مواجهة الدعاية تحتاج حقائق.",
+          deepBadge: "📜 وثائق موثقة · أسطورة 'النمو الطبيعي'",
+          deepTitle: "'نمو طبيعي': التوسع الاستيطاني المدعوم حكومياً",
+          backHome: "عودة إلى البطاقات",
+          deepCitationMain: "📖 المصادر: تقرير سيكوي ٢٠٢٣؛ مراقب الدولة ٢٠٢١؛ قاعدة بيانات السلام الآن ٢٠٢٣؛ بتسيلم ٢٠٢٣؛ قرار مجلس الأمن ٢٣٣٤؛ محكمة العدل الدولية ٢٠٠٤.",
+          deepCitationSec: "بيانات حكومية رسمية، رصد منظمات غير حكومية، قرارات أممية.",
+          deepQuote: "بتسيلم (٢٠٢٣): 'حجة \"النمو الطبيعي\" هي ستار دخان. اتبعت الحكومات الإسرائيلية المتعاقبة سياسة متعمدة لتعظيم عدد المستوطنين لمنع قيام دولة فلسطينية قابلة للحياة.'",
+          footerDeep: "موازنات حكومية، وثائق تخطيط، مُفرج عنها حيثما أمكن."
+        }
+      };
+
+      // set language
+      function setLanguage(lang) {
+        const isArabic = lang === 'ar';
+        if (isArabic) {
+          body.classList.add('rtl-lang');
+        } else {
+          body.classList.remove('rtl-lang');
+        }
+
+        // active states
+        if (btnEn && btnAr) {
+          if (isArabic) { btnAr.classList.add('active'); btnEn.classList.remove('active'); }
+          else { btnEn.classList.add('active'); btnAr.classList.remove('active'); }
+        }
+        if (deepBtnEn && deepBtnAr) {
+          if (isArabic) { deepBtnAr.classList.add('active'); deepBtnEn.classList.remove('active'); }
+          else { deepBtnEn.classList.add('active'); deepBtnAr.classList.remove('active'); }
+        }
+
+        // home static
+        if (badgeEl) badgeEl.innerHTML = `<i class="fas fa-scale-balanced"></i> ${translations[lang].badge}`;
+        if (mainTitle) mainTitle.innerText = translations[lang].title;
+        if (subhead) subhead.innerText = translations[lang].subhead;
+        if (footerEl) footerEl.innerHTML = `<i class="fas fa-book-open"></i> ${translations[lang].footer}`;
+
+        // deep static
+        if (deepBadge) deepBadge.innerHTML = `<i class="fas fa-scale-balanced"></i> ${translations[lang].deepBadge}`;
+        if (deepTitleText) deepTitleText.innerText = translations[lang].deepTitle;
+        if (backHomeSpan) backHomeSpan.innerText = translations[lang].backHome;
+        if (deepCitationSpan) deepCitationSpan.innerText = translations[lang].deepCitationMain;
+        if (deepCitationAr) deepCitationAr.innerText = translations[lang].deepCitationSec;
+        if (deepQuote) deepQuote.innerText = translations[lang].deepQuote;
+        const deepFooter = document.querySelector('#naturalDeepPage .footer-note span');
+        if (deepFooter) deepFooter.innerText = translations[lang].footerDeep;
+
+        // update all data-en/data-ar elements
+        allLocalizedElements.forEach(el => {
+          if (el.dataset && el.dataset[lang]) {
+            if (el.tagName === 'SPAN' || el.tagName === 'DIV' || el.tagName === 'LI' || el.tagName === 'STRONG') {
+              el.innerText = el.dataset[lang];
+            }
+          }
+        });
+      }
+
+      // ---------- PAGE NAVIGATION ----------
+      const homePage = document.getElementById('homePage');
+      const deepPage = document.getElementById('naturalDeepPage');
+
+      function showDeepPage() {
+        homePage.classList.add('page-hidden');
+        deepPage.classList.remove('page-hidden');
+      }
+
+      function showHomePage(e) {
+        if (e) e.preventDefault();
+        homePage.classList.remove('page-hidden');
+        deepPage.classList.add('page-hidden');
+      }
+
+      // card click: home -> deep
+      const naturalCard = document.getElementById('naturalCardHome');
+      if (naturalCard) {
+        naturalCard.addEventListener('click', showDeepPage);
+      }
+
+      // back button: deep -> home
+      const backBtn = document.getElementById('backToHomeBtn');
+      if (backBtn) {
+        backBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          showHomePage();
+        });
+      }
+
+      // ---------- LANGUAGE BUTTON LISTENERS ----------
+      if (btnEn) btnEn.addEventListener('click', () => setLanguage('en'));
+      if (btnAr) btnAr.addEventListener('click', () => setLanguage('ar'));
+      if (deepBtnEn) deepBtnEn.addEventListener('click', () => setLanguage('en'));
+      if (deepBtnAr) deepBtnAr.addEventListener('click', () => setLanguage('ar'));
+
+      // ---------- INIT: DEEP PAGE VISIBLE, ENGLISH ----------
+      setLanguage('en');
+      homePage.classList.add('page-hidden');
+      deepPage.classList.remove('page-hidden');
+
+    })();
+  </script>
+
+  <style>
+    .page-hidden { display: none; }
+  </style>
+</body>
+</html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heritage theft · Evidence deep page</title>
+  <!-- Font & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ---------- GLOBAL / RESET ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f0ede8 0%, #e5dfd7 100%);
+      font-family: 'Inter', sans-serif;
+      padding: 2.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      transition: 0.1s;
+    }
+
+    body.rtl-lang {
+      font-family: 'Cairo', 'Inter', sans-serif;
+    }
+
+    .page-container {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* ---------- LANGUAGE TOGGLE & HEADER ---------- */
+    .lang-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+    }
+
+    .badge {
+      background: #1e3c4c;
+      color: #f5efe8;
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border: 1px solid #345b6b;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #1a2e3b;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      margin: 0.3rem 0 0.2rem;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #3e525c;
+      max-width: 700px;
+      font-weight: 400;
+      border-left: 5px solid #9b6b43;
+      padding-left: 1.2rem;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 0 12px 12px 0;
+      line-height: 1.5;
+    }
+
+    body.rtl-lang .subhead {
+      border-left: none;
+      border-right: 5px solid #9b6b43;
+      padding-left: 0;
+      padding-right: 1.2rem;
+      text-align: right;
+    }
+
+    /* language toggle */
+    .lang-toggle-container {
+      display: flex;
+      gap: 10px;
+      background: #f2ede7;
+      padding: 5px;
+      border-radius: 48px;
+      border: 1px solid #d6c9bd;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: 0.12s;
+      color: #4e4440;
+      font-family: inherit;
+    }
+
+    .lang-btn.active {
+      background: #9b6b43;
+      color: white;
+      box-shadow: 0 4px 10px rgba(155,107,67,0.3);
+      border: 1px solid #8b5b3a;
+    }
+
+    .lang-btn:not(.active):hover {
+      background: #e5d9d0;
+    }
+
+    /* back button */
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff4ed;
+      padding: 0.7rem 1.8rem;
+      border-radius: 50px;
+      color: #4a3f38;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid #cbbcac;
+      margin-bottom: 2rem;
+      transition: 0.1s;
+    }
+    .back-button:hover {
+      background: #f2e2d6;
+    }
+    body.rtl-lang .back-button i {
+      transform: scaleX(-1);
+    }
+
+    /* ---------- HOME PAGE (CARD) — hidden by default ---------- */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 1.2rem;
+    }
+
+    .card {
+      background: #fffcf7;
+      border-radius: 28px;
+      box-shadow: 0 12px 26px -8px rgba(0,0,0,0.12);
+      padding: 2rem 2rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s ease;
+      border: 1px solid #f1ebe5;
+      background: linear-gradient(145deg, #fffcf8, #fff9f2);
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #ad9a8a;
+      box-shadow: 0 22px 32px -12px rgba(75, 55, 40, 0.2);
+    }
+
+    .card-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #2d3e4a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid #e4d5c9;
+      padding-bottom: 0.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-desc {
+      font-size: 1.1rem;
+      color: #3f4e56;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+    }
+
+    .evidence {
+      background: #eae1d6;
+      padding: 1.3rem;
+      border-radius: 20px;
+      border-left: 6px solid #a3522c;
+    }
+
+    body.rtl-lang .evidence {
+      border-left: none;
+      border-right: 6px solid #a3522c;
+    }
+
+    .citation {
+      background: #cfc1b4;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      display: inline-block;
+      margin-top: 0.7rem;
+    }
+
+    /* ---------- DEEP EVIDENCE PAGE (HERITAGE THEFT) ---------- */
+    .evidence-deep-container {
+      background: #fffaf5;
+      border-radius: 36px;
+      padding: 2.5rem 2.8rem;
+      box-shadow: 0 20px 36px -12px rgba(40, 30, 20, 0.18);
+      border: 1px solid #ece0d6;
+    }
+
+    .deep-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #2a3a42;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      border-bottom: 3px solid #c5aa94;
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .deep-section {
+      margin-bottom: 2.2rem;
+    }
+
+    .deep-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #7b4e33;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .deep-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .deep-list li {
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%23a3522c"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>') left center no-repeat;
+      padding-left: 2rem;
+      margin-bottom: 0.9rem;
+      line-height: 1.65;
+      color: #1e323b;
+      background-size: 1.1rem;
+    }
+
+    .deep-quote {
+      background: #e7dbce;
+      padding: 1.5rem 2rem;
+      border-radius: 30px;
+      font-style: italic;
+      border-left: 8px solid #6a462f;
+      margin: 1.6rem 0;
+    }
+
+    .deep-citation {
+      font-size: 0.8rem;
+      color: #4e3a2e;
+      background: #dac9bc;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      text-align: center;
+      color: #4f5d64;
+    }
+
+    .page-hidden {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .evidence-deep-container { padding: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== TWO-PAGE SIMULATION: HOME (hidden) + DEEP HERITAGE PAGE (visible) ========== -->
+  <div class="page-container" id="appRoot">
+
+    <!-- ==================== HOME PAGE (CARD GRID) ==================== -->
+    <div id="homePage" class="page-hidden"> <!-- HIDDEN BY DEFAULT -->
+      <div class="lang-header">
+        <div>
+          <span class="badge" id="badgeText"><i class="fas fa-scale-balanced"></i> documented counter‑narratives</span>
+          <h1 id="mainTitle">⚖️ Evidence that defends<br>against Zionist propaganda</h1>
+        </div>
+        <div class="lang-toggle-container">
+          <button id="btnEnglish" class="lang-btn active"><i class="fas fa-language"></i> English</button>
+          <button id="btnArabic" class="lang-btn"><i class="fas fa-language"></i> العربية</button>
+        </div>
+      </div>
+      
+      <div class="subhead" id="subheadText">
+        Primary sources, archival records — one featured card: Heritage theft. Click the card for deep evidence.
+      </div>
+
+      <!-- HERITAGE THEFT CARD -->
+      <div class="cards-grid">
+        <div class="card" id="heritageCardHome">
+          <div class="card-title">
+            <i class="fas fa-archaeology"></i> 
+            <span class="card-title-text" data-en="Heritage theft" data-ar="سرقة التراث">Heritage theft</span>
+          </div>
+          <div class="card-desc" data-en="Excavations erase Palestinian layers, rebrand sites as exclusively Jewish heritage." 
+                data-ar="حفريات تزيل الطبقات الفلسطينية، تعيد تسمية المواقع كتراث يهودي حصري.">
+            Excavations erase Palestinian layers, rebrand sites as exclusively Jewish heritage.
+          </div>
+          <div class="evidence">
+            <i class="fas fa-shovel"></i>
+            <strong data-en="🏺 case: city of david / silwan" data-ar="🏺 حالة: مدينة داود / سلوان">🏺 case: city of david / silwan</strong>
+            <span class="evidence-text" 
+              data-en="• 85% of Silwan homes threatened by Elad settler organization; tunnels undermine Palestinian neighbourhoods. • UNESCO resolutions condemn Israel as occupying power altering Jerusalem sites."
+              data-ar="• ٨٥٪ من منازل سلوان مهددة من منظمة إيلاد الاستيطانية؛ أنفاق تقوّض أحياء فلسطينية. • قرارات اليونسكو تدين إسرائيل كقوة احتلال تغيّر مواقع القدس.">
+              • 85% of Silwan homes threatened by Elad settler organization; tunnels undermine Palestinian neighbourhoods. • UNESCO resolutions condemn Israel as occupying power altering Jerusalem sites.
+            </span>
+            <span class="citation" data-en="UNESCO 39C/49; Emek Shaveh" data-ar="اليونسكو 39C/49؛ عيمق شافيه">UNESCO 39C/49; Emek Shaveh</span>
+          </div>
+          <div style="margin-top: 1rem; color: #8f6b4f; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-arrow-right"></i> <span data-en="Click to view full evidence dossier" data-ar="انقر لعرض الملف الكامل">Click to view full evidence dossier</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-note" id="footerText">
+        <i class="fas fa-book-open"></i> Every claim cross‑referenced. Defending propaganda requires facts.
+      </div>
+    </div> <!-- end homePage -->
+
+    <!-- ==================== DEEP EVIDENCE PAGE (HERITAGE THEFT) ==================== -->
+    <div id="heritageDeepPage"> <!-- VISIBLE BY DEFAULT -->
+      <div class="lang-header">
+        <div>
+          <span class="badge" id="deepBadge"><i class="fas fa-scale-balanced"></i> documented evidence · Heritage theft</span>
+        </div>
+        <div class="lang-toggle-container">
+          <button id="deepBtnEnglish" class="lang-btn active"><i class="fas fa-language"></i> English</button>
+          <button id="deepBtnArabic" class="lang-btn"><i class="fas fa-language"></i> العربية</button>
+        </div>
+      </div>
+
+      <!-- back to homepage button -->
+      <a href="#" id="backToHomeBtn" class="back-button"><i class="fas fa-arrow-left"></i> <span data-en="Back to cards" data-ar="عودة إلى البطاقات">Back to cards</span></a>
+
+      <!-- DEEP HERITAGE THEFT DOSSIER -->
+      <div class="evidence-deep-container">
+        <div class="deep-title">
+          <i class="fas fa-archaeology" style="color: #8f4b2c;"></i> 
+          <span id="deepTitleText" data-en="Erasing Palestine: The theft of cultural heritage" data-ar="محو فلسطين: سرقة التراث الثقافي">Erasing Palestine: The theft of cultural heritage</span>
+        </div>
+
+        <!-- section 1 - silwan / city of david -->
+        <div class="deep-section">
+          <h2><i class="fas fa-shovel"></i> <span data-en="City of David / Silwan" data-ar="مدينة داود / سلوان">City of David / Silwan</span></h2>
+          <ul class="deep-list">
+            <li data-en="Silwan is a Palestinian neighborhood of 50,000 residents, built on centuries-old terraces overlooking Al-Aqsa. Since 1991, the settler organization Elad has taken over 85% of homes in the 'core' of the village, operating archaeological tunnels beneath them." 
+                data-ar="سلوان هو حي فلسطيني يقطنه ٥٠٠٠٠ نسمة، مبني على مصاطب عمرها قرون تطل على الأقصى. منذ ١٩٩١، استولت منظمة إيلاد الاستيطانية على ٨٥٪ من المنازل في 'قلب' القرية، وتدير أنفاقاً أثرية تحتها.">
+                Silwan is a Palestinian neighborhood of 50,000 residents, built on centuries-old terraces overlooking Al-Aqsa. Since 1991, the settler organization Elad has taken over 85% of homes in the 'core' of the village, operating archaeological tunnels beneath them.
+            </li>
+            <li data-en="Emek Shaveh (2023): 'The tunnels erase Palestinian history, presenting Silwan exclusively as the 'City of David' – biblical heritage, while ignoring 1,400 years of Islamic and Christian presence. The archaeology is politicized to justify displacement.'" 
+                data-ar="عيمق شافيه (٢٠٢٣): 'الأنفاق تمحو التاريخ الفلسطيني، وتقدم سلوان حصرياً كـ 'مدينة داود' – تراث توراتي، متجاهلة ١٤٠٠ عام من الوجود الإسلامي والمسيحي. علم الآثار مسيّس لتبرير التهجير.'">
+                Emek Shaveh (2023): 'The tunnels erase Palestinian history, presenting Silwan exclusively as the 'City of David' – biblical heritage, while ignoring 1,400 years of Islamic and Christian presence. The archaeology is politicized to justify displacement.'
+            </li>
+            <li data-en="Israeli Committee Against House Demolitions (ICAHD): Over 1,000 demolition orders issued in Silwan since 2004; 150 homes demolished. Tunnel excavation has caused structural collapse of dozens of Palestinian homes." 
+                data-ar="اللجنة الإسرائيلية لمنع هدم البيوت: أكثر من ١٠٠٠ أمر هدم صدر في سلوان منذ ٢٠٠٤؛ ١٥٠ منزلاً هُدمت. تسببت حفريات الأنفاق في انهيار هيكلي لعشرات المنازل الفلسطينية.">
+                ICAHD: Over 1,000 demolition orders issued in Silwan since 2004; 150 homes demolished. Tunnel excavation has caused structural collapse of dozens of Palestinian homes.
+            </li>
+          </ul>
+        </div>
+
+        <!-- section 2 - unesco resolutions -->
+        <div class="deep-section">
+          <h2><i class="fas fa-un"></i> <span data-en="UNESCO: Occupying power" data-ar="اليونسكو: قوة احتلال">UNESCO: Occupying power</span></h2>
+          <div class="deep-quote" id="deepQuote">
+            <span data-en="UNESCO Resolution 39C/49 (2016): 'Condemns the occupying power for its persistent excavations, tunneling, and unilateral works in East Jerusalem, which are illegal under international law and alter the historical fabric and integrity of the Holy City.'" 
+                  data-ar="قرار اليونسكو 39C/49 (٢٠١٦): 'يدين السلطة القائمة بالاحتلال لحفرياتها المستمرة، أنفاقها، وأعمالها الأحادية في القدس الشرقية، وهي غير قانونية بموجب القانون الدولي وتغير النسيج التاريخي وسلامة المدينة المقدسة.'">
+              UNESCO Resolution 39C/49 (2016): 'Condemns the occupying power for its persistent excavations, tunneling, and unilateral works in East Jerusalem, which are illegal under international law and alter the historical fabric and integrity of the Holy City.'
+            </span>
+          </div>
+          <ul class="deep-list">
+            <li data-en="UNESCO 40C/23 (2017): Reaffirms that East Jerusalem is occupied territory; calls on Israel to cease excavations, respect the status quo of holy sites, and recognize Jordanian custodianship." 
+                data-ar="اليونسكو 40C/23 (٢٠١٧): تؤكد أن القدس الشرقية أرض محتلة؛ تدعو إسرائيل إلى وقف الحفريات، احترام الوضع الراهن للأماكن المقدسة، والاعتراف بالوصاية الأردنية.">
+                UNESCO 40C/23 (2017): Reaffirms that East Jerusalem is occupied territory; calls on Israel to cease excavations, respect the status quo of holy sites, and recognize Jordanian custodianship.
+            </li>
+            <li data-en="UNESCO 2022: 'The Mughrabi Gate excavations, the Gihon Spring tunnel, and the Kedem Center compound all constitute violations of the 1954 Hague Convention for the Protection of Cultural Property in the Event of Armed Conflict.'" 
+                data-ar="اليونسكو ٢٠٢٢: 'حفريات باب المغاربة، نفق عين جيحون، ومجمع مركز كيدم تشكل جميعها انتهاكات لاتفاقية لاهاي لعام ١٩٥٤ لحماية الممتلكات الثقافية في حالة نزاع مسلح.'">
+                UNESCO 2022: 'The Mughrabi Gate excavations, the Gihon Spring tunnel, and the Kedem Center compound all constitute violations of the 1954 Hague Convention for the Protection of Cultural Property in the Event of Armed Conflict.'
+            </li>
+          </ul>
+        </div>
+
+        <!-- section 3 - systematic rebranding -->
+        <div class="deep-section">
+          <h2><i class="fas fa-tag"></i> <span data-en="Systematic rebranding" data-ar="إعادة تسمية منهجية">Systematic rebranding</span></h2>
+          <ul class="deep-list">
+            <li data-en="Hebron: Ibrahimi Mosque / Cave of the Patriarchs – UNESCO World Heritage site. Since 1967, Israel has progressively divided the site, imposed settler-only prayer times, and rebranded signage to emphasize Jewish narrative exclusively." 
+                data-ar="الخليل: الحرم الإبراهيمي / المغارة – موقع تراث عالمي لليونسكو. منذ ١٩٦٧، قسمت إسرائيل الموقع تدريجياً، فرضت أوقات صلاة للمستوطنين فقط، وأعادت تسمية اللافتات لتبرز السردية اليهودية حصرياً.">
+                Hebron: Ibrahimi Mosque / Cave of the Patriarchs – UNESCO World Heritage site. Since 1967, Israel has progressively divided the site, imposed settler-only prayer times, and rebranded signage to emphasize Jewish narrative exclusively.
+            </li>
+            <li data-en="Al-Aqsa / Temple Mount: Israel restricts Palestinian access, permits settler tours under armed guard, and excavates beneath the compound (Western Wall tunnels) causing structural damage." 
+                data-ar="الأقصى / جبل الهيكل: إسرائيل تقيد وصول الفلسطينيين، تسمح بجولات المستوطنين تحت حراسة مسلحة، وتحفر تحت المسجد (أنفاق حائط البراق) مسببة أضراراً هيكلية.">
+                Al-Aqsa / Temple Mount: Israel restricts Palestinian access, permits settler tours under armed guard, and excavates beneath the compound (Western Wall tunnels) causing structural damage.
+            </li>
+            <li data-en="Beit She'an, Sebastia, Jericho: Israeli authorities replace Arabic street names, omit Islamic and Christian history from tourist signage, present sites as exclusively Jewish ancient heritage." 
+                data-ar="بيسان، سبسطية، أريحا: السلطات الإسرائيلية تستبدل أسماء الشوارع العربية، تحذف التاريخ الإسلامي والمسيحي من اللافتات السياحية، تقدم المواقع كتراث يهودي قديم حصري.">
+                Beit She'an, Sebastia, Jericho: Israeli authorities replace Arabic street names, omit Islamic and Christian history from tourist signage, present sites as exclusively Jewish ancient heritage.
+            </li>
+          </ul>
+        </div>
+
+        <!-- section 4 - looting and antiquities trade -->
+        <div class="deep-section">
+          <h2><i class="fas fa-box-open"></i> <span data-en="Looting and antiquities trade" data-ar="نهب وتجارة الآثار">Looting and antiquities trade</span></h2>
+          <ul class="deep-list">
+            <li data-en="Emek Shaveh (2024): 'Since 1967, approximately 100,000 artifacts have been removed from occupied Palestinian territories and integrated into Israeli national collections, without Palestinian consent or international oversight.'" 
+                data-ar="عيمق شافيه (٢٠٢٤): 'منذ ١٩٦٧، تم نقل حوالي ١٠٠٠٠٠ قطعة أثرية من الأراضي الفلسطينية المحتلة ودمجها في المجموعات الوطنية الإسرائيلية، دون موافقة فلسطينية أو رقابة دولية.'">
+                Emek Shaveh (2024): 'Since 1967, approximately 100,000 artifacts have been removed from occupied Palestinian territories and integrated into Israeli national collections, without Palestinian consent or international oversight.'
+            </li>
+            <li data-en="Antiquities Law (1978): All 'antiquities' found in the West Bank after 1967 are declared state property of Israel. Palestinian excavators are banned; settler excavation permits are routinely granted." 
+                data-ar="قانون الآثار (١٩٧٨): جميع 'الآثار' الموجودة في الضفة الغربية بعد ١٩٦٧ تُعلن ملكية دولة إسرائيلية. يُمنع المنقبون الفلسطينيون؛ تُمنح تصاريح الحفر للمستوطنين بشكل روتيني.">
+                Antiquities Law (1978): All 'antiquities' found in the West Bank after 1967 are declared state property of Israel. Palestinian excavators are banned; settler excavation permits are routinely granted.
+            </li>
+            <li data-en="Israel Museum, Bible Lands Museum: Exhibit artifacts from Sebastia, Jericho, and Herodion labeled 'Israel', 'Judea and Samaria' – erasing Palestinian provenance." 
+                data-ar="متحف إسرائيل، متحف بلاد الكتاب المقدس: يعرضان قطعاً أثرية من سبسطية، أريحا، وهيروديون مصنفة 'إسرائيل'، 'يهودا والسامرة' – محو المصدر الفلسطيني.">
+                Israel Museum, Bible Lands Museum: Exhibit artifacts from Sebastia, Jericho, and Herodion labeled 'Israel', 'Judea and Samaria' – erasing Palestinian provenance.
+            </li>
+          </ul>
+        </div>
+
+        <!-- section 5 - palestinian response -->
+        <div class="deep-section">
+          <h2><i class="fas fa-hand-back-fist"></i> <span data-en="Palestinian cultural resistance" data-ar="مقاومة ثقافية فلسطينية">Palestinian cultural resistance</span></h2>
+          <ul class="deep-list">
+            <li data-en="Palestinian Museum (Birzeit): Established 2016 to preserve and narrate Palestinian heritage from within. Faces repeated Israeli travel restrictions on staff and international loan objects." 
+                data-ar="المتحف الفلسطيني (بيرزيت): تأسس ٢٠١٦ للحفاظ على التراث الفلسطيني وروايته من الداخل. يواجه قيود سفر إسرائيلية متكررة على الموظفين وأشياء الإعارة الدولية.">
+                Palestinian Museum (Birzeit): Established 2016 to preserve and narrate Palestinian heritage from within. Faces repeated Israeli travel restrictions on staff and international loan objects.
+            </li>
+            <li data-en="UNESCO 'State of Palestine' membership (2011): Palestine acceded to the World Heritage Convention. Two sites inscribed (Birthplace of Jesus: Church of the Nativity, 2012; Ancient Jericho, 2023) – Israel condemned both inscriptions." 
+                data-ar="عضوية 'دولة فلسطين' في اليونسكو (٢٠١١): انضمت فلسطين إلى اتفاقية التراث العالمي. تم تسجيل موقعين (المهد: كنيسة المهد، ٢٠١٢؛ أريحا القديمة، ٢٠٢٣) – أدانت إسرائيل كلا التسجيلين.">
+                UNESCO 'State of Palestine' membership (2011): Palestine acceded to the World Heritage Convention. Two sites inscribed (Birthplace of Jesus: Church of the Nativity, 2012; Ancient Jericho, 2023) – Israel condemned both inscriptions.
+            </li>
+          </ul>
+        </div>
+
+        <!-- citations block -->
+        <div style="margin-top: 2rem; border-top: 2px solid #e2d2c4; padding-top: 1.8rem;">
+          <span class="deep-citation" id="deepCitation">
+            📖 Sources: UNESCO resolutions 39C/49, 40C/23 (2016–2017); Emek Shaveh reports 2023–2024; ICAHD; Israeli Antiquities Law 1978; Palestinian Museum; ICOMOS.
+          </span>
+          <span class="deep-citation" style="margin-left: 0.8rem;" id="deepCitationAr" data-en="International law, archaeological evidence, human rights documentation." data-ar="قانون دولي، أدلة أثرية، توثيق حقوق إنسان.">
+            International law, archaeological evidence, human rights documentation.
+          </span>
+        </div>
+      </div>
+
+      <div class="footer-note" style="margin-top: 2.5rem;">
+        <i class="fas fa-archive"></i> <span data-en="Official excavation permits, UNESCO records, NGO site monitoring." data-ar="تصاريح حفر رسمية، سجلات اليونسكو، مراقبة مواقع من منظمات غير حكومية.">Official excavation permits, UNESCO records, NGO site monitoring.</span>
+      </div>
+    </div> <!-- end heritageDeepPage -->
+
+  </div> <!-- end appRoot -->
+
+  <script>
+    (function() {
+      "use strict";
+
+      // ---------- GLOBAL LANGUAGE ----------
+      const body = document.body;
+
+      // ---- HOME elements ----
+      const btnEn = document.getElementById('btnEnglish');
+      const btnAr = document.getElementById('btnArabic');
+      // ---- DEEP page buttons ----
+      const deepBtnEn = document.getElementById('deepBtnEnglish');
+      const deepBtnAr = document.getElementById('deepBtnArabic');
+
+      // home translatable elements
+      const badgeEl = document.getElementById('badgeText');
+      const mainTitle = document.getElementById('mainTitle');
+      const subhead = document.getElementById('subheadText');
+      const footerEl = document.getElementById('footerText');
+
+      // DEEP page translatable elements
+      const deepBadge = document.getElementById('deepBadge');
+      const deepTitleText = document.getElementById('deepTitleText');
+      const backHomeSpan = document.querySelector('#backToHomeBtn span');
+      const deepQuote = document.getElementById('deepQuote')?.querySelector('span');
+      const deepCitationSpan = document.getElementById('deepCitation');
+      const deepCitationAr = document.getElementById('deepCitationAr');
+
+      // ALL elements with data-en + data-ar
+      const allLocalizedElements = document.querySelectorAll('[data-en][data-ar]');
+
+      // ---------- bilingual dictionary ----------
+      const translations = {
+        en: {
+          badge: "📜 documented counter‑narratives",
+          title: "⚖️ Evidence that defends\nagainst Zionist propaganda",
+          subhead: "Primary sources, archival records — one featured card: Heritage theft. Click the card for deep evidence.",
+          footer: "📚 Every claim cross‑referenced. Defending propaganda requires facts.",
+          deepBadge: "📜 documented evidence · Heritage theft",
+          deepTitle: "Erasing Palestine: The theft of cultural heritage",
+          backHome: "Back to cards",
+          deepCitationMain: "📖 Sources: UNESCO resolutions 39C/49, 40C/23 (2016–2017); Emek Shaveh reports 2023–2024; ICAHD; Israeli Antiquities Law 1978; Palestinian Museum; ICOMOS.",
+          deepCitationSec: "International law, archaeological evidence, human rights documentation.",
+          deepQuote: "UNESCO Resolution 39C/49 (2016): 'Condemns the occupying power for its persistent excavations, tunneling, and unilateral works in East Jerusalem, which are illegal under international law and alter the historical fabric and integrity of the Holy City.'",
+          footerDeep: "Official excavation permits, UNESCO records, NGO site monitoring."
+        },
+        ar: {
+          badge: "📜 روايات موثقة مضادة",
+          title: "⚖️ أدلة تدحض الدعاية الصهيونية",
+          subhead: "مصادر أولية، وثائق أرشيفية — بطاقة مميزة: سرقة التراث. انقر على البطاقة للملف الكامل.",
+          footer: "📚 كل معلومة موثقة بمصادر. مواجهة الدعاية تحتاج حقائق.",
+          deepBadge: "📜 وثائق موثقة · سرقة التراث",
+          deepTitle: "محو فلسطين: سرقة التراث الثقافي",
+          backHome: "عودة إلى البطاقات",
+          deepCitationMain: "📖 المصادر: قرارات اليونسكو 39C/49، 40C/23 (٢٠١٦–٢٠١٧)؛ تقارير عيمق شافيه ٢٠٢٣–٢٠٢٤؛ اللجنة الإسرائيلية لمنع هدم البيوت؛ قانون الآثار الإسرائيلي ١٩٧٨؛ المتحف الفلسطيني؛ إيكوموس.",
+          deepCitationSec: "قانون دولي، أدلة أثرية، توثيق حقوق إنسان.",
+          deepQuote: "قرار اليونسكو 39C/49 (٢٠١٦): 'يدين السلطة القائمة بالاحتلال لحفرياتها المستمرة، أنفاقها، وأعمالها الأحادية في القدس الشرقية، وهي غير قانونية بموجب القانون الدولي وتغير النسيج التاريخي وسلامة المدينة المقدسة.'",
+          footerDeep: "تصاريح حفر رسمية، سجلات اليونسكو، مراقبة مواقع من منظمات غير حكومية."
+        }
+      };
+
+      // set language
+      function setLanguage(lang) {
+        const isArabic = lang === 'ar';
+        if (isArabic) {
+          body.classList.add('rtl-lang');
+        } else {
+          body.classList.remove('rtl-lang');
+        }
+
+        // active states
+        if (btnEn && btnAr) {
+          if (isArabic) { btnAr.classList.add('active'); btnEn.classList.remove('active'); }
+          else { btnEn.classList.add('active'); btnAr.classList.remove('active'); }
+        }
+        if (deepBtnEn && deepBtnAr) {
+          if (isArabic) { deepBtnAr.classList.add('active'); deepBtnEn.classList.remove('active'); }
+          else { deepBtnEn.classList.add('active'); deepBtnAr.classList.remove('active'); }
+        }
+
+        // home static
+        if (badgeEl) badgeEl.innerHTML = `<i class="fas fa-scale-balanced"></i> ${translations[lang].badge}`;
+        if (mainTitle) mainTitle.innerText = translations[lang].title;
+        if (subhead) subhead.innerText = translations[lang].subhead;
+        if (footerEl) footerEl.innerHTML = `<i class="fas fa-book-open"></i> ${translations[lang].footer}`;
+
+        // deep static
+        if (deepBadge) deepBadge.innerHTML = `<i class="fas fa-scale-balanced"></i> ${translations[lang].deepBadge}`;
+        if (deepTitleText) deepTitleText.innerText = translations[lang].deepTitle;
+        if (backHomeSpan) backHomeSpan.innerText = translations[lang].backHome;
+        if (deepCitationSpan) deepCitationSpan.innerText = translations[lang].deepCitationMain;
+        if (deepCitationAr) deepCitationAr.innerText = translations[lang].deepCitationSec;
+        if (deepQuote) deepQuote.innerText = translations[lang].deepQuote;
+        const deepFooter = document.querySelector('#heritageDeepPage .footer-note span');
+        if (deepFooter) deepFooter.innerText = translations[lang].footerDeep;
+
+        // update all data-en/data-ar elements
+        allLocalizedElements.forEach(el => {
+          if (el.dataset && el.dataset[lang]) {
+            if (el.tagName === 'SPAN' || el.tagName === 'DIV' || el.tagName === 'LI' || el.tagName === 'STRONG') {
+              el.innerText = el.dataset[lang];
+            }
+          }
+        });
+      }
+
+      // ---------- PAGE NAVIGATION ----------
+      const homePage = document.getElementById('homePage');
+      const deepPage = document.getElementById('heritageDeepPage');
+
+      function showDeepPage() {
+        homePage.classList.add('page-hidden');
+        deepPage.classList.remove('page-hidden');
+      }
+
+      function showHomePage(e) {
+        if (e) e.preventDefault();
+        homePage.classList.remove('page-hidden');
+        deepPage.classList.add('page-hidden');
+      }
+
+      // card click: home -> deep
+      const heritageCard = document.getElementById('heritageCardHome');
+      if (heritageCard) {
+        heritageCard.addEventListener('click', showDeepPage);
+      }
+
+      // back button: deep -> home
+      const backBtn = document.getElementById('backToHomeBtn');
+      if (backBtn) {
+        backBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          showHomePage();
+        });
+      }
+
+      // ---------- LANGUAGE BUTTON LISTENERS ----------
+      if (btnEn) btnEn.addEventListener('click', () => setLanguage('en'));
+      if (btnAr) btnAr.addEventListener('click', () => setLanguage('ar'));
+      if (deepBtnEn) deepBtnEn.addEventListener('click', () => setLanguage('en'));
+      if (deepBtnAr) deepBtnAr.addEventListener('click', () => setLanguage('ar'));
+
+      // ---------- INIT: DEEP PAGE VISIBLE, ENGLISH ----------
+      setLanguage('en');
+      homePage.classList.add('page-hidden');
+      deepPage.classList.remove('page-hidden');
+
+    })();
+  </script>
+
+  <style>
+    .page-hidden { display: none; }
+  </style>
+</body>
+</html>
