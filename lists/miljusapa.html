@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Military Justice Apartheid · Kasr Alsamt</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Google Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,1" />
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../style.css">
+  
+  <style>
+    /* ---------- EVIDENCE DEEP PAGE STYLES ---------- */
+    .evidence-wrapper {
+      max-width: 1280px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      width: 100%;
+    }
+
+    /* Back button */
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: #faf6f2;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      color: #4a3f38;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid #dccfc4;
+      margin: 1rem 0 2rem;
+      transition: all 0.15s;
+    }
+
+    .back-button:hover {
+      background: #e8ddd4;
+      color: #3d2e26;
+      transform: translateX(-4px);
+    }
+
+    body.rtl .back-button:hover {
+      transform: translateX(4px);
+    }
+
+    body.rtl .back-button i {
+      transform: scaleX(-1);
+    }
+
+    /* Evidence deep container */
+    .evidence-deep-container {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+      border: 1px solid #efe7e0;
+      margin-bottom: 2rem;
+    }
+
+    .deep-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #8b5a3c;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      border-bottom: 3px solid #e8ddd4;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .deep-title i {
+      color: #9b6b43;
+      font-size: 2rem;
+    }
+
+    .deep-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .deep-section h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #1e2e3b;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      border-left: 4px solid #9b6b43;
+      padding-left: 1rem;
+    }
+
+    body.rtl .deep-section h2 {
+      border-left: none;
+      border-right: 4px solid #9b6b43;
+      padding-left: 0;
+      padding-right: 1rem;
+    }
+
+    .deep-section h2 i {
+      color: #9b6b43;
+    }
+
+    .deep-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .deep-list li {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+      color: #3a4a53;
+    }
+
+    .deep-list li::before {
+      content: "•";
+      color: #9b6b43;
+      font-size: 1.5rem;
+      position: absolute;
+      left: 0.5rem;
+      top: -0.3rem;
+    }
+
+    body.rtl .deep-list li {
+      padding-left: 0;
+      padding-right: 2rem;
+    }
+
+    body.rtl .deep-list li::before {
+      left: auto;
+      right: 0.5rem;
+    }
+
+    .deep-quote {
+      background: #faf6f2;
+      padding: 1.8rem 2rem;
+      border-radius: 20px;
+      border-left: 6px solid #9b6b43;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #1e2e3b;
+      line-height: 1.8;
+    }
+
+    body.rtl .deep-quote {
+      border-left: none;
+      border-right: 6px solid #9b6b43;
+    }
+
+    .citation-block {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid #efe7e0;
+    }
+
+    .deep-citation {
+      background: #f0e8e0;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      color: #5a3e2e;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .deep-citation i {
+      color: #9b6b43;
+    }
+
+    /* Stats box */
+    .stats-box {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      background: #faf6f2;
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid #e8ddd4;
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #9b6b43;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: #6f5b4c;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Download section */
+    .download-section {
+      background: #f0e8e0;
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .download-btn {
+      background: #9b6b43;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .download-btn:hover {
+      background: #825a39;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(155, 107, 67, 0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .evidence-deep-container {
+        padding: 1.5rem;
+      }
+      
+      .deep-title {
+        font-size: 1.8rem;
+      }
+      
+      .deep-section h2 {
+        font-size: 1.3rem;
+      }
+      
+      .stats-box {
+        grid-template-columns: 1fr;
+      }
+      
+      .download-section {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ============ TOP HEADER ============ -->
+  <div class="top-header">
+    <div class="container top-header-container">
+      <div class="social-icons">
+        <a href="#" class="social-icon" aria-label="Twitter">
+          <span class="material-symbols-outlined">X</span>
+        </a>
+        <a href="#" class="social-icon" aria-label="Instagram">
+          <span class="material-symbols-outlined">photo_camera</span>
+        </a>
+      </div>
+      <a href="../report/report.html" class="propaganda-btn" data-key="reportBtn">Report a Propaganda</a>
+    </div>
+  </div>
+
+  <!-- ============ MAIN HEADER ============ -->
+  <header class="blog-header">
+    <div class="container">
+      <div class="logo">
+        <h1 data-key="logo">kasr alsamt</h1>
+        <span data-key="tagline">Truth • Story • Support</span>
+      </div>
+
+      <nav class="nav">
+        <a href="../index.html" data-key="home">Home</a>
+        <a href="../listing.html" data-key="listing">Listing</a>
+        <a href="../about.html" data-key="about">About</a>
+        <a href="../contact.html" data-key="contact">Contact</a>
+      </nav>
+
+      <button id="lang-toggle" class="lang-btn" data-key="langBtn">AR</button>
+    </div>
+  </header>
+
+  <!-- ============ SEARCH SECTION ============ -->
+  <div class="search-wrapper">
+    <div class="search-container">
+      <input type="text" id="searchInput" data-key="search" placeholder="Search articles..." />
+      <button type="submit" id="searchBtn" aria-label="Search">🔍</button>
+    </div>
+  </div>
+
+  <!-- ============ EVIDENCE DEEP PAGE CONTENT ============ -->
+  <div class="evidence-wrapper">
+    <!-- Back button -->
+    <a href="../listing.html" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+      <span data-key="backToCards">Back to all cards</span>
+    </a>
+
+    <!-- DEEP MILITARY JUSTICE DOSSIER -->
+    <div class="evidence-deep-container">
+      <div class="deep-title">
+        <i class="fas fa-gavel"></i>
+        <span data-key="militaryDeepTitle">Two-Tier Justice: Military Courts for Palestinians, Civilian Courts for Settlers</span>
+      </div>
+
+      <!-- Quick stats -->
+      <div class="stats-box">
+        <div class="stat-card">
+          <div class="stat-number">99.74%</div>
+          <div class="stat-label" data-key="statConviction">Palestinian conviction rate</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">95%</div>
+          <div class="stat-label" data-key="statPlea">Plea bargain rate</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">12+</div>
+          <div class="stat-label" data-key="statAge">Age of military court jurisdiction</div>
+        </div>
+      </div>
+
+      <!-- section 1 - dual system -->
+      <div class="deep-section">
+        <h2><i class="fas fa-balance-scale"></i> <span data-key="militarySection1">Dual Legal System</span></h2>
+        <ul class="deep-list">
+          <li data-key="militaryText1">Palestinians in West Bank (including East Jerusalem) are tried in Israeli military courts under military orders – over 1,000 orders, many dating from 1967.</li>
+          <li data-key="militaryText2">Israeli settlers in the same territory are tried in Israeli civilian courts (Magistrate, District, Supreme Court).</li>
+          <li data-key="militaryText3">East Jerusalem: Palestinians under 'permanent residency' face military courts for security offenses, settlers under civilian law.</li>
+        </ul>
+      </div>
+
+      <!-- section 2 - conviction rates & due process -->
+      <div class="deep-section">
+        <h2><i class="fas fa-chart-pie"></i> <span data-key="militarySection2">Conviction Rates & Due Process</span></h2>
+        <ul class="deep-list">
+          <li data-key="militaryText4">Yesh Din (2022): 99.74% of Palestinian military court cases end in conviction – plea bargain rate 95%.</li>
+          <li data-key="militaryText5">Average pretrial detention: Palestinians 12–18 months; settlers charged with same offenses often released on bail.</li>
+          <li data-key="militaryText6">Hearings translated into Hebrew, not Arabic; Palestinians require translator, rarely provided effectively.</li>
+        </ul>
+      </div>
+
+      <!-- section 3 - international designations -->
+      <div class="deep-section">
+        <h2><i class="fas fa-un"></i> <span data-key="militarySection3">International Law: Apartheid</span></h2>
+        <div class="deep-quote">
+          <span data-key="militaryQuote">Human Rights Watch (2021): 'Israel's maintenance of two separate legal systems for Palestinians and Israelis in the same territory constitutes the crime of apartheid.'</span>
+        </div>
+        <ul class="deep-list">
+          <li data-key="militaryText7">Amnesty International 2022: 'Military courts deny Palestinians right to fair trial – institutionalized discrimination.'</li>
+          <li data-key="militaryText8">UN Special Rapporteur 2023: 'Dual legal system is a pillar of Israeli apartheid.'</li>
+          <li data-key="militaryText9">B'Tselem 2021: 'Separate legal systems, separate roads, separate rights – definition of apartheid regime.'</li>
+        </ul>
+      </div>
+
+      <!-- section 4 - juvenile military courts -->
+      <div class="deep-section">
+        <h2><i class="fas fa-child"></i> <span data-key="militarySection4">Children in Military Courts</span></h2>
+        <ul class="deep-list">
+          <li data-key="militaryText10">Israel is the only country in the world that automatically tries children (12+) in military courts.</li>
+          <li data-key="militaryText11">UNICEF: 500-700 Palestinian children prosecuted annually; 70% report physical violence during arrest.</li>
+          <li data-key="militaryText12">Military Order 1651 (2009) lowered age of criminal responsibility from 14 to 12 for Palestinians only.</li>
+        </ul>
+      </div>
+
+      <!-- Download section -->
+      <div class="download-section">
+        <span data-key="downloadTextMilitary"><i class="fas fa-file-pdf"></i> Download full evidence dossier (PDF)</span>
+        <button class="download-btn" onclick="alert('PDF download would start here')">
+          <i class="fas fa-download"></i>
+          <span data-key="downloadBtn">Download</span>
+        </button>
+      </div>
+
+      <!-- citations block -->
+      <div class="citation-block">
+        <span class="deep-citation">
+          <i class="fas fa-book"></i> <span data-key="militaryCitation1">HRW 'A Threshold Crossed' 2021</span>
+        </span>
+        <span class="deep-citation">
+          <i class="fas fa-gavel"></i> <span data-key="militaryCitation2">Yesh Din 2022; B'Tselem 2021</span>
+        </span>
+        <span class="deep-citation">
+          <i class="fas fa-child"></i> <span data-key="militaryCitation3">UNICEF; Military Order 1651</span>
+        </span>
+        <span class="deep-citation">
+          <i class="fas fa-un"></i> <span data-key="militaryCitation4">UN Special Rapporteur 2023</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Related cards -->
+    <div style="margin-top: 3rem;">
+      <h3 style="color: #8b5a3c; margin-bottom: 1.5rem; font-size: 1.5rem;" data-key="relatedCards">Related Evidence Cards</h3>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+        <div class="card" style="cursor: pointer;" onclick="window.location.href='absentee.html'">
+          <div class="card-title">
+            <i class="fas fa-scroll"></i>
+            <span data-key="related1Military">Absentee Property Law</span>
+          </div>
+          <div class="card-desc" data-key="related1DescMilitary">How Israel legalized seizure of Palestinian land using 'present absentees'.</div>
+        </div>
+        <div class="card" style="cursor: pointer;" onclick="window.location.href='watdis.html'">
+          <div class="card-title">
+            <i class="fas fa-water"></i>
+            <span data-key="related2Military">Water Discrimination</span>
+          </div>
+          <div class="card-desc" data-key="related2DescMilitary">Settlers consume 4x more water than Palestinians in the West Bank.</div>
+        </div>
+        <div class="card" style="cursor: pointer;" onclick="window.location.href='osbet.html'">
+          <div class="card-title">
+            <i class="fas fa-file-signature"></i>
+            <span data-key="related3Military">Oslo Betrayal</span>
+          </div>
+          <div class="card-desc" data-key="related3DescMilitary">Oslo Accords did not freeze settlements — they doubled.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer container">
+    <div>
+      <p data-key="footerText">© 2026 Kasr Alsamt — documented counter-narratives. All evidence cross-referenced.</p>
+    </div>
+    <div>
+      <span data-key="footerCredits">Design: Truth • Story • Support</span>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -3,857 +3,645 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4 cards · English / العربية</title>
-  <!-- Font & icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Evidence Cards - Kasr Alsamt</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Google Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,1" />
+  
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: linear-gradient(145deg, #f0ede8 0%, #e5dfd7 100%);
-      font-family: 'Inter', sans-serif;
-      padding: 2.2rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      transition: background 0.1s ease;
-    }
-
-    /* Arabic body font */
-    body.rtl-lang {
-      font-family: 'Cairo', 'Inter', sans-serif;
-    }
-
+    /* Additional listing page styles */
     .page-container {
-      max-width: 1100px;
+      max-width: 1280px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
       width: 100%;
     }
 
-    /* header area with lang toggle */
-    .lang-header {
+    /* Search stats */
+    .search-stats {
+      margin-bottom: 2rem;
+      padding: 1rem 0;
+      color: #6f5b4c;
+      font-size: 1rem;
+      border-bottom: 1px solid #efe7e0;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 1.8rem;
     }
 
-    .badge {
-      background: #1e3c4c;
-      color: #f5efe8;
-      display: inline-block;
-      padding: 0.35rem 1rem;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      border: 1px solid #345b6b;
-    }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #1a2e3b;
-      letter-spacing: -0.01em;
-      line-height: 1.2;
-      margin: 0.3rem 0 0.2rem;
-    }
-
-    .subhead {
-      font-size: 1rem;
-      color: #3e525c;
-      max-width: 700px;
-      font-weight: 400;
-      border-left: 5px solid #9b6b43;
-      padding-left: 1.2rem;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 0 12px 12px 0;
-      line-height: 1.5;
-    }
-
-    /* language button — big & clear */
-    .lang-toggle-container {
-      display: flex;
-      gap: 10px;
-      background: #f2ede7;
-      padding: 5px;
-      border-radius: 48px;
-      border: 1px solid #d6c9bd;
-      box-shadow: 0 6px 12px -6px rgba(0,0,0,0.1);
-    }
-
-    .lang-btn {
-      background: transparent;
-      border: none;
-      padding: 0.7rem 1.6rem;
+    .results-count {
+      background: #faf6f2;
+      padding: 0.4rem 1rem;
       border-radius: 40px;
-      font-weight: 600;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: 0.12s;
-      color: #4e4440;
-      font-family: inherit;
-    }
-
-    .lang-btn i {
-      font-size: 1rem;
-    }
-
-    .lang-btn.active {
-      background: #9b6b43;
-      color: white;
-      box-shadow: 0 4px 10px rgba(155, 107, 67, 0.3);
-      border: 1px solid #8b5b3a;
-    }
-
-    .lang-btn:not(.active):hover {
-      background: #e5d9d0;
-    }
-
-    /* RTL overrides */
-    body.rtl-lang .subhead {
-      border-left: none;
-      border-right: 5px solid #9b6b43;
-      padding-left: 0;
-      padding-right: 1.2rem;
-      text-align: right;
-    }
-
-    body.rtl-lang .card-title {
-      flex-direction: row-reverse;
-    }
-
-    body.rtl-lang .evidence strong {
-      text-align: right;
-    }
-
-    body.rtl-lang .evidence {
-      border-left: none;
-      border-right: 6px solid #a3522c;
-    }
-
-    body.rtl-lang .citation {
-      text-align: right;
-    }
-
-    body.rtl-lang .search-section i {
-      transform: scaleX(-1); /* flip icon for RTL */
-    }
-
-    /* search section – identical style, keeps rtl consistency */
-    .search-section {
-      display: flex;
-      align-items: center;
-      background: #fff9f2;
-      border-radius: 60px;
-      padding: 0.5rem 0.5rem 0.5rem 1.8rem;
-      margin: 2rem 0 1.8rem;
-      box-shadow: 0 8px 18px -6px rgba(0,0,0,0.08);
-      border: 1px solid #e1d5cb;
-      max-width: 680px;
-      width: 100%;
-    }
-
-    .search-section i {
-      color: #8f6b4f;
-      font-size: 1.2rem;
-    }
-
-    #searchInput {
-      flex: 1;
-      border: none;
-      padding: 0.8rem 0.8rem 0.8rem 0.6rem;
-      font-size: 1.1rem;
-      background: transparent;
-      font-family: 'Inter', sans-serif;
-      color: #2d3e4a;
-      outline: none;
-    }
-
-    body.rtl-lang #searchInput {
-      font-family: 'Cairo', 'Inter', sans-serif;
-    }
-
-    #searchInput::placeholder {
-      color: #948c84;
-      font-weight: 350;
-    }
-
-    .search-btn {
-      background: #9b6b43;
-      border: none;
-      color: white;
-      padding: 0.7rem 1.8rem;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: 0.15s;
-      border: 1px solid #86624a;
-    }
-
-    .search-btn:hover {
-      background: #875f40;
-    }
-
-    .reset-btn {
-      background: transparent;
-      border: 1px dashed #8f7b6e;
-      color: #4a3f38;
-      margin-left: 10px;
-      padding: 0.7rem 1.2rem;
-    }
-
-    .reset-btn:hover {
-      background: #e7ddd2;
-    }
-
-    .result-count {
-      margin-left: 0.5rem;
-      font-size: 0.9rem;
-      color: #5c4e44;
-      background: #f0e8e0;
-      padding: 0.3rem 1.1rem;
-      border-radius: 30px;
       font-weight: 500;
     }
 
-    /* grid – exactly 4 cards */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 1.2rem;
+    .clear-search {
+      background: none;
+      border: 1px solid #dccfc4;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      color: #6f5b4c;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
-    /* card style */
+    .clear-search:hover {
+      background: #e8ddd4;
+      color: #3d2e26;
+    }
+
+    .clear-search .material-symbols-outlined {
+      font-size: 1.1rem;
+    }
+
+    /* Cards grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    /* Card styling */
     .card {
-      background: #fffcf7;
-      border-radius: 28px;
-      box-shadow: 0 12px 26px -8px rgba(0, 0, 0, 0.12);
-      padding: 1.8rem 1.7rem 2rem;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+      border: 1px solid #efe7e0;
+      transition: all 0.2s ease;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
-      transition: 0.2s ease;
-      border: 1px solid #f1ebe5;
-      background: linear-gradient(145deg, #fffcf8, #fff9f2);
-      cursor: pointer; /* Indicates clickable */
+      height: 100%;
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      border-color: #cdbcae;
-      box-shadow: 0 20px 30px -10px rgba(80, 60, 40, 0.18);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(139, 90, 60, 0.08);
+      border-color: #dccfc4;
     }
 
     .card-title {
-      font-size: 1.6rem;
-      font-weight: 600;
-      line-height: 1.25;
-      margin-bottom: 0.8rem;
-      color: #2d3e4a;
       display: flex;
       align-items: center;
-      gap: 10px;
-      border-bottom: 2px solid #e4d5c9;
-      padding-bottom: 0.55rem;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #8b5a3c;
     }
 
     .card-title i {
-      color: #8f6b4f;
-      font-size: 1.5rem;
-      width: 1.8rem;
+      font-size: 1.4rem;
+      color: #b68b6d;
+    }
+
+    .card-title-text {
+      line-height: 1.3;
     }
 
     .card-desc {
-      font-size: 1rem;
-      color: #3f4e56;
+      color: #3a4a53;
       line-height: 1.6;
-      margin-bottom: 1.6rem;
-      font-weight: 450;
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+      flex-grow: 1;
     }
 
     .evidence {
-      background: #eae1d6;
-      padding: 1.2rem 1.2rem;
-      border-radius: 18px;
-      color: #1e2c33;
-      font-size: 0.95rem;
-      border-left: 6px solid #a3522c;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7);
-      margin-top: auto;
+      background: #faf6f2;
+      border-radius: 16px;
+      padding: 1.2rem;
+      border-left: 3px solid #9b6b43;
     }
 
     .evidence strong {
-      font-weight: 650;
-      color: #3b2e26;
       display: block;
-      margin-bottom: 6px;
-      font-size: 0.98rem;
+      color: #5a3e2e;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .evidence-text {
+      display: block;
+      color: #1e2e3b;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
     }
 
     .citation {
-      display: inline-block;
-      background: #cfc1b4;
-      color: #1e2a2f;
-      border-radius: 30px;
-      padding: 0.2rem 1rem;
-      font-size: 0.7rem;
-      font-weight: 600;
+      display: block;
+      color: #6f5b4c;
+      font-size: 0.8rem;
+      font-style: italic;
+      border-top: 1px dashed #dccfc4;
+      padding-top: 0.8rem;
       margin-top: 0.5rem;
-      border: 1px solid #b3a092;
     }
 
     .footer-note {
-      margin-top: 3.5rem;
       text-align: center;
-      color: #4f5d64;
-      font-size: 0.85rem;
-      border-top: 1px solid #d6ccc4;
-      padding-top: 1.8rem;
+      padding: 2rem 0;
+      color: #6f5b4c;
+      font-size: 0.9rem;
+      border-top: 1px solid #efe7e0;
+      margin-top: 2rem;
     }
 
-    .hidden-card {
-      display: none !important;
+    .footer-note i {
+      color: #9b6b43;
+      margin-right: 0.5rem;
     }
 
-    /* Responsive: 1 column on small */
-    @media (max-width: 780px) {
-      .cards-grid { grid-template-columns: 1fr; }
+    /* No results message */
+    .no-results {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #faf6f2;
+      border-radius: 20px;
+      grid-column: 1 / -1;
     }
-    @media (max-width: 600px) {
-      .lang-header { flex-direction: column; align-items: start; gap: 1rem; }
+
+    .no-results .material-symbols-outlined {
+      font-size: 4rem;
+      color: #b68b6d;
+      margin-bottom: 1rem;
+    }
+
+    .no-results h3 {
+      color: #1e2e3b;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .no-results p {
+      color: #6f5b4c;
+    }
+
+    /* RTL support */
+    body.rtl .card {
+      text-align: right;
+    }
+
+    body.rtl .evidence {
+      border-left: none;
+      border-right: 3px solid #9b6b43;
+    }
+
+    body.rtl .card-title {
+      flex-direction: row-reverse;
+    }
+
+    body.rtl .footer-note i {
+      margin-right: 0;
+      margin-left: 0.5rem;
+    }
+
+    body.rtl .clear-search {
+      flex-direction: row-reverse;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .search-stats {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+      
+      .page-container {
+        margin: 1rem auto;
+      }
     }
   </style>
 </head>
 <body>
-<div class="page-container">
-
-  <!-- header with title + language toggle BUTTON -->
-  <div class="lang-header">
-    <div>
-      <span class="badge" id="badgeText"><i class="fas fa-scale-balanced"></i> documented counter‑narratives</span>
-      <h1 id="mainTitle">⚖️ Evidence that defends<br>against Zionist propaganda</h1>
-    </div>
-    <!-- Language toggle switch – ONLY 2 languages: English / Arabic -->
-    <div class="lang-toggle-container">
-      <button id="btnEnglish" class="lang-btn active"><i class="fas fa-language"></i> English</button>
-      <button id="btnArabic" class="lang-btn"><i class="fas fa-language"></i> العربية</button>
+  <!-- ============ TOP HEADER ============ -->
+  <div class="top-header">
+    <div class="container top-header-container">
+      <div class="social-icons">
+        <a href="#" class="social-icon" aria-label="Twitter">
+          <span class="material-symbols-outlined">X</span>
+        </a>
+        <a href="#" class="social-icon" aria-label="Instagram">
+          <span class="material-symbols-outlined">photo_camera</span>
+        </a>
+      </div>
+      <a href="report/report.html" class="propaganda-btn" data-key="reportBtn">Report a Propaganda</a>
     </div>
   </div>
-  
-  <div class="subhead" id="subheadText">
-    Primary sources, archival records and institutional findings — each card provides evidence exposing common myths. <strong>Click any card to open (placeholder #).</strong>
+
+  <!-- ============ MAIN HEADER ============ -->
+  <header class="blog-header">
+    <div class="container">
+      <div class="logo">
+        <h1 data-key="logo">kasr alsamt</h1>
+        <span data-key="tagline">Truth • Story • Support</span>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" data-key="home">Home</a>
+        <a href="listing.html" class="active" data-key="listing">Listing</a>
+        <a href="about.html" data-key="about">About</a>
+        <a href="contact.html" data-key="contact">Contact</a>
+      </nav>
+
+      <button id="lang-toggle" class="lang-btn" data-key="langBtn">AR</button>
+    </div>
+  </header>
+
+  <!-- ============ SEARCH SECTION ============ -->
+  <div class="search-wrapper">
+    <div class="search-container">
+      <input type="text" id="searchInput" data-key="search" placeholder="Search articles..." />
+      <button type="submit" id="searchBtn" aria-label="Search">🔍</button>
+    </div>
   </div>
 
-  <!-- SEARCH BAR (fully functional) -->
-  <div class="search-section">
-    <i class="fas fa-search"></i>
-    <input type="text" id="searchInput" placeholder="Search cards..." aria-label="Filter cards">
-    <button class="search-btn" id="searchButton"><i class="fas fa-filter"></i> Filter</button>
-    <button class="search-btn reset-btn" id="resetButton"><i class="fas fa-undo-alt"></i> Reset</button>
-    <span class="result-count" id="resultCount">4 cards</span>
+  <div class="page-container">
+    <!-- Search results stats (hidden by default) -->
+    <div class="search-stats" id="searchStats" style="display: none;">
+      <span class="results-count" id="resultsCount"></span>
+      <button class="clear-search" id="clearSearch">
+        <span class="material-symbols-outlined">close</span>
+        <span data-key="clearSearch">Clear search</span>
+      </button>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="cards-grid" id="cardsGrid">
+      <!-- CARD 1 – NAKBA -->
+      <div class="card" data-card data-link="lists/nakba.html">
+        <div class="card-title">
+          <i class="fas fa-house-crack"></i> 
+          <span class="card-title-text" data-key="card1Title">1948 Nakba</span>
+        </div>
+        <div class="card-desc" data-key="card1Desc">The systematic depopulation of over 400 Palestinian towns, not 'abandonment' during war.</div>
+        <div class="evidence">
+          <i class="fas fa-file-lines"></i>
+          <strong data-key="card1Evidence">📌 archival evidence</strong>
+          <span class="evidence-text" data-key="card1EvidenceText">• Ilan Pappé, 'The Ethnic Cleansing of Palestine' (2006) – IDF archives. Plan Dalet: 418 villages destroyed, 750,000 refugees.</span>
+          <span class="citation" data-key="card1Citation">Zochrot / Benny Morris</span>
+        </div>
+      </div>
+
+      <!-- CARD 2 – WATER APARTHEID -->
+      <div class="card" data-card data-link="lists/watdis.html">
+        <div class="card-title">
+          <i class="fas fa-water"></i> 
+          <span class="card-title-text" data-key="card2Title">Water discrimination</span>
+        </div>
+        <div class="card-desc" data-key="card2Desc">West Bank: settlers consume 4x more than Palestinians – illegal under international law.</div>
+        <div class="evidence">
+          <i class="fas fa-droplet"></i>
+          <strong data-key="card2Evidence">💧 World Bank / UN</strong>
+          <span class="evidence-text" data-key="card2EvidenceText">• Israelis: 300 litres/day, Palestinians: 80 litres (below WHO). 90% Gaza water unfit to drink. Amnesty 2019.</span>
+          <span class="citation" data-key="card2Citation">B'Tselem 'Parched Sea' 2023; World Bank</span>
+        </div>
+      </div>
+
+      <!-- CARD 3 – OSLO SETTLEMENT ESCALATION -->
+      <div class="card" data-card data-link="lists/osbet.html">
+        <div class="card-title">
+          <i class="fas fa-file-signature"></i> 
+          <span class="card-title-text" data-key="card3Title">Oslo betrayal</span>
+        </div>
+        <div class="card-desc" data-key="card3Desc">Oslo Accords did not freeze settlements — they doubled (1993–2000).</div>
+        <div class="evidence">
+          <i class="fas fa-chart-line"></i>
+          <strong data-key="card3Evidence">📈 settlement watch</strong>
+          <span class="evidence-text" data-key="card3EvidenceText">• 1993: 110,000 settlers; 2000: 198,000; 2023: >490,000. 150+ outposts built since Oslo.</span>
+          <span class="citation" data-key="card3Citation">Peace Now; B'Tselem 2024</span>
+        </div>
+      </div>
+
+      <!-- CARD 4 – TWO-TIER COURT SYSTEM -->
+      <div class="card" data-card data-link="lists/miljusapa.html">
+        <div class="card-title">
+          <i class="fas fa-scale-balanced"></i> 
+          <span class="card-title-text" data-key="card4Title">Military justice apartheid</span>
+        </div>
+        <div class="card-desc" data-key="card4Desc">West Bank: Palestinians in military courts, settlers in civilian courts – same territory.</div>
+        <div class="evidence">
+          <i class="fas fa-judge"></i>
+          <strong data-key="card4Evidence">⚖️ Human Rights Watch 2021</strong>
+          <span class="evidence-text" data-key="card4EvidenceText">• 'A Threshold Crossed' – apartheid. 99.7% Palestinian conviction rate; settlers tried under civil law.</span>
+          <span class="citation" data-key="card4Citation">HRW 2021; Yesh Din 2022</span>
+        </div>
+      </div>
+
+      <!-- CARD 5 – ABSENTEE PROPERTY LAW -->
+      <div class="card" data-card data-link="lists/absentee.html">
+        <div class="card-title">
+          <i class="fas fa-scroll"></i> 
+          <span class="card-title-text" data-key="card5Title">Absentee Property Law</span>
+        </div>
+        <div class="card-desc" data-key="card5Desc">How Israel legalized seizure of Palestinian land using 'present absentees' – those inside yet labelled absent.</div>
+        <div class="evidence">
+          <i class="fas fa-gavel"></i>
+          <strong data-key="card5Evidence">⚖️ legal proof</strong>
+          <span class="evidence-text" data-key="card5EvidenceText">• 1950 Absentee Property Law – still in effect. 30% of West Bank land and massive areas inside Israel were confiscated. • UNCCP estimates 7.8 billion USD in immovable assets taken (1948 refugees only).</span>
+          <span class="citation" data-key="card5Citation">BADIL; UN doc. A/AC.25/W.81</span>
+        </div>
+      </div>
+
+      <!-- CARD 6 – MYTH: EMPTY LAND -->
+      <div class="card" data-card data-link="lists/emptyland.html">
+        <div class="card-title">
+          <i class="fas fa-people-group"></i> 
+          <span class="card-title-text" data-key="card6Title">Myth: empty land</span>
+        </div>
+        <div class="card-desc" data-key="card6Desc">Pre-Zionist Palestine was densely inhabited with centuries-old cities, culture, agriculture.</div>
+        <div class="evidence">
+          <i class="fas fa-map-location-dot"></i>
+          <strong data-key="card6Evidence">🗺️ ottoman & british census</strong>
+          <span class="evidence-text" data-key="card6EvidenceText">• 1880s: Jerusalem, Jaffa, Nablus, Gaza – over 450,000 indigenous inhabitants. • 1918: population ~700,000 Arabs, 56,000 Jews (British estimates).</span>
+          <span class="citation" data-key="card6Citation">Justin McCarthy, 'The Population of Palestine'</span>
+        </div>
+      </div>
+
+      <!-- CARD 7 – NO POPULATION EXCHANGE -->
+      <div class="card" data-card data-link="lists/noexchange.html">
+        <div class="card-title">
+          <i class="fas fa-arrow-right-arrow-left"></i> 
+          <span class="card-title-text" data-key="card7Title">No population exchange</span>
+        </div>
+        <div class="card-desc" data-key="card7Desc">False equivalence: Mizrahi Jews vs. Palestinian refugees – distinct legal/historical contexts.</div>
+        <div class="evidence">
+          <i class="fas fa-newspaper"></i>
+          <strong data-key="card7Evidence">📄 UN & historical record</strong>
+          <span class="evidence-text" data-key="card7EvidenceText">• 1948 Palestinian refugees: forced expulsion, UNRWA mandate, Right of Return (UNGA 194). • Mizrahi Jews: no UN recognition as refugees, Israeli citizenship granted.</span>
+          <span class="citation" data-key="card7Citation">Yehouda Shenhav, 'The Arab Jews'</span>
+        </div>
+      </div>
+
+      <!-- CARD 8 – HERITAGE THEFT -->
+      <div class="card" data-card data-link="lists/heritage.html">
+        <div class="card-title">
+          <i class="fas fa-archaeology"></i> 
+          <span class="card-title-text" data-key="card8Title">Heritage theft</span>
+        </div>
+        <div class="card-desc" data-key="card8Desc">Excavations erase Palestinian layers, rebrand sites as exclusively Jewish heritage.</div>
+        <div class="evidence">
+          <i class="fas fa-shovel"></i>
+          <strong data-key="card8Evidence">🏺 case: city of david / silwan</strong>
+          <span class="evidence-text" data-key="card8EvidenceText">• 85% of Silwan homes threatened by Elad settler organization; tunnels undermine Palestinian neighbourhoods. • UNESCO resolutions condemn Israel as occupying power altering Jerusalem sites.</span>
+          <span class="citation" data-key="card8Citation">UNESCO 39C/49; Emek Shaveh</span>
+        </div>
+      </div>
+
+      <!-- CARD 9 – 2005 SIEGE, NOT PEACE -->
+      <div class="card" data-card data-link="lists/gazasiege.html">
+        <div class="card-title">
+          <i class="fas fa-border-all"></i> 
+          <span class="card-title-text" data-key="card9Title">2005 siege, not peace</span>
+        </div>
+        <div class="card-desc" data-key="card9Desc">Withdrawal reframed as concession – actually maintained full control: air, sea, water, population registry.</div>
+        <div class="evidence">
+          <i class="fas fa-circle-stop"></i>
+          <strong data-key="card9Evidence">🚫 siege evidence</strong>
+          <span class="evidence-text" data-key="card9EvidenceText">• 2005–2024: Israel controls 100% of Gaza's airspace, territorial waters, crossings, and civilian database. • 'Occupied territory under int. law' – UN, ICRC, UNHRC.</span>
+          <span class="citation" data-key="card9Citation">ICRC; Al Mezan 2024</span>
+        </div>
+      </div>
+
+      <!-- CARD 10 – FALSE 'NO PARTNER' -->
+      <div class="card" data-card data-link="lists/nopartner.html">
+        <div class="card-title">
+          <i class="fas fa-hand-peace"></i> 
+          <span class="card-title-text" data-key="card10Title">False 'no partner'</span>
+        </div>
+        <div class="card-desc" data-key="card10Desc">Narrative that Israel made unprecedented offers – omits continued colonization and unequal terms.</div>
+        <div class="evidence">
+          <i class="fas fa-comments"></i>
+          <strong data-key="card10Evidence">📋 camp david / taba 2000-01</strong>
+          <span class="evidence-text" data-key="card10EvidenceText">• Arafat accepted Clinton parameters, Israel added reservations, more settlements. • Palestinian offer: 1967 borders with swaps, rejected by Olmert 2008.</span>
+          <span class="citation" data-key="card10Citation">Robert Malley; Le Monde diplomatique</span>
+        </div>
+      </div>
+
+      <!-- CARD 11 – WEAPONIZING ANTISEMITISM -->
+      <div class="card" data-card data-link="lists/weaponize.html">
+        <div class="card-title">
+          <i class="fas fa-circle-exclamation"></i> 
+          <span class="card-title-text" data-key="card11Title">Weaponizing antisemitism</span>
+        </div>
+        <div class="card-desc" data-key="card11Desc">Legitimate criticism of Israel labelled antisemitic to silence evidence-based advocacy.</div>
+        <div class="evidence">
+          <i class="fas fa-shield-hal"></i>
+          <strong data-key="card11Evidence">🧾 IHRA definition critique</strong>
+          <span class="evidence-text" data-key="card11EvidenceText">• 110+ Jewish scholars & 40+ organizations: 'Jerusalem Declaration on Antisemitism' (2021) distinguishes criticism from bigotry. • Using antisemitism allegations to suppress BDS and human rights defenders.</span>
+          <span class="citation" data-key="card11Citation">JDA; HRW 'Discourse on Denial'</span>
+        </div>
+      </div>
+
+      <!-- CARD 12 – NATURAL GROWTH (myth) -->
+      <div class="card" data-card data-link="lists/naturalgrowth.html">
+        <div class="card-title">
+          <i class="fas fa-baby-carriage"></i> 
+          <span class="card-title-text" data-key="card12Title">'Natural growth'</span>
+        </div>
+        <div class="card-desc" data-key="card12Desc">Myth that settlements expand only due to births — state-funded incentives and land grabs.</div>
+        <div class="evidence">
+          <i class="fas fa-coins"></i>
+          <strong data-key="card12Evidence">💰 israeli state subsidies</strong>
+          <span class="evidence-text" data-key="card12EvidenceText">• 2022: settler municipalities receive $2,300 per capita more than Israeli non-settler cities. • 50% of land in West Bank allocated for settlements, not 'natural growth'.</span>
+          <span class="citation" data-key="card12Citation">Sikkuy report 2023; State Comptroller 2021</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- No results template (hidden by default) -->
+    <div id="noResultsTemplate" style="display: none;">
+      <div class="no-results">
+        <span class="material-symbols-outlined">search_off</span>
+        <h3 data-key="noResults">No matching articles found</h3>
+        <p data-key="tryDifferent">Try different keywords or clear the search</p>
+      </div>
+    </div>
+
+    <div class="footer-note" id="footerText">
+      <i class="fas fa-book-open"></i> 
+      <span data-key="footerNote">Every claim cross‑referenced with institutional sources. Click any card to open its dedicated evidence page.</span>
+    </div>
   </div>
 
-  <!-- 4 CARDS GRID – data attributes for bilingual content -->
-  <div class="cards-grid" id="cardsGrid">
-    <!-- CARD 1 – NAKBA -->
-    <div class="card" data-card data-link="nakba.html">
-      <div class="card-title">
-        <i class="fas fa-house-crack"></i> 
-        <span class="card-title-text" data-en="1948 Nakba" data-ar="النكبة ١٩٤٨">1948 Nakba</span>
-      </div>
-      <div class="card-desc" data-en="The systematic depopulation of over 400 Palestinian towns, not 'abandonment' during war." 
-            data-ar="تهجير منهجي لأكثر من ٤٠٠ بلدة فلسطينية، وليس 'هجرًا' أثناء الحرب.">
-        The systematic depopulation of over 400 Palestinian towns, not 'abandonment' during war.
-      </div>
-      <div class="evidence">
-        <i class="fas fa-file-lines"></i>
-        <strong data-en="📌 archival evidence" data-ar="📌 وثائق أرشيفية">📌 archival evidence</strong>
-        <span class="evidence-text" 
-          data-en="• Ilan Pappé, 'The Ethnic Cleansing of Palestine' (2006) – IDF archives. Plan Dalet: 418 villages destroyed, 750,000 refugees."
-          data-ar="• إيلان بابيه، 'التطهير العرقي في فلسطين' – أرشيف جيش الاحتلال. خطة دالت: تدمير ٤١٨ قرية، ٧٥٠ ألف لاجئ.">
-          • Ilan Pappé, 'The Ethnic Cleansing of Palestine' (2006) – IDF archives. Plan Dalet: 418 villages destroyed, 750,000 refugees.
-        </span>
-        <span class="citation" data-en="Zochrot / Benny Morris" data-ar="زخروت / بيني موريس">Zochrot / Benny Morris</span>
-      </div>
-    </div>
+  <script src="script.js"></script>
+  <script>
+    (function() {
+      "use strict";
 
-    <!-- CARD 2 – WATER APARTHEID -->
-    <div class="card" data-card data-link="watdis.html">
-      <div class="card-title">
-        <i class="fas fa-water"></i> 
-        <span class="card-title-text" data-en="Water discrimination" data-ar="تمييز في المياه">Water discrimination</span>
-      </div>
-      <div class="card-desc" data-en="West Bank: settlers consume 4x more than Palestinians – illegal under international law." 
-            data-ar="الضفة الغربية: المستوطنون يستهلكون ٤ أضعاف الفلسطينيين – غير قانوني دوليًا.">
-        West Bank: settlers consume 4x more than Palestinians – illegal under international law.
-      </div>
-      <div class="evidence">
-        <i class="fas fa-droplet"></i>
-        <strong data-en="💧 World Bank / UN" data-ar="💧 البنك الدولي / الأمم المتحدة">💧 World Bank / UN</strong>
-        <span class="evidence-text"
-          data-en="• Israelis: 300 litres/day, Palestinians: 80 litres (below WHO). 90% Gaza water unfit to drink. Amnesty 2019."
-          data-ar="• الإسرائيليون: ٣٠٠ لتر/يوم، الفلسطينيون: ٨٠ لتر (أدنى من معيار الصحة). ٩٠٪ من مياه غزة غير صالحة. منظمة العفو ٢٠١٩.">
-          • Israelis: 300 litres/day, Palestinians: 80 litres (below WHO). 90% Gaza water unfit to drink. Amnesty 2019.
-        </span>
-        <span class="citation" data-en="B'Tselem 'Parched Sea' 2023; World Bank" data-ar="بتسيلم 'بحر عطشان' ٢٠٢٣؛ البنك الدولي">B'Tselem 'Parched Sea' 2023; World Bank</span>
-      </div>
-    </div>
-
-    <!-- CARD 3 – OSLO SETTLEMENT ESCALATION -->
-    <div class="card" data-card data-link="osbet.html">
-      <div class="card-title">
-        <i class="fas fa-file-signature"></i> 
-        <span class="card-title-text" data-en="Oslo betrayal" data-ar="خيانة أوسلو">Oslo betrayal</span>
-      </div>
-      <div class="card-desc" data-en="Oslo Accords did not freeze settlements — they doubled (1993–2000)." 
-            data-ar="اتفاقات أوسلو لم تجمّد الاستيطان – بل تضاعف (١٩٩٣–٢٠٠٠).">
-        Oslo Accords did not freeze settlements — they doubled (1993–2000).
-      </div>
-      <div class="evidence">
-        <i class="fas fa-chart-line"></i>
-        <strong data-en="📈 settlement watch" data-ar="📈 رصد الاستيطان">📈 settlement watch</strong>
-        <span class="evidence-text"
-          data-en="• 1993: 110,000 settlers; 2000: 198,000; 2023: >490,000. 150+ outposts built since Oslo."
-          data-ar="• ١٩٩٣: ١١٠ آلاف مستوطن؛ ٢٠٠٠: ١٩٨ آلاف؛ ٢٠٢٣: أكثر من ٤٩٠ ألفاً. أكثر من ١٥٠ بؤرة استيطانية بعد أوسلو.">
-          • 1993: 110,000 settlers; 2000: 198,000; 2023: >490,000. 150+ outposts built since Oslo.
-        </span>
-        <span class="citation" data-en="Peace Now; B'Tselem 2024" data-ar="السلام الآن؛ بتسيلم ٢٠٢٤">Peace Now; B'Tselem 2024</span>
-      </div>
-    </div>
-
-    <!-- CARD 4 – TWO-TIER COURT SYSTEM -->
-    <div class="card" data-card data-link="miljusapa.html">
-      <div class="card-title">
-        <i class="fas fa-scale-balanced"></i> 
-        <span class="card-title-text" data-en="Military justice apartheid" data-ar="أبرتهايد القضاء العسكري">Military justice apartheid</span>
-      </div>
-      <div class="card-desc" data-en="West Bank: Palestinians in military courts, settlers in civilian courts – same territory." 
-            data-ar="الضفة: فلسطينيون أمام محاكم عسكرية، مستوطنون أمام محاكم مدنية – نفس الأرض.">
-        West Bank: Palestinians in military courts, settlers in civilian courts – same territory.
-      </div>
-      <div class="evidence">
-        <i class="fas fa-judge"></i>
-        <strong data-en="⚖️ Human Rights Watch 2021" data-ar="⚖️ هيومن رايتس ووتش ٢٠٢١">⚖️ Human Rights Watch 2021</strong>
-        <span class="evidence-text"
-          data-en="• 'A Threshold Crossed' – apartheid. 99.7% Palestinian conviction rate; settlers tried under civil law."
-          data-ar="• تقرير 'تجاوز الحد' – فصل عنصري. ٩٩٫٧٪ إدانة للفلسطينيين؛ المستوطنون يحاكمون مدنيًا.">
-          • 'A Threshold Crossed' – apartheid. 99.7% Palestinian conviction rate; settlers tried under civil law.
-        </span>
-        <span class="citation" data-en="HRW 2021; Yesh Din 2022" data-ar="هيومن رايتس ووتش ٢٠٢١؛ يش دين ٢٠٢٢">HRW 2021; Yesh Din 2022</span>
-      </div>
-    </div>
-
-
-
-
-
-        <!-- CARD 1 – ABSENTEE PROPERTY LAW -->
-    <div class="card" data-card data-link="absentee.html">
-      <div class="card-title">
-        <i class="fas fa-scroll"></i> 
-        <span class="card-title-text" data-en="Absentee Property Law" data-ar="قانون أملاك الغائبين">Absentee Property Law</span>
-      </div>
-      <div class="card-desc" data-en="How Israel legalized seizure of Palestinian land using 'present absentees' – those inside yet labelled absent." 
-            data-ar="كيف شرعت إسرائيل مصادرة الأراضي الفلسطينية باستخدام 'الحاضرين الغائبين' – من هم داخل البلاد ويُعتبرون غائبين.">
-        How Israel legalized seizure of Palestinian land using 'present absentees' – those inside yet labelled absent.
-      </div>
-      <div class="evidence">
-        <i class="fas fa-gavel"></i>
-        <strong data-en="⚖️ legal proof" data-ar="⚖️ دليل قانوني">⚖️ legal proof</strong>
-        <span class="evidence-text" 
-          data-en="• 1950 Absentee Property Law – still in effect. 30% of West Bank land and massive areas inside Israel were confiscated. • UNCCP estimates 7.8 billion USD in immovable assets taken (1948 refugees only)."
-          data-ar="• قانون أملاك الغائبين ١٩٥٠ – لا يزال ساريًا. ٣٠٪ من أراضي الضفة الغربية ومساحات شاسعة داخل إسرائيل صودرت. • لجنة التوفيق الأممية قدرت ٧٫٨ مليار دولار أصولاً غير منقولة (لاجئو ١٩٤٨ فقط).">
-          • 1950 Absentee Property Law – still in effect. 30% of West Bank land and massive areas inside Israel were confiscated. • UNCCP estimates 7.8 billion USD in immovable assets taken (1948 refugees only).
-        </span>
-        <span class="citation" data-en="BADIL; UN doc. A/AC.25/W.81" data-ar="بديل؛ وثيقة الأمم المتحدة A/AC.25/W.81">BADIL; UN doc. A/AC.25/W.81</span>
-      </div>
-    </div>
-
-    <!-- CARD 2 – MYTH: EMPTY LAND -->
-    <div class="card" data-card data-link="emptyland.html">
-      <div class="card-title">
-        <i class="fas fa-people-group"></i> 
-        <span class="card-title-text" data-en="Myth: empty land" data-ar="أسطورة: أرض بلا شعب">Myth: empty land</span>
-      </div>
-      <div class="card-desc" data-en="Pre-Zionist Palestine was densely inhabited with centuries-old cities, culture, agriculture." 
-            data-ar="فلسطين قبل الصهيونية كانت مأهولة بكثافة بمدن عمرها قرون، ثقافة وزراعة.">
-        Pre-Zionist Palestine was densely inhabited with centuries-old cities, culture, agriculture.
-      </div>
-      <div class="evidence">
-        <i class="fas fa-map-location-dot"></i>
-        <strong data-en="🗺️ ottoman & british census" data-ar="🗺️ إحصاء عثماني وبريطاني">🗺️ ottoman & british census</strong>
-        <span class="evidence-text"
-          data-en="• 1880s: Jerusalem, Jaffa, Nablus, Gaza – over 450,000 indigenous inhabitants. • 1918: population ~700,000 Arabs, 56,000 Jews (British estimates)."
-          data-ar="• ١٨٨٠: القدس، يافا، نابلس، غزة – أكثر من ٤٥٠ ألف نسمة. • ١٩١٨: عدد السكان ~٧٠٠ ألف عربي، ٥٦ ألف يهودي (تقديرات بريطانية).">
-          • 1880s: Jerusalem, Jaffa, Nablus, Gaza – over 450,000 indigenous inhabitants. • 1918: population ~700,000 Arabs, 56,000 Jews (British estimates).
-        </span>
-        <span class="citation" data-en="Justin McCarthy, 'The Population of Palestine'" data-ar="جاستن مكارثي، 'سكان فلسطين'">Justin McCarthy, 'The Population of Palestine'</span>
-      </div>
-    </div>
-
-    <!-- CARD 3 – NO POPULATION EXCHANGE -->
-    <div class="card" data-card data-link="noexchange.html">
-      <div class="card-title">
-        <i class="fas fa-arrow-right-arrow-left"></i> 
-        <span class="card-title-text" data-en="No population exchange" data-ar="لا تبادل سكاني">No population exchange</span>
-      </div>
-      <div class="card-desc" data-en="False equivalence: Mizrahi Jews vs. Palestinian refugees – distinct legal/historical contexts." 
-            data-ar="معادلة خاطئة: يهود مزراحي مقابل لاجئين فلسطينيين – سياقات قانونية وتاريخية مختلفة.">
-        False equivalence: Mizrahi Jews vs. Palestinian refugees – distinct legal/historical contexts.
-      </div>
-      <div class="evidence">
-        <i class="fas fa-newspaper"></i>
-        <strong data-en="📄 UN & historical record" data-ar="📄 سجل الأمم المتحدة والتاريخ">📄 UN & historical record</strong>
-        <span class="evidence-text"
-          data-en="• 1948 Palestinian refugees: forced expulsion, UNRWA mandate, Right of Return (UNGA 194). • Mizrahi Jews: no UN recognition as refugees, Israeli citizenship granted."
-          data-ar="• لاجئو ١٩٤٨: طرد قسري، ولاية الأونروا، حق العودة (قرار ١٩٤). • يهود مزراحي: لا اعتراف أممي كلاجئين، مُنحت لهم الجنسية الإسرائيلية.">
-          • 1948 Palestinian refugees: forced expulsion, UNRWA mandate, Right of Return (UNGA 194). • Mizrahi Jews: no UN recognition as refugees, Israeli citizenship granted.
-        </span>
-        <span class="citation" data-en="Yehouda Shenhav, 'The Arab Jews'" data-ar="يهودا شينهاف، 'اليهود العرب'">Yehouda Shenhav, 'The Arab Jews'</span>
-      </div>
-    </div>
-
-    <!-- CARD 4 – HERITAGE THEFT -->
-    <div class="card" data-card data-link="heritage.html">
-      <div class="card-title">
-        <i class="fas fa-archaeology"></i> 
-        <span class="card-title-text" data-en="Heritage theft" data-ar="سرقة التراث">Heritage theft</span>
-      </div>
-      <div class="card-desc" data-en="Excavations erase Palestinian layers, rebrand sites as exclusively Jewish heritage." 
-            data-ar="حفريات تزيل الطبقات الفلسطينية، تعيد تسمية المواقع كتراث يهودي حصري.">
-        Excavations erase Palestinian layers, rebrand sites as exclusively Jewish heritage.
-      </div>
-      <div class="evidence">
-        <i class="fas fa-shovel"></i>
-        <strong data-en="🏺 case: city of david / silwan" data-ar="🏺 حالة: مدينة داود / سلوان">🏺 case: city of david / silwan</strong>
-        <span class="evidence-text"
-          data-en="• 85% of Silwan homes threatened by Elad settler organization; tunnels undermine Palestinian neighbourhoods. • UNESCO resolutions condemn Israel as occupying power altering Jerusalem sites."
-          data-ar="• ٨٥٪ من منازل سلوان مهددة من منظمة إيلاد الاستيطانية؛ أنفاق تقوّض أحياء فلسطينية. • قرارات اليونسكو تدين إسرائيل كقوة احتلال تغيّر مواقع القدس.">
-          • 85% of Silwan homes threatened by Elad settler organization; tunnels undermine Palestinian neighbourhoods. • UNESCO resolutions condemn Israel as occupying power altering Jerusalem sites.
-        </span>
-        <span class="citation" data-en="UNESCO 39C/49; Emek Shaveh" data-ar="اليونسكو 39C/49؛ عيمق شافيه">UNESCO 39C/49; Emek Shaveh</span>
-      </div>
-    </div>
-
-
-    <!-- CARD 6 – 2005 SIEGE, NOT PEACE -->
-    <div class="card" data-card data-link="gazasiege.html">
-      <div class="card-title">
-        <i class="fas fa-border-all"></i> 
-        <span class="card-title-text" data-en="2005 siege, not peace" data-ar="حصار ٢٠٠٥، ليس سلاماً">2005 siege, not peace</span>
-      </div>
-      <div class="card-desc" data-en="Withdrawal reframed as concession – actually maintained full control: air, sea, water, population registry." 
-            data-ar="إعادة تسمية الانسحاب كتنازل – في الحقيقة سيطرة كاملة: الجو، البحر، المياه، سجل السكان.">
-        Withdrawal reframed as concession – actually maintained full control: air, sea, water, population registry.
-      </div>
-      <div class="evidence">
-        <i class="fas fa-circle-stop"></i>
-        <strong data-en="🚫 siege evidence" data-ar="🚫 دليل الحصار">🚫 siege evidence</strong>
-        <span class="evidence-text"
-          data-en="• 2005–2024: Israel controls 100% of Gaza's airspace, territorial waters, crossings, and civilian database. • 'Occupied territory under int. law' – UN, ICRC, UNHRC."
-          data-ar="• ٢٠٠٥–٢٠٢٤: إسرائيل تسيطر على ١٠٠٪ من مجال غزة الجوي، مياهها الإقليمية، معابرها، وسجل السكان. • 'أرض محتلة بموجب القانون الدولي' – الأمم المتحدة، اللجنة الدولية، مجلس حقوق الإنسان.">
-          • 2005–2024: Israel controls 100% of Gaza's airspace, territorial waters, crossings, and civilian database. • 'Occupied territory under int. law' – UN, ICRC, UNHRC.
-        </span>
-        <span class="citation" data-en="ICRC; Al Mezan 2024" data-ar="اللجنة الدولية؛ الميزان ٢٠٢٤">ICRC; Al Mezan 2024</span>
-      </div>
-    </div>
-
-    <!-- CARD 7 – FALSE 'NO PARTNER' -->
-    <div class="card" data-card data-link="nopartner.html">
-      <div class="card-title">
-        <i class="fas fa-hand-peace"></i> 
-        <span class="card-title-text" data-en="False 'no partner'" data-ar="لا شريك' كاذب'">False 'no partner'</span>
-      </div>
-      <div class="card-desc" data-en="Narrative that Israel made unprecedented offers – omits continued colonization and unequal terms." 
-            data-ar="رواية أن إسرائيل قدمت عروضاً غير مسبوقة – تتجاهل الاستعمار المستمر والشروط غير المتكافئة.">
-        Narrative that Israel made unprecedented offers – omits continued colonization and unequal terms.
-      </div>
-      <div class="evidence">
-        <i class="fas fa-comments"></i>
-        <strong data-en="📋 camp david / taba 2000-01" data-ar="📋 كامب ديفيد / طابا ٢٠٠٠-٠١">📋 camp david / taba 2000-01</strong>
-        <span class="evidence-text"
-          data-en="• Arafat accepted Clinton parameters, Israel added reservations, more settlements. • Palestinian offer: 1967 borders with swaps, rejected by Olmert 2008."
-          data-ar="• عرفات قبل معايير كلينتون، إسرائيل أضافت تحفظات، مزيد من الاستيطان. • عرض فلسطيني: حدود ١٩٦٧ مع تبادل أراض، رفضه أولمرت ٢٠٠٨.">
-          • Arafat accepted Clinton parameters, Israel added reservations, more settlements. • Palestinian offer: 1967 borders with swaps, rejected by Olmert 2008.
-        </span>
-        <span class="citation" data-en="Robert Malley; Le Monde diplomatique" data-ar="روبرت مالي؛ لوموند دبلوماتيك">Robert Malley; Le Monde diplomatique</span>
-      </div>
-    </div>
-
-    <!-- CARD 8 – WEAPONIZING ANTISEMITISM -->
-    <div class="card" data-card data-link="weaponize.html">
-      <div class="card-title">
-        <i class="fas fa-circle-exclamation"></i> 
-        <span class="card-title-text" data-en="Weaponizing antisemitism" data-ar="تسليح معاداة السامية">Weaponizing antisemitism</span>
-      </div>
-      <div class="card-desc" data-en="Legitimate criticism of Israel labelled antisemitic to silence evidence-based advocacy." 
-            data-ar="يتم وصم النقد المشروع لإسرائيل بأنه معاداة للسامية لإسكات المناصرة القائمة على الأدلة.">
-        Legitimate criticism of Israel labelled antisemitic to silence evidence-based advocacy.
-      </div>
-      <div class="evidence">
-        <i class="fas fa-shield-hal"></i>
-        <strong data-en="🧾 IHRA definition critique" data-ar="🧾 نقد تعريف IHRA">🧾 IHRA definition critique</strong>
-        <span class="evidence-text"
-          data-en="• 110+ Jewish scholars & 40+ organizations: 'Jerusalem Declaration on Antisemitism' (2021) distinguishes criticism from bigotry. • Using antisemitism allegations to suppress BDS and human rights defenders."
-          data-ar="• أكثر من ١١٠ باحث يهودي و ٤٠ منظمة: 'إعلان القدس حول معاداة السامية' (٢٠٢١) يميز بين النقد والتعصب. • استخدام ادعاءات معاداة السامية لقمع حركة المقاطعة (BDS) والمدافعين عن حقوق الإنسان.">
-          • 110+ Jewish scholars & 40+ organizations: 'Jerusalem Declaration on Antisemitism' (2021) distinguishes criticism from bigotry. • Using antisemitism allegations to suppress BDS and human rights defenders.
-        </span>
-        <span class="citation" data-en="JDA; HRW 'Discourse on Denial'" data-ar="JDA؛ هيومن رايتس ووتش 'خطاب الإنكار'">JDA; HRW 'Discourse on Denial'</span>
-      </div>
-    </div>
-
-    <!-- CARD 9 – NATURAL GROWTH (myth) -->
-    <div class="card" data-card data-link="naturalgrowth.html">
-      <div class="card-title">
-        <i class="fas fa-baby-carriage"></i> 
-        <span class="card-title-text" data-en="'Natural growth'" data-ar="'نمو طبيعي'">'Natural growth'</span>
-      </div>
-      <div class="card-desc" data-en="Myth that settlements expand only due to births — state-funded incentives and land grabs." 
-            data-ar="أسطورة أن المستوطنات تتوسع فقط بسبب الولادات — حوافز حكومية واستيلاء على الأراضي.">
-        Myth that settlements expand only due to births — state-funded incentives and land grabs.
-      </div>
-      <div class="evidence">
-        <i class="fas fa-coins"></i>
-        <strong data-en="💰 israeli state subsidies" data-ar="💰 دعم حكومي إسرائيلي">💰 israeli state subsidies</strong>
-        <span class="evidence-text"
-          data-en="• 2022: settler municipalities receive $2,300 per capita more than Israeli non-settler cities. • 50% of land in West Bank allocated for settlements, not 'natural growth'."
-          data-ar="• ٢٠٢٢: بلديات المستوطنات تتلقى ٢٣٠٠ دولار للفرد أكثر من المدن الإسرائيلية غير الاستيطانية. • ٥٠٪ من أراضي الضفة الغربية مخصصة للمستوطنات، وليس 'نمواً طبيعياً'.">
-          • 2022: settler municipalities receive $2,300 per capita more than Israeli non-settler cities. • 50% of land in West Bank allocated for settlements, not 'natural growth'.
-        </span>
-        <span class="citation" data-en="Sikkuy report 2023; State Comptroller 2021" data-ar="تقرير سيكوي ٢٠٢٣؛ مراقب الدولة ٢٠٢١">Sikkuy report 2023; State Comptroller 2021</span>
-      </div>
-    </div>
-
-  </div> <!-- end cards-grid -->
-
-  <div class="footer-note" id="footerText">
-    <i class="fas fa-book-open"></i> Every claim cross‑referenced with institutional sources. Click any card to open its dedicated evidence page (same directory).
-  </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <!-- footer -->
-  <div class="footer-note" id="footerText">
-    <i class="fas fa-book-open"></i> Every claim cross‑referenced with institutional sources. Defending against propaganda requires verifiable facts.
-  </div>
-
-</div> <!-- end page-container -->
-
-<script>
-  (function() {
-    "use strict";
-
-    // ------- LANGUAGE CONTROLS -------
-    const btnEn = document.getElementById('btnEnglish');
-    const btnAr = document.getElementById('btnArabic');
-    const body = document.body;
-
-    // elements with translatable attributes
-    const badgeEl = document.getElementById('badgeText');
-    const mainTitle = document.getElementById('mainTitle');
-    const subhead = document.getElementById('subheadText');
-    const footerEl = document.getElementById('footerText');
-
-    // all cards content – titles, desc, evidence strong, evidence text, citation
-    const cardTitleSpans = document.querySelectorAll('.card-title-text');
-    const cardDescs = document.querySelectorAll('.card-desc');
-    const evidenceStrong = document.querySelectorAll('.evidence strong');
-    const evidenceTexts = document.querySelectorAll('.evidence-text');
-    const citationSpans = document.querySelectorAll('.citation');
-
-    // ---------- bilingual dictionaries for header / footer / badge ----------
-    const translations = {
-      en: {
-        badge: "📜 documented counter‑narratives",
-        title: "⚖️ Evidence that defends\nagainst Zionist propaganda",
-        subhead: "Primary sources, archival records and institutional findings — each card provides evidence exposing common myths. Click any card to open (placeholder #).",
-        footer: "📚 Every claim cross‑referenced with institutional sources. Defending against propaganda requires verifiable facts."
-      },
-      ar: {
-        badge: "📜 روايات موثقة مضادة",
-        title: "⚖️ أدلة تدحض الدعاية الصهيونية",
-        subhead: "مصادر أولية، وثائق أرشيفية، وتقارير مؤسساتية — كل بطاقة تقدم دليلًا يكشف الأساطير الشائعة. انقر على أي بطاقة للفتح (# مؤقت).",
-        footer: "📚 كل معلومة موثقة بمصادر رسمية. مواجهة الدعاية تحتاج إلى حقائق."
-      }
-    };
-
-    // function setLanguage(lang) {
-    // lang = 'en' or 'ar'
-    function setLanguage(lang) {
-      const isArabic = (lang === 'ar');
-      
-      // update body class for RTL / font
-      if (isArabic) {
-        body.classList.add('rtl-lang');
-        // swap active button
-        btnAr.classList.add('active');
-        btnEn.classList.remove('active');
-      } else {
-        body.classList.remove('rtl-lang');
-        btnEn.classList.add('active');
-        btnAr.classList.remove('active');
-      }
-
-      // update header, badge, subhead, footer
-      badgeEl.innerHTML = `<i class="fas fa-scale-balanced"></i> ${translations[lang].badge}`;
-      mainTitle.innerText = translations[lang].title;
-      subhead.innerText = translations[lang].subhead;
-      footerEl.innerHTML = `<i class="fas fa-book-open"></i> ${translations[lang].footer}`;
-
-      // ----- update card dynamic content from data attributes -----
-      // card titles (span inside .card-title)
-      cardTitleSpans.forEach(span => {
-        span.innerText = span.dataset[lang] || span.innerText;
-      });
-
-      // short description
-      cardDescs.forEach(desc => {
-        desc.innerText = desc.dataset[lang] || desc.innerText;
-      });
-
-      // evidence strong (the bold header)
-      evidenceStrong.forEach(strong => {
-        strong.innerText = strong.dataset[lang] || strong.innerText;
-      });
-
-      // evidence text (main paragraph/evidence)
-      evidenceTexts.forEach(ev => {
-        ev.innerText = ev.dataset[lang] || ev.innerText;
-      });
-
-      // citation spans
-      citationSpans.forEach(cit => {
-        cit.innerText = cit.dataset[lang] || cit.innerText;
-      });
-
-      // Also update placeholder of search input
+      // Search functionality
       const searchInput = document.getElementById('searchInput');
-      if (isArabic) {
-        searchInput.placeholder = 'ابحث في البطاقات...';
-      } else {
-        searchInput.placeholder = 'Search cards...';
+      const searchBtn = document.getElementById('searchBtn');
+      const cardsGrid = document.getElementById('cardsGrid');
+      const searchStats = document.getElementById('searchStats');
+      const resultsCount = document.getElementById('resultsCount');
+      const clearSearch = document.getElementById('clearSearch');
+      const noResultsTemplate = document.getElementById('noResultsTemplate');
+      
+      let allCards = [];
+
+      // Initialize cards array and click handlers
+      function initCards() {
+        allCards = Array.from(document.querySelectorAll('.card[data-card]'));
+        
+        // Add click handlers to cards
+        allCards.forEach(card => {
+          card.addEventListener('click', function(e) {
+            const link = this.getAttribute('data-link');
+            if (link) {
+              window.location.href = link;
+            }
+          });
+        });
       }
 
-      // update result count text
-      filterCards(); 
-    }
-
-    // ---------- SEARCH + FILTER ----------
-    const cards = Array.from(document.querySelectorAll('.card[data-card]'));
-    const searchInput = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchButton');
-    const resetBtn = document.getElementById('resetButton');
-    const resultSpan = document.getElementById('resultCount');
-
-    function filterCards() {
-      const query = searchInput.value.trim().toLowerCase();
-      let visibleCount = 0;
-      cards.forEach(card => {
-        const title = card.querySelector('.card-title-text')?.innerText.toLowerCase() || '';
-        const desc = card.querySelector('.card-desc')?.innerText.toLowerCase() || '';
-        const evidence = card.querySelector('.evidence')?.innerText.toLowerCase() || '';
-        const haystack = `${title} ${desc} ${evidence}`;
+      // Perform search
+      function performSearch() {
+        const query = searchInput.value.trim().toLowerCase();
         
-        if (query === '' || haystack.includes(query)) {
-          card.classList.remove('hidden-card');
-          visibleCount++;
+        if (query === '') {
+          // Show all cards, hide stats
+          allCards.forEach(card => card.style.display = 'flex');
+          searchStats.style.display = 'none';
+          removeNoResults();
+          return;
+        }
+
+        // Filter cards based on search query
+        const matchingCards = allCards.filter(card => {
+          const title = card.querySelector('.card-title-text')?.textContent.toLowerCase() || '';
+          const desc = card.querySelector('.card-desc')?.textContent.toLowerCase() || '';
+          const evidence = card.querySelector('.evidence-text')?.textContent.toLowerCase() || '';
+          const citation = card.querySelector('.citation')?.textContent.toLowerCase() || '';
+          
+          return title.includes(query) || desc.includes(query) || 
+                 evidence.includes(query) || citation.includes(query);
+        });
+
+        // Hide non-matching cards
+        allCards.forEach(card => card.style.display = 'none');
+        matchingCards.forEach(card => card.style.display = 'flex');
+
+        // Update stats
+        const count = matchingCards.length;
+        const lang = document.body.classList.contains('rtl') ? 'ar' : 'en';
+        resultsCount.textContent = lang === 'ar' 
+          ? `تم العثور على ${count} نتيجة` 
+          : `Found ${count} result${count !== 1 ? 's' : ''}`;
+        
+        searchStats.style.display = 'flex';
+
+        // Show no results message if needed
+        if (count === 0) {
+          showNoResults();
         } else {
-          card.classList.add('hidden-card');
+          removeNoResults();
+        }
+      }
+
+      // Show no results message
+      function showNoResults() {
+        removeNoResults();
+        const noResultsHtml = noResultsTemplate.innerHTML;
+        const noResultsDiv = document.createElement('div');
+        noResultsDiv.id = 'noResultsMessage';
+        noResultsDiv.innerHTML = noResultsHtml;
+        cardsGrid.appendChild(noResultsDiv);
+      }
+
+      // Remove no results message
+      function removeNoResults() {
+        const existing = document.getElementById('noResultsMessage');
+        if (existing) existing.remove();
+      }
+
+      // Clear search
+      function clearSearchHandler() {
+        searchInput.value = '';
+        performSearch();
+        searchInput.focus();
+      }
+
+      // Get search param from URL (if coming from homepage)
+      function getSearchParam() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('search');
+      }
+
+      // Initialize search from URL param
+      function initSearchFromUrl() {
+        const searchQuery = getSearchParam();
+        if (searchQuery) {
+          searchInput.value = searchQuery;
+          performSearch();
+        }
+      }
+
+      // Update no results message on language change
+      document.addEventListener('languageChanged', function() {
+        if (document.getElementById('noResultsMessage')) {
+          showNoResults();
+        }
+        if (searchStats.style.display === 'flex') {
+          const query = searchInput.value.trim().toLowerCase();
+          const count = allCards.filter(card => card.style.display === 'flex').length;
+          const lang = document.body.classList.contains('rtl') ? 'ar' : 'en';
+          resultsCount.textContent = lang === 'ar' 
+            ? `تم العثور على ${count} نتيجة` 
+            : `Found ${count} result${count !== 1 ? 's' : ''}`;
         }
       });
-      // update counter with current language hint
-      const isAr = body.classList.contains('rtl-lang');
-      const cardWord = isAr ? (visibleCount === 1 ? 'بطاقة' : 'بطاقات') : (visibleCount === 1 ? 'card' : 'cards');
-      resultSpan.innerText = isAr ? `${visibleCount} ${cardWord}` : `${visibleCount} ${cardWord}`;
-    }
 
-    function resetFilter() {
-      searchInput.value = '';
-      cards.forEach(c => c.classList.remove('hidden-card'));
-      const isAr = body.classList.contains('rtl-lang');
-      const cardWord = isAr ? 'بطاقات' : 'cards';
-      resultSpan.innerText = `4 ${cardWord}`;
-    }
+      // Event listeners
+      if (searchBtn) {
+        searchBtn.addEventListener('click', performSearch);
+      }
 
-    // --- attach search events ---
-    searchBtn.addEventListener('click', filterCards);
-    resetBtn.addEventListener('click', resetFilter);
-    searchInput.addEventListener('input', function() {
-      if (this.value.trim() === '') resetFilter(); else filterCards();
-    });
-    searchInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); filterCards(); } });
+      if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            performSearch();
+          }
+        });
+      }
 
-    // ------- LANGUAGE BUTTON LISTENERS -------
-    btnEn.addEventListener('click', function() {
-      setLanguage('en');
-    });
-    btnAr.addEventListener('click', function() {
-      setLanguage('ar');
-    });
+      if (clearSearch) {
+        clearSearch.addEventListener('click', clearSearchHandler);
+      }
 
-    // ------- CARD CLICK HANDLER - make every card navigate to its data-link (all "#" for now) -------
-    function setupCardClicks() {
-      const allCards = document.querySelectorAll('.card[data-card]');
-      allCards.forEach(card => {
-        // Remove any previously attached listener to avoid duplicates, then attach new one
-        card.removeEventListener('click', cardClickHandler);
-        card.addEventListener('click', cardClickHandler);
+      // Initialize on DOM load
+      document.addEventListener('DOMContentLoaded', function() {
+        initCards();
+        initSearchFromUrl();
       });
-    }
 
-    // Generic click handler that reads data-link attribute and redirects
-    function cardClickHandler(event) {
-      // Prevent navigating if the click originated from a button inside the card? 
-      // But we want full card click. However, avoid interfering with language toggle clicks inside card? 
-      // There are no interactive elements inside card except static text, so it's safe.
-      const link = this.dataset.link || '#'; // fallback to '#'
-      window.location.href = link; // same directory, "#" placeholder
-    }
-
-    // Initialize card clicks
-    setupCardClicks();
-
-    // If new cards are added dynamically (not here) we re-run setup, but static.
-
-    // ---------- initialise: ENGLISH, all visible ----------
-    setLanguage('en');
-    resetFilter();
-
-  })();
-</script>
-
+    })();
+  </script>
 </body>
 </html>

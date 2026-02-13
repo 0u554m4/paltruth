@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Propaganda - Kasr Alsamt</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,1" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="report.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    
+  <!-- ============ TOP HEADER ============ -->
+  <div class="top-header">
+    <div class="container top-header-container">
+      <div class="social-icons">
+        <a href="#" class="social-icon" aria-label="Twitter">
+          <span class="material-symbols-outlined">X</span>
+        </a>
+        <a href="#" class="social-icon" aria-label="Instagram">
+          <span class="material-symbols-outlined">photo_camera</span>
+        </a>
+      </div>
+      <a href="report.html" class="propaganda-btn" data-key="reportBtn">Report a Propaganda</a>
+    </div>
+  </div>
+
+  <!-- ============ MAIN HEADER ============ -->
+  <header class="blog-header">
+    <div class="container">
+      <div class="logo">
+        <h1 data-key="logo">kasr alsamt</h1>
+        <span data-key="tagline">Truth • Story • Support</span>
+      </div>
+
+      <nav class="nav">
+        <a href="../index.html" data-key="home">Home</a>
+        <a href="../listing.html" data-key="listing">Listing</a>
+        <a href="../about.html" class="active" data-key="about">About</a>
+        <a href="../contact.html" data-key="contact">Contact</a>
+      </nav>
+
+      <button id="lang-toggle" class="lang-btn" data-key="langBtn">AR</button>
+    </div>
+  </header>
+
+  <!-- ============ SEARCH SECTION ============ -->
+  <div class="search-wrapper">
+    <div class="search-container">
+      <input type="text" id="searchInput" data-key="search" placeholder="Search articles..." />
+      <button type="submit" id="searchBtn" aria-label="Search">🔍</button>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ============ REPORT SECTION ============ -->
+    <div class="report-wrapper">
+        <div class="container">
+            <div class="report-header">
+                <h1 class="report-title" data-key="reportTitle">Report Propaganda</h1>
+                <p class="report-subtitle" data-key="reportSubtitle">Help us identify and verify misleading information. Your report helps maintain truth and accuracy.</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-steps">
+                    <div class="step-item active" data-step="1">
+                        <div class="step-number">1</div>
+                        <span class="step-label" data-key="step1Label">Content Type</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item" data-step="2">
+                        <div class="step-number">2</div>
+                        <span class="step-label" data-key="step2Label">Details</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item" data-step="3">
+                        <div class="step-number">3</div>
+                        <span class="step-label" data-key="step3Label">Evidence</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item" data-step="4">
+                        <div class="step-number">4</div>
+                        <span class="step-label" data-key="step4Label">Review</span>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 25%"></div>
+                </div>
+            </div>
+
+            <!-- Report Form -->
+            <div class="report-form-container">
+                <form id="reportForm" class="report-form">
+                    <!-- Step 1: Content Type -->
+                    <div class="form-step active" id="step1">
+                        <h2 class="step-title" data-key="step1Title">What type of content are you reporting?</h2>
+                        
+                        <div class="content-type-grid">
+                            <label class="content-card">
+                                <input type="radio" name="contentType" value="article" required>
+                                <span class="material-symbols-outlined">article</span>
+                                <span class="card-label" data-key="contentArticle">Article / News</span>
+                                <span class="card-desc" data-key="contentArticleDesc">False news articles, misleading headlines</span>
+                            </label>
+                            
+                            <label class="content-card">
+                                <input type="radio" name="contentType" value="social">
+                                <span class="material-symbols-outlined">share</span>
+                                <span class="card-label" data-key="contentSocial">Social Media Post</span>
+                                <span class="card-desc" data-key="contentSocialDesc">Misinformation on social platforms</span>
+                            </label>
+                            
+                            <label class="content-card">
+                                <input type="radio" name="contentType" value="image">
+                                <span class="material-symbols-outlined">image</span>
+                                <span class="card-label" data-key="contentImage">Image / Meme</span>
+                                <span class="card-desc" data-key="contentImageDesc">Manipulated images or misleading memes</span>
+                            </label>
+                            
+                            <label class="content-card">
+                                <input type="radio" name="contentType" value="video">
+                                <span class="material-symbols-outlined">videocam</span>
+                                <span class="card-label" data-key="contentVideo">Video</span>
+                                <span class="card-desc" data-key="contentVideoDesc">Misleading or edited videos</span>
+                            </label>
+                            
+                            <label class="content-card">
+                                <input type="radio" name="contentType" value="audio">
+                                <span class="material-symbols-outlined">podcasts</span>
+                                <span class="card-label" data-key="contentAudio">Audio / Podcast</span>
+                                <span class="card-desc" data-key="contentAudioDesc">Misleading audio content</span>
+                            </label>
+                            
+                            <label class="content-card">
+                                <input type="radio" name="contentType" value="other">
+                                <span class="material-symbols-outlined">more_horiz</span>
+                                <span class="card-label" data-key="contentOther">Other</span>
+                                <span class="card-desc" data-key="contentOtherDesc">Other types of propaganda</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn-next" onclick="nextStep(1)" data-key="nextBtn">Next Step</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Details -->
+                    <div class="form-step" id="step2">
+                        <h2 class="step-title" data-key="step2Title">Provide details about the content</h2>
+                        
+                        <div class="form-group">
+                            <label for="contentUrl" data-key="urlLabel">Content URL / Source *</label>
+                            <input type="url" id="contentUrl" name="contentUrl" placeholder="https://..." data-key="urlPlaceholder" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="platform" data-key="platformLabel">Platform where you saw this *</label>
+                            <select id="platform" name="platform" required>
+                                <option value="" data-key="selectPlatform">Select platform</option>
+                                <option value="twitter" data-key="platformTwitter">Twitter / X</option>
+                                <option value="facebook" data-key="platformFacebook">Facebook</option>
+                                <option value="instagram" data-key="platformInstagram">Instagram</option>
+                                <option value="tiktok" data-key="platformTiktok">TikTok</option>
+                                <option value="youtube" data-key="platformYoutube">YouTube</option>
+                                <option value="telegram" data-key="platformTelegram">Telegram</option>
+                                <option value="whatsapp" data-key="platformWhatsapp">WhatsApp</option>
+                                <option value="news-site" data-key="platformNews">News Website</option>
+                                <option value="other" data-key="platformOther">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="datePosted" data-key="dateLabel">Date posted / discovered *</label>
+                            <input type="date" id="datePosted" name="datePosted" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description" data-key="descriptionLabel">Describe the misleading content *</label>
+                            <textarea id="description" name="description" rows="4" data-key="descriptionPlaceholder" placeholder="Please describe what makes this content propagandistic or misleading..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="isHarmful" value="yes">
+                                <span data-key="harmfulCheck">This content promotes hatred, violence, or discrimination</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev" onclick="prevStep(2)" data-key="prevBtn">Previous</button>
+                            <button type="button" class="btn-next" onclick="nextStep(2)" data-key="nextBtn">Next Step</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Evidence -->
+                    <div class="form-step" id="step3">
+                        <h2 class="step-title" data-key="step3Title">Provide evidence (optional but helpful)</h2>
+                        
+                        <div class="evidence-upload-area" id="dropArea">
+                            <span class="material-symbols-outlined upload-icon">cloud_upload</span>
+                            <p><span data-key="dragDrop">Drag & drop files here or</span> <span class="browse-text" data-key="browse">browse</span></p>
+                            <p class="upload-hint" data-key="uploadHint">Supported: Images, PDFs, Screenshots (Max 10MB)</p>
+                            <input type="file" id="fileInput" multiple accept="image/*,.pdf" style="display: none;">
+                        </div>
+                        
+                        <div class="file-list" id="fileList"></div>
+                        
+                        <div class="form-group">
+                            <label for="additionalSources" data-key="additionalLabel">Additional sources / references</label>
+                            <textarea id="additionalSources" name="additionalSources" rows="3" data-key="additionalPlaceholder" placeholder="Links to fact-checks, additional evidence..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactEmail" data-key="emailLabel">Your email (optional, for follow-up)</label>
+                            <input type="email" id="contactEmail" name="contactEmail" data-key="emailPlaceholder" placeholder="your@email.com">
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev" onclick="prevStep(3)" data-key="prevBtn">Previous</button>
+                            <button type="button" class="btn-next" onclick="nextStep(3)" data-key="nextBtn">Next Step</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Review -->
+                    <div class="form-step" id="step4">
+                        <h2 class="step-title" data-key="step4Title">Review your report</h2>
+                        
+                        <div class="review-section">
+                            <div class="review-group">
+                                <h3 data-key="reviewContentType">Content Type</h3>
+                                <p id="reviewContentType">-</p>
+                            </div>
+                            
+                            <div class="review-group">
+                                <h3 data-key="reviewUrl">Source URL</h3>
+                                <p id="reviewUrl">-</p>
+                            </div>
+                            
+                            <div class="review-group">
+                                <h3 data-key="reviewPlatform">Platform</h3>
+                                <p id="reviewPlatform">-</p>
+                            </div>
+                            
+                            <div class="review-group">
+                                <h3 data-key="reviewDate">Date</h3>
+                                <p id="reviewDate">-</p>
+                            </div>
+                            
+                            <div class="review-group">
+                                <h3 data-key="reviewDescription">Description</h3>
+                                <p id="reviewDescription">-</p>
+                            </div>
+                            
+                            <div class="review-group">
+                                <h3 data-key="reviewFiles">Files attached</h3>
+                                <p id="reviewFiles" data-key="none">None</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group terms-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="termsAgree" required>
+                                <span data-key="termsText">I confirm that the information provided is accurate to the best of my knowledge</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev" onclick="prevStep(4)" data-key="prevBtn">Previous</button>
+                            <button type="submit" class="btn-submit" id="submitReport" data-key="submitBtn">Submit Report</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="material-symbols-outlined modal-icon">check_circle</span>
+            <h2 data-key="modalTitle">Report Submitted Successfully!</h2>
+            <p data-key="modalText">Thank you for helping maintain truth and accuracy. Our team will review your report within 24-48 hours.</p>
+            <p class="reference-number"><span data-key="reference">Reference #</span>: <span id="refNumber"></span></p>
+            <div class="modal-actions">
+                <a href="index.html" class="modal-btn primary" data-key="returnHome">Return Home</a>
+                <a href="report.html" class="modal-btn secondary" data-key="submitAnother">Submit Another</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="report.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

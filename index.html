@@ -4,156 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kasr Alsamt · Home</title>
+  <link rel="stylesheet" href="style.css">
   <!-- Google Fonts: Cairo for Arabic, Inter as fallback -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* ---------- GLOBAL / RESET ---------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    body {
-      font-family: 'Inter', 'Cairo', sans-serif;
-      background: #fefcf9;
-      color: #1e2e3b;
-      line-height: 1.6;
-      transition: all 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+    <!-- Google Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,1" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+      <style>
 
-    body.rtl {
-      font-family: 'Cairo', 'Inter', sans-serif;
-      direction: rtl;
-    }
 
-    .container {
-      max-width: 1280px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
 
-    /* ---------- HEADER (exact style from example) ---------- */
-    .blog-header {
-      background: #ffffff;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
-      border-bottom: 1px solid #efe7e0;
-      padding: 1rem 0;
-      width: 100%;
-    }
-
-    .blog-header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .logo h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #8b5a3c;
-      letter-spacing: -0.5px;
-      margin-bottom: 0.2rem;
-      line-height: 1.2;
-    }
-
-    .logo span {
-      font-size: 0.75rem;
-      color: #6f5b4c;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 500;
-      display: block;
-    }
-
-    .nav {
-      display: flex;
-      gap: 2rem;
-      font-weight: 500;
-    }
-
-    .nav a {
-      text-decoration: none;
-      color: #3a4a53;
-      font-size: 1rem;
-      transition: 0.15s;
-      border-bottom: 2px solid transparent;
-      padding-bottom: 4px;
-    }
-
-    .nav a:hover {
-      border-bottom-color: #b68b6d;
-      color: #5a3e2e;
-    }
-
-    .lang-btn {
-      background: #e8ddd4;
-      border: none;
-      padding: 0.5rem 1.4rem;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #3d2e26;
-      cursor: pointer;
-      transition: 0.15s;
-      border: 1px solid #d1bfb2;
-    }
-
-    .lang-btn:hover {
-      background: #dac9bc;
-    }
-
-    /* ---------- SEARCH WRAPPER (exact style) ---------- */
-    .search-wrapper {
-      width: 100%;
-      background: #faf6f2;
-      border-bottom: 1px solid #e7ddd4;
-      padding: 1.2rem 0;
-      display: flex;
-      justify-content: center;
-    }
-
-    .search-container {
-      max-width: 600px;
-      width: 100%;
-      display: flex;
-      background: white;
-      border-radius: 60px;
-      border: 1px solid #dccfc4;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-    }
-
-    .search-container input {
-      flex: 1;
-      border: none;
-      padding: 0.9rem 1.5rem;
-      font-size: 1rem;
-      font-family: inherit;
-      background: transparent;
-      outline: none;
-    }
-
-    .search-container button {
-      background: #9b6b43;
-      border: none;
-      color: white;
-      padding: 0 1.8rem;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: 0.15s;
-    }
-
-    .search-container button:hover {
-      background: #825a39;
-    }
 
     /* ---------- HERO / PROJECT IMPORTANCE SECTION ---------- */
     .hero {
@@ -410,7 +275,25 @@
   </style>
 </head>
 <body>
-  <!-- ============ HEADER (exact style from example) ============ -->
+
+  
+
+  <!-- ============ TOP HEADER ============ -->
+  <div class="top-header">
+    <div class="container top-header-container">
+      <div class="social-icons">
+        <a href="#" class="social-icon" aria-label="Twitter">
+          <span class="material-symbols-outlined">X</span>
+        </a>
+        <a href="#" class="social-icon" aria-label="Instagram">
+          <span class="material-symbols-outlined">photo_camera</span>
+        </a>
+      </div>
+      <a href="report/report.html" class="propaganda-btn" data-key="reportBtn">Report a Propaganda</a>
+    </div>
+  </div>
+
+  <!-- ============ MAIN HEADER ============ -->
   <header class="blog-header">
     <div class="container">
       <div class="logo">
@@ -421,21 +304,26 @@
       <nav class="nav">
         <a href="index.html" data-key="home">Home</a>
         <a href="listing.html" data-key="listing">Listing</a>
-        <a href="about.html" data-key="about">About</a>
+        <a href="about.html" class="active" data-key="about">About</a>
+        <a href="contact.html" data-key="contact">Contact</a>
       </nav>
 
-      <button id="lang-toggle" class="lang-btn">AR</button>
+      <button id="lang-toggle" class="lang-btn" data-key="langBtn">AR</button>
     </div>
   </header>
 
-  <!-- ============ SEARCH (exact style) ============ -->
+  <!-- ============ SEARCH SECTION ============ -->
   <div class="search-wrapper">
     <div class="search-container">
       <input type="text" id="searchInput" data-key="search" placeholder="Search articles..." />
-      <button type="submit" id="searchBtn">🔍</button>
+      <button type="submit" id="searchBtn" aria-label="Search">🔍</button>
     </div>
   </div>
 
+
+
+
+    
   <!-- ============ MAIN CONTENT ============ -->
   <div class="container">
 
@@ -556,135 +444,8 @@
   </footer>
 
   <!-- ============ JAVASCRIPT (bilingual + search) ============ -->
-  <script>
-    (function() {
-      "use strict";
 
-      const langToggle = document.getElementById('lang-toggle');
-      const body = document.body;
-      const searchInput = document.getElementById('searchInput');
-      const searchBtn = document.getElementById('searchBtn');
+  <script src="script.js"></script>
 
-      // ---------- Bilingual dictionary (English / Arabic) ----------
-      const translations = {
-        en: {
-          logo: "kasr alsamt",
-          tagline: "Truth • Story • Support",
-          home: "Home",
-          listing: "Listing",
-          about: "About",
-          search: "Search articles...",
-          heroTitle: "Countering propaganda with evidence",
-          heroDesc: "Zionist propaganda relies on myths, erasure, and distortion. This project systematically documents primary sources, archival records, and institutional findings — each case exposes a specific falsehood with verifiable evidence. Our goal: truth, accountability, and historical justice.",
-          imp1Title: "Primary sources",
-          imp1Desc: "Declassified IDF archives, Israeli state comptroller reports, Ottoman & British censuses — we bring the documents to light.",
-          imp2Title: "International law",
-          imp2Desc: "UN resolutions (194, 2334), ICJ advisory opinions, Geneva Convention violations — legal evidence of systematic discrimination.",
-          imp3Title: "Human rights monitoring",
-          imp3Desc: "B'Tselem, HRW, Amnesty, Al Mezan, Yesh Din — cross-referenced reports from Israeli and international organizations.",
-          imp4Title: "Academic consensus",
-          imp4Desc: "Ilan Pappé, Yehouda Shenhav, Rashid Khalidi, Robert Malley, Jerusalem Declaration — scholarship that refuses to be silenced.",
-          featuredTitle: "Featured articles",
-          viewAll: "View all cards",
-          featured1Title: "1948 Nakba",
-          featured1Desc: "Plan Dalet, 418 villages destroyed, 750,000 refugees — the ethnic cleansing of Palestine, documented.",
-          featured2Title: "Water discrimination",
-          featured2Desc: "Settlers: 300L/day, Palestinians: 80L. 90% Gaza water undrinkable. World Bank, B'Tselem, Amnesty.",
-          featured3Title: "Oslo betrayal",
-          featured3Desc: "1993: 110k settlers → 2024: 720k. 150+ outposts built. Peace Now: 'Oslo institutionalized the occupation.'",
-          ctaTitle: "12 evidence dossiers — one click away",
-          ctaDesc: "Military justice apartheid, absentee property, heritage theft, Gaza siege, 'no partner' myth, and more.",
-          ctaBtn: "Explore all cards",
-          footerText: "© 2026 Kasr Alsamt — documented counter-narratives. All evidence cross-referenced.",
-          footerCredits: "Design: Truth • Story • Support"
-        },
-        ar: {
-          logo: "قصر الصمت",
-          tagline: "حقيقة • قصة • دعم",
-          home: "الرئيسية",
-          listing: "القائمة",
-          about: "حول",
-          search: "ابحث في المقالات...",
-          heroTitle: "مواجهة الدعاية بالأدلة",
-          heroDesc: "تعتمد الدعاية الصهيونية على الأساطير والمحو والتشويه. هذا المشروع يوثق بشكل منهجي المصادر الأولية والسجلات الأرشيفية والنتائج المؤسسية — كل حالة تكشف زيفاً محدداً بأدلة قابلة للتحقق. هدفنا: الحقيقة والمساءلة والعدالة التاريخية.",
-          imp1Title: "مصادر أولية",
-          imp1Desc: "أرشيف جيش الاحتلال المُفرج عنه، تقارير مراقب الدولة الإسرائيلي، إحصاءات عثمانية وبريطانية — نخرج الوثائق إلى النور.",
-          imp2Title: "قانون دولي",
-          imp2Desc: "قرارات الأمم المتحدة (١٩٤، ٢٣٣٤)، فتاوى محكمة العدل الدولية، انتهاكات اتفاقية جنيف — أدلة قانونية على التمييز المنهجي.",
-          imp3Title: "رصد حقوق الإنسان",
-          imp3Desc: "بتسيلم، هيومن رايتس ووتش، العفو الدولية، الميزان، يش دين — تقارير متقاطعة من منظمات إسرائيلية ودولية.",
-          imp4Title: "إجماع أكاديمي",
-          imp4Desc: "إيلان بابيه، يهودا شينهاف، رشيد خالدي، روبرت مالي، إعلان القدس — دراسات أكاديمية ترفض الصمت.",
-          featuredTitle: "مقالات مميزة",
-          viewAll: "عرض كل البطاقات",
-          featured1Title: "النكبة ١٩٤٨",
-          featured1Desc: "خطة دالت، تدمير ٤١٨ قرية، ٧٥٠ ألف لاجئ — التطهير العرقي لفلسطين موثقاً.",
-          featured2Title: "التمييز في المياه",
-          featured2Desc: "المستوطنون: ٣٠٠ لتر/يوم، الفلسطينيون: ٨٠ لتر. ٩٠٪ من مياه غزة غير صالحة. البنك الدولي، بتسيلم، العفو الدولية.",
-          featured3Title: "خيانة أوسلو",
-          featured3Desc: "١٩٩٣: ١١٠ آلاف مستوطن ← ٢٠٢٤: ٧٢٠ ألفاً. أكثر من ١٥٠ بؤرة استيطانية. السلام الآن: 'أوسلو أسست الاحتلال.'",
-          ctaTitle: "١٢ ملف أدلة — على بعد نقرة واحدة",
-          ctaDesc: "أبرتهايد القضاء العسكري، أملاك الغائبين، سرقة التراث، حصار غزة، أسطورة 'لا شريك'، والمزيد.",
-          ctaBtn: "استكشف كل البطاقات",
-          footerText: "© ٢٠٢٦ قصر الصمت — روايات موثقة مضادة. جميع الأدلة متقاطعة المصادر.",
-          footerCredits: "تصميم: حقيقة • قصة • دعم"
-        }
-      };
-
-      // ---------- Language setter ----------
-      function setLanguage(lang) {
-        const isArabic = lang === 'ar';
-        if (isArabic) {
-          body.classList.add('rtl');
-          langToggle.textContent = 'EN';
-        } else {
-          body.classList.remove('rtl');
-          langToggle.textContent = 'AR';
-        }
-
-        // Update all elements with data-key attributes
-        document.querySelectorAll('[data-key]').forEach(el => {
-          const key = el.dataset.key;
-          if (translations[lang] && translations[lang][key]) {
-            if (el.tagName === 'INPUT' && el.placeholder !== undefined) {
-              el.placeholder = translations[lang][key];
-            } else {
-              el.innerText = translations[lang][key];
-            }
-          }
-        });
-      }
-
-      // ---------- Event listeners ----------
-      langToggle.addEventListener('click', function() {
-        const currentLang = body.classList.contains('rtl') ? 'en' : 'ar';
-        setLanguage(currentLang);
-      });
-
-      // Initialize: English
-      setLanguage('en');
-
-      // ---------- Search: redirect to listing.html with query param ----------
-      function performSearch() {
-        const query = searchInput.value.trim();
-        if (query) {
-          window.location.href = `listing.html?search=${encodeURIComponent(query)}`;
-        } else {
-          window.location.href = 'listing.html';
-        }
-      }
-
-      searchBtn.addEventListener('click', performSearch);
-      searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          performSearch();
-        }
-      });
-
-    })();
-  </script>
-
-  <!-- style.css is not needed; we embedded all styles. For external linking you can add <link> if needed -->
 </body>
 </html>

@@ -1,62 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us · Kasr Alsamt</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+  <!-- Google Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,1" />
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* ---------- ABOUT PAGE SPECIFIC STYLES ---------- */
+    .about-wrapper {
+      max-width: 1280px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      width: 100%;
+    }
 
+    /* Hero section */
+    .about-hero {
+      background: linear-gradient(105deg, #f9f3ef 0%, #fefcf9 100%);
+      padding: 3rem 1.5rem;
+      border-radius: 40px;
+      margin: 1.5rem 0 2.5rem;
+      border: 1px solid #f1e4dc;
+      box-shadow: 0 10px 28px -12px rgba(70, 50, 40, 0.06);
+      text-align: center;
+    }
+
+    .about-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #1e2e3b;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-hero h1 i {
+      color: #9b6b43;
+      margin-right: 12px;
+    }
+
+    .about-hero p {
+      font-size: 1.2rem;
+      color: #3b4a54;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Mission grid */
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .mission-card {
+      background: white;
+      padding: 2rem 1.8rem;
+      border-radius: 28px;
+      border: 1px solid #efe3db;
+      box-shadow: 0 8px 20px -8px rgba(70,50,40,0.04);
+      transition: 0.18s;
+      text-align: center;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-5px);
+      border-color: #c9b2a2;
+    }
+
+    .mission-card i {
+      font-size: 2.5rem;
+      color: #8f6b4f;
+      margin-bottom: 1rem;
+    }
+
+    .mission-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2d3e49;
+      margin-bottom: 0.8rem;
+    }
+
+    .mission-card p {
+      font-size: 0.98rem;
+      color: #4f5e64;
+      line-height: 1.6;
+    }
+
+    /* Story section */
+    .story-section {
+      background: #1e3c4c;
+      color: white;
+      padding: 3rem 2.5rem;
+      border-radius: 48px;
+      margin: 3rem 0;
+    }
+
+    .story-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .story-section h2 i {
+      color: #e6b17e;
+      margin-right: 12px;
+    }
+
+    .story-section p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      opacity: 0.95;
+      max-width: 900px;
+    }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .stat-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 28px;
+      border: 1px solid #efe3db;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #9b6b43;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: #4f5e64;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    /* Principles */
+    .principles-section {
+      margin: 3rem 0;
+    }
+
+    .principles-title {
+      font-size: 1.9rem;
+      font-weight: 650;
+      color: #2a3a42;
+      border-left: 6px solid #9b6b43;
+      padding-left: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .principle-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: white;
+      padding: 1.2rem 1.5rem;
+      border-radius: 40px;
+      border: 1px solid #efe3db;
+    }
+
+    .principle-item i {
+      color: #9b6b43;
+      font-size: 1.5rem;
+    }
+
+    .principle-item span {
+      color: #1e2e3b;
+      font-weight: 500;
+    }
+
+    /* RTL adjustments */
+    body.rtl .about-hero h1 i {
+      margin-left: 12px;
+      margin-right: 0;
+    }
+
+    body.rtl .principles-title {
+      border-left: none;
+      border-right: 6px solid #9b6b43;
+      padding-left: 0;
+      padding-right: 1.2rem;
+    }
+
+    body.rtl .principle-item {
+      flex-direction: row-reverse;
+    }
+
+    body.rtl .story-section h2 i {
+      margin-left: 12px;
+      margin-right: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .mission-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 680px) {
+      .mission-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .principles-grid { grid-template-columns: 1fr; }
+      .about-hero h1 { font-size: 2rem; }
+    }
+  </style>
 </head>
 <body>
 
-    
-<header class="blog-header">
-  <div class="container">
-    
-    <div class="logo">
-<h1 data-key="logo">kasr alsamt</h1><span data-key="tagline">Truth • Story • Support</span>    </div>
+  <!-- ============ TOP HEADER ============ -->
+  <div class="top-header">
+    <div class="container top-header-container">
+      <div class="social-icons">
+        <a href="#" class="social-icon" aria-label="Twitter">
+          <span class="material-symbols-outlined">X</span>
+        </a>
+        <a href="#" class="social-icon" aria-label="Instagram">
+          <span class="material-symbols-outlined">photo_camera</span>
+        </a>
+      </div>
+      <a href="report/report.html" class="propaganda-btn" data-key="reportBtn">Report a Propaganda</a>
+    </div>
+  </div>
 
-<nav class="nav">
-  <a href="index.html" data-key="home">Home</a>
-  <a href="listing.html" data-key="listing">Listing</a>
-  <a href="about.html" data-key="about">About</a>
+  <!-- ============ MAIN HEADER ============ -->
+  <header class="blog-header">
+    <div class="container">
+      <div class="logo">
+        <h1 data-key="logo">kasr alsamt</h1>
+        <span data-key="tagline">Truth • Story • Support</span>
+      </div>
 
-</nav>
+      <nav class="nav">
+        <a href="index.html" data-key="home">Home</a>
+        <a href="listing.html" data-key="listing">Listing</a>
+        <a href="about.html" class="active" data-key="about">About</a>
+        <a href="contact.html" data-key="contact">Contact</a>
+      </nav>
 
-    <!-- <div class="search-box">
-      <input type="text" placeholder="Search articles...">
-    </div> -->
+      <button id="lang-toggle" class="lang-btn" data-key="langBtn">AR</button>
+    </div>
+  </header>
 
-    <button id="lang-toggle" class="lang-btn">AR</button>
+  <!-- ============ SEARCH SECTION ============ -->
+  <div class="search-wrapper">
+    <div class="search-container">
+      <input type="text" id="searchInput" data-key="search" placeholder="Search articles..." />
+      <button type="submit" id="searchBtn" aria-label="Search">🔍</button>
+    </div>
+  </div>
 
+  <!-- ============ ABOUT CONTENT ============ -->
+  <div class="about-wrapper">
+
+    <!-- Hero -->
+    <div class="about-hero">
+      <h1>
+        <i class="fas fa-book-open"></i> 
+        <span data-key="aboutTitle">About Kasr Alsamt</span>
+      </h1>
+      <p data-key="aboutSubtitle">Documenting truth through evidence, challenging propaganda with facts — a systematic archive of primary sources.</p>
+    </div>
+
+    <!-- Mission Cards -->
+    <div class="mission-grid">
+      <div class="mission-card">
+        <i class="fas fa-scroll"></i>
+        <h3 data-key="mission1Title">Document</h3>
+        <p data-key="mission1Text">We collect and preserve declassified archives, official reports, and institutional findings that expose propaganda.</p>
+      </div>
+      
+      <div class="mission-card">
+        <i class="fas fa-scale-balanced"></i>
+        <h3 data-key="mission2Title">Verify</h3>
+        <p data-key="mission2Text">Every claim cross-referenced with multiple sources — UN documents, human rights reports, and academic research.</p>
+      </div>
+      
+      <div class="mission-card">
+        <i class="fas fa-bullhorn"></i>
+        <h3 data-key="mission3Title">Expose</h3>
+        <p data-key="mission3Text">We make evidence accessible, dismantling myths through verifiable facts and primary documentation.</p>
+      </div>
+    </div>
+
+    <!-- Story Section -->
+    <div class="story-section">
+      <h2>
+        <i class="fas fa-clock"></i>
+        <span data-key="storyTitle">Our Story</span>
+      </h2>
+      <p data-key="storyText">Founded in 2019, Kasr Alsamt emerged from a collective of researchers, historians, and human rights advocates who recognized that propaganda thrives in darkness. By bringing primary sources to light — from declassified IDF archives to UN resolutions and human rights monitoring — we created an accessible repository of evidence. Today, our archive contains over 1,000 primary sources, each challenging a specific falsehood with verifiable documentation. Our commitment remains: truth, accountability, and historical justice.</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">50+</div>
+        <div class="stat-label" data-key="statEvidence">Evidence Dossiers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">1,000+</div>
+        <div class="stat-label" data-key="statSources">Primary Sources</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2019</div>
+        <div class="stat-label" data-key="statFounded">Founded</div>
+      </div>
+    </div>
+
+    <!-- Principles -->
+    <div class="principles-section">
+      <h2 class="principles-title" data-key="principlesTitle">Our Principles</h2>
+      <div class="principles-grid">
+        <div class="principle-item">
+          <i class="fas fa-check-circle"></i>
+          <span data-key="principle1">Evidence-based research only</span>
+        </div>
+        <div class="principle-item">
+          <i class="fas fa-check-circle"></i>
+          <span data-key="principle2">Cross-referenced sources</span>
+        </div>
+        <div class="principle-item">
+          <i class="fas fa-check-circle"></i>
+          <span data-key="principle3">Primary documentation</span>
+        </div>
+        <div class="principle-item">
+          <i class="fas fa-check-circle"></i>
+          <span data-key="principle4">Accessible to all</span>
+        </div>
+      </div>
+    </div>
 
   </div>
-</header>
 
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer container">
+    <div>
+      <p data-key="footerText">© 2026 Kasr Alsamt — documented counter-narratives. All evidence cross-referenced.</p>
+    </div>
+    <div>
+      <span data-key="footerCredits">Design: Truth • Story • Support</span>
+    </div>
+  </footer>
 
-
-
-<div class="search-wrapper">
-  <div class="search-container">
-<input type="text" data-key="search" placeholder="Search articles..." />    <button type="submit">🔍</button>
-  </div>
-</div>
-
-
-
-<h1 data-key="about-title">About Us</h1>
-
-
-
-
-
-<script src="script.js"></script>
-
-
-
-
-
+  <script src="script.js"></script>
 </body>
 </html>
