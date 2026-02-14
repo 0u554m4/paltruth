@@ -1563,7 +1563,10 @@
             function performSearch() {
                 const query = searchInput.value.trim();
                 if (query) {
-                    window.location.href = `listing.html?search=${encodeURIComponent(query)}`;
+                    // Handle path correctly whether in root or lists/ subdirectory
+                    const isListsDir = window.location.pathname.includes('/lists/');
+                    const listingPath = isListsDir ? '../listing.html' : 'listing.html';
+                    window.location.href = `${listingPath}?search=${encodeURIComponent(query)}`;
                 } else {
                     window.location.href = 'listing.html';
                 }
