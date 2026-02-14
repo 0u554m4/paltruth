@@ -183,7 +183,7 @@ body.rtl .social-icons {
     border-radius: 60px;
     border: 1px solid #dccfc4;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
 .search-container input {
@@ -230,27 +230,27 @@ main {
         gap: 0.5rem;
         text-align: center;
     }
-    
+
     .social-icons {
         gap: 1.5rem;
     }
-    
+
     .blog-header .container {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
     }
-    
+
     .nav {
         gap: 1.5rem;
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .search-container {
         margin: 0 1rem;
     }
-    
+
     .page-title {
         font-size: 2rem;
     }
@@ -259,4 +259,139 @@ main {
 /* Material Symbols specific adjustments */
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ---------- ARTICLE IMAGES ---------- */
+.article-image-container {
+    margin: 2rem 0 2.5rem;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #efe7e0;
+    background: #faf6f2;
+}
+
+.article-image {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+.article-image-icon {
+    width: 100%;
+    height: 300px;
+    background: #e8ddd4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    color: #9b6b43;
+}
+
+.image-caption {
+    padding: 0.8rem 1.2rem;
+    background: #f0e8e0;
+    color: #5a4a3c;
+    font-size: 0.85rem;
+    font-style: italic;
+    border-top: 1px solid #dccfc4;
+}
+
+.image-caption i {
+    color: #9b6b43;
+    margin-right: 0.5rem;
+}
+
+body.rtl .image-caption i {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .article-image-icon {
+        height: 200px;
+        font-size: 4rem;
+    }
+}
+
+/* ---------- CARD IMAGES (LISTING) ---------- */
+.card-image {
+    width: 100%;
+    height: 200px;
+    /* Consistent height for listing cards */
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    background-color: #f0e8e0;
+    display: block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow for depth */
+}
+
+/* ---------- MODERN ANIMATIONS & INDEX STYLES ---------- */
+
+/* Fade In Scroll Animation */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Featured Article Images (Index Highlight) */
+.featured-img {
+    background: #ebdfd6;
+    height: 220px;
+    /* Taller for better visual impact */
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    display: block;
+    /* Ensure block display */
+}
+
+/* Remove old icon styling if present in HTML, but image takes over */
+.featured-img i {
+    display: none;
+    /* Hide icons if they mistakenly remain */
+}
+
+.featured-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Smooth ease-out-quad */
+    display: block;
+}
+
+/* Hover Effect */
+.featured-card:hover .featured-img img {
+    transform: scale(1.08);
+    /* Slightly stronger zoom */
+}
+
+/* Add subtle overlay gradient to image bottom for depth */
+.featured-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.featured-card:hover .featured-img::after {
+    opacity: 1;
 }

@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kasr Alsamt · Home</title>
   <link rel="stylesheet" href="style.css">
   <!-- Google Fonts: Cairo for Arabic, Inter as fallback -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Google Material Symbols -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,1" />
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-      <style>
+  <!-- Google Material Symbols -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,1" />
 
-
-
-
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  <style>
     /* ---------- HERO / PROJECT IMPORTANCE SECTION ---------- */
     .hero {
       background: linear-gradient(105deg, #f9f3ef 0%, #fefcf9 100%);
@@ -62,7 +62,7 @@
       padding: 1.8rem 1.5rem;
       border-radius: 28px;
       border: 1px solid #efe3db;
-      box-shadow: 0 8px 20px -8px rgba(70,50,40,0.04);
+      box-shadow: 0 8px 20px -8px rgba(70, 50, 40, 0.04);
       transition: 0.18s;
     }
 
@@ -141,7 +141,7 @@
       border-radius: 24px;
       overflow: hidden;
       border: 1px solid #ede3db;
-      box-shadow: 0 8px 18px -6px rgba(60,45,35,0.06);
+      box-shadow: 0 8px 18px -6px rgba(60, 45, 35, 0.06);
       transition: 0.2s;
       text-decoration: none;
       color: inherit;
@@ -225,7 +225,7 @@
       font-size: 1.2rem;
       text-decoration: none;
       transition: 0.15s;
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .cta-btn:hover {
@@ -247,15 +247,34 @@
 
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 980px) {
-      .featured-grid { grid-template-columns: repeat(2, 1fr); }
+      .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 680px) {
-      .featured-grid { grid-template-columns: 1fr; }
-      .blog-header .container { flex-direction: column; gap: 1rem; }
-      .nav { gap: 1.2rem; }
-      .hero h2 { font-size: 1.8rem; }
-      .cta-banner { flex-direction: column; text-align: center; gap: 1.5rem; }
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-header .container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .nav {
+        gap: 1.2rem;
+      }
+
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      .cta-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+      }
     }
 
     /* RTL adjustments */
@@ -263,20 +282,23 @@
       margin-left: 12px;
       margin-right: 0;
     }
+
     body.rtl .section-title h2 {
       border-left: none;
       border-right: 6px solid #9b6b43;
       padding-left: 0;
       padding-right: 1.2rem;
     }
+
     body.rtl .view-all i {
       transform: scaleX(-1);
     }
   </style>
 </head>
+
 <body>
 
-  
+
 
   <!-- ============ TOP HEADER ============ -->
   <div class="top-header">
@@ -323,48 +345,52 @@
 
 
 
-    
+
   <!-- ============ MAIN CONTENT ============ -->
   <div class="container">
 
     <!-- ***** HERO / PROJECT IMPORTANCE ***** -->
-    <section class="hero">
+    <section class="hero fade-in-section">
       <h2>
-        <i class="fas fa-scale-balanced"></i> 
+        <i class="fas fa-scale-balanced"></i>
         <span data-key="heroTitle">Countering propaganda with evidence</span>
       </h2>
       <p data-key="heroDesc">
-        Zionist propaganda relies on myths, erasure, and distortion. This project systematically documents 
-        primary sources, archival records, and institutional findings — each case exposes a specific falsehood 
+        Zionist propaganda relies on myths, erasure, and distortion. This project systematically documents
+        primary sources, archival records, and institutional findings — each case exposes a specific falsehood
         with verifiable evidence. Our goal: truth, accountability, and historical justice.
       </p>
-      
+
       <div class="importance-grid">
         <div class="importance-card">
           <i class="fas fa-file-lines"></i>
           <h3 data-key="imp1Title">Primary sources</h3>
-          <p data-key="imp1Desc">Declassified IDF archives, Israeli state comptroller reports, Ottoman & British censuses — we bring the documents to light.</p>
+          <p data-key="imp1Desc">Declassified IDF archives, Israeli state comptroller reports, Ottoman & British
+            censuses — we bring the documents to light.</p>
         </div>
         <div class="importance-card">
           <i class="fas fa-gavel"></i>
           <h3 data-key="imp2Title">International law</h3>
-          <p data-key="imp2Desc">UN resolutions (194, 2334), ICJ advisory opinions, Geneva Convention violations — legal evidence of systematic discrimination.</p>
+          <p data-key="imp2Desc">UN resolutions (194, 2334), ICJ advisory opinions, Geneva Convention violations — legal
+            evidence of systematic discrimination.</p>
         </div>
         <div class="importance-card">
           <i class="fas fa-people-group"></i>
           <h3 data-key="imp3Title">Human rights monitoring</h3>
-          <p data-key="imp3Desc">B'Tselem, HRW, Amnesty, Al Mezan, Yesh Din — cross-referenced reports from Israeli and international organizations.</p>
+          <p data-key="imp3Desc">B'Tselem, HRW, Amnesty, Al Mezan, Yesh Din — cross-referenced reports from Israeli and
+            international organizations.</p>
         </div>
         <div class="importance-card">
           <i class="fas fa-book-open"></i>
           <h3 data-key="imp4Title">Academic consensus</h3>
-          <p data-key="imp4Desc">Ilan Pappé, Yehouda Shenhav, Rashid Khalidi, Robert Malley, Jerusalem Declaration — scholarship that refuses to be silenced.</p>
+          <p data-key="imp4Desc">Ilan Pappé, Yehouda Shenhav, Rashid Khalidi, Robert Malley, Jerusalem Declaration —
+            scholarship that refuses to be silenced.</p>
         </div>
       </div>
     </section>
 
     <!-- ***** FEATURED ARTICLES (teasers linking to listing.html) ***** -->
-    <section class="featured-section">
+    <section class="featured-section fade-in-section">
       <div class="section-title">
         <h2 data-key="featuredTitle"><i class="fas fa-star"></i> Featured articles</h2>
         <a href="listing.html" class="view-all" data-key="viewAll">
@@ -374,13 +400,14 @@
 
       <div class="featured-grid">
         <!-- Card 1 - Nakba (teaser) -->
-        <a href="nakba.html" class="featured-card">
+        <a href="lists/nakba.html" class="featured-card">
           <div class="featured-img">
-            <i class="fas fa-house-crack"></i>
+            <img src="lists/img/nakba.jpg" alt="1948 Nakba">
           </div>
           <div class="featured-content">
             <h3 data-key="featured1Title">1948 Nakba</h3>
-            <p data-key="featured1Desc">Plan Dalet, 418 villages destroyed, 750,000 refugees — the ethnic cleansing of Palestine, documented.</p>
+            <p data-key="featured1Desc">Plan Dalet, 418 villages destroyed, 750,000 refugees — the ethnic cleansing of
+              Palestine, documented.</p>
             <div class="featured-meta">
               <span><i class="fas fa-file-contract"></i> Ilan Pappé</span>
               <span>📄 1948</span>
@@ -389,13 +416,14 @@
         </a>
 
         <!-- Card 2 - Water apartheid -->
-        <a href="watdis.html" class="featured-card">
+        <a href="lists/watdis.html" class="featured-card">
           <div class="featured-img">
-            <i class="fas fa-water"></i>
+            <img src="lists/img/watdis.jpg" alt="Water discrimination">
           </div>
           <div class="featured-content">
             <h3 data-key="featured2Title">Water discrimination</h3>
-            <p data-key="featured2Desc">Settlers: 300L/day, Palestinians: 80L. 90% Gaza water undrinkable. World Bank, B'Tselem, Amnesty.</p>
+            <p data-key="featured2Desc">Settlers: 300L/day, Palestinians: 80L. 90% Gaza water undrinkable. World Bank,
+              B'Tselem, Amnesty.</p>
             <div class="featured-meta">
               <span><i class="fas fa-droplet"></i> HRW 2021</span>
               <span>📄 2023</span>
@@ -404,13 +432,14 @@
         </a>
 
         <!-- Card 3 - Oslo betrayal -->
-        <a href="osbet.html" class="featured-card">
+        <a href="lists/osbet.html" class="featured-card">
           <div class="featured-img">
-            <i class="fas fa-file-signature"></i>
+            <img src="lists/img/osbet.jpg" alt="Oslo betrayal">
           </div>
           <div class="featured-content">
             <h3 data-key="featured3Title">Oslo betrayal</h3>
-            <p data-key="featured3Desc">1993: 110k settlers → 2024: 720k. 150+ outposts built. Peace Now: 'Oslo institutionalized the occupation.'</p>
+            <p data-key="featured3Desc">1993: 110k settlers → 2024: 720k. 150+ outposts built. Peace Now: 'Oslo
+              institutionalized the occupation.'</p>
             <div class="featured-meta">
               <span><i class="fas fa-chart-line"></i> Peace Now</span>
               <span>📄 1993–2024</span>
@@ -421,10 +450,11 @@
     </section>
 
     <!-- ***** CTA BANNER - link to full listing ***** -->
-    <div class="cta-banner">
+    <div class="cta-banner fade-in-section">
       <div>
         <h3 data-key="ctaTitle">12 evidence dossiers — one click away</h3>
-        <p data-key="ctaDesc">Military justice apartheid, absentee property, heritage theft, Gaza siege, 'no partner' myth, and more.</p>
+        <p data-key="ctaDesc">Military justice apartheid, absentee property, heritage theft, Gaza siege, 'no partner'
+          myth, and more.</p>
       </div>
       <a href="listing.html" class="cta-btn" data-key="ctaBtn">
         Explore all cards <i class="fas fa-arrow-right"></i>
@@ -448,4 +478,5 @@
   <script src="script.js"></script>
 
 </body>
+
 </html>
