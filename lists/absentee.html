@@ -567,13 +567,14 @@
       });
     });
   </script>
-        <!-- FIX SHARE BUTTONS JAVASCRIPT -->
+          <!-- FIX SHARE BUTTONS JAVASCRIPT -->
   <script>
   (function() {
       // Use the correct GitHub Pages URL
       const baseUrl = "https://0u554m4.github.io/paltruth";
       const currentPath = window.location.pathname;
       const currentUrl = encodeURIComponent(baseUrl + currentPath);
+      const rawUrl = baseUrl + currentPath; // For copying to clipboard
       
       const pageTitle = encodeURIComponent(document.title.replace(' | Kasr Alsamt', ''));
       
@@ -586,6 +587,7 @@
           { name: "LinkedIn", icon: "fab fa-linkedin-in", url: `https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}` },
           { name: "WhatsApp", icon: "fab fa-whatsapp", url: `https://api.whatsapp.com/send?text=${pageTitle}%20-%20${pageDesc}%20${currentUrl}` },
           { name: "Telegram", icon: "fab fa-telegram", url: `https://t.me/share/url?url=${currentUrl}&text=${pageTitle}%0A${pageDesc}` },
+          { name: "Discord", icon: "fab fa-discord", url: "#", action: "copy" },
           { name: "Reddit", icon: "fab fa-reddit-alien", url: `https://www.reddit.com/submit?url=${currentUrl}&title=${pageTitle}` },
           { name: "Email", icon: "fas fa-envelope", url: `mailto:?subject=${pageTitle}&body=${pageDesc}%0A%0A${currentUrl}` }
       ];
@@ -596,9 +598,23 @@
           container.innerHTML = '';
           shares.forEach(platform => {
               const link = document.createElement('a');
-              link.href = platform.url;
-              link.target = '_blank';
-              link.rel = 'noopener noreferrer';
+              
+              if (platform.action === "copy") {
+                  link.href = "#";
+                  link.onclick = (e) => {
+                      e.preventDefault();
+                      navigator.clipboard.writeText(rawUrl).then(() => {
+                          alert("Link copied! Paste it in Discord.");
+                      }).catch(err => {
+                          console.error("Failed to copy linkage: ", err);
+                      });
+                  };
+              } else {
+                  link.href = platform.url;
+                  link.target = '_blank';
+                  link.rel = 'noopener noreferrer';
+              }
+              
               link.className = 'share-icon ' + platform.name.toLowerCase(); // preserve class if needed
               link.setAttribute('aria-label', platform.name);
               link.innerHTML = `<i class="${platform.icon}"></i>`;
