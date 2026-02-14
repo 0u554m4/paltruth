@@ -540,7 +540,7 @@
     </div>
   </footer>
   <script src="../script.js"></script>
-      <!-- FIX SHARE BUTTONS JAVASCRIPT -->
+        <!-- FIX SHARE BUTTONS JAVASCRIPT -->
   <script>
   (function() {
       // Use the correct GitHub Pages URL
@@ -563,7 +563,8 @@
           { name: "Email", icon: "fas fa-envelope", url: `mailto:?subject=${pageTitle}&body=${pageDesc}%0A%0A${currentUrl}` }
       ];
 
-      const container = document.getElementById('shareIcons');
+      // Fix: Use querySelector for class instead of ID
+      const container = document.querySelector('.share-buttons');
       if (container) {
           container.innerHTML = '';
           shares.forEach(platform => {
@@ -571,7 +572,7 @@
               link.href = platform.url;
               link.target = '_blank';
               link.rel = 'noopener noreferrer';
-              link.className = 'share-icon';
+              link.className = 'share-icon ' + platform.name.toLowerCase(); // preserve class if needed
               link.setAttribute('aria-label', platform.name);
               link.innerHTML = `<i class="${platform.icon}"></i>`;
               container.appendChild(link);
