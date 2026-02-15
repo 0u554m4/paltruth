@@ -19,7 +19,7 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
-  <style>
+<style>
     /* ---------- HERO / PROJECT IMPORTANCE SECTION ---------- */
     .hero {
       background: linear-gradient(105deg, #f9f3ef 0%, #fefcf9 100%);
@@ -89,7 +89,344 @@
       color: #4f5e64;
     }
 
-    /* ---------- FEATURED ARTICLES (teasers linking to listing) ---------- */
+    /* ---------- PRISONERS BANNER (FULL WIDTH) - FIXED ---------- */
+    .prisoners-banner {
+      margin: 2.5rem 0 1.5rem;
+      width: 100%;
+      border-radius: 32px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a2c3a 0%, #2d3f4e 100%);
+      box-shadow: 0 20px 30px -10px rgba(20, 30, 40, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .prisoners-banner:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.35);
+    }
+
+    .prisoners-banner-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .prisoners-banner-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      min-height: 220px;
+    }
+
+    .prisoners-banner-image {
+      flex: 0 0 280px;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: #2d3f4e;
+      z-index: 1;
+    }
+
+    .prisoners-banner-image img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+
+    .prisoners-banner:hover .prisoners-banner-image img {
+      transform: scale(1.05);
+    }
+
+    .prisoners-banner-text {
+      flex: 1;
+      padding: 2rem 2rem 2rem 2rem;
+      color: white;
+      position: relative;
+      z-index: 2;
+      background: transparent;
+    }
+
+    .prisoners-banner-tag {
+      display: inline-block;
+      background: rgba(230, 177, 126, 0.2);
+      border: 1px solid #e6b17e;
+      color: #e6b17e;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.3rem 1.2rem;
+      border-radius: 30px;
+      margin-bottom: 1rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      width: fit-content;
+      backdrop-filter: blur(4px);
+    }
+
+    .prisoners-banner-text h3 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .prisoners-banner-text p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+      color: white;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .prisoners-banner-meta {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .prisoners-banner-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      color: #e6b17e;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 0.3rem 0.8rem;
+      border-radius: 30px;
+      backdrop-filter: blur(4px);
+    }
+
+    .prisoners-banner-meta i {
+      font-size: 1.2rem;
+      color: #e6b17e;
+    }
+
+    .prisoners-banner-arrow {
+      margin-left: auto;
+      background: rgba(230, 177, 126, 0.2);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(230, 177, 126, 0.3);
+      backdrop-filter: blur(4px);
+    }
+
+    .prisoners-banner:hover .prisoners-banner-arrow {
+      background: #e6b17e;
+      transform: translateX(6px);
+    }
+
+    .prisoners-banner-arrow i {
+      font-size: 1.4rem;
+      color: white;
+      transition: color 0.2s ease;
+    }
+
+    .prisoners-banner:hover .prisoners-banner-arrow i {
+      color: #1e2e3b;
+    }
+
+
+
+    /* ---------- HAGANAH BANNER (FULL WIDTH) ---------- */
+.haganah-banner {
+  margin: 2.5rem 0 1.5rem;
+  width: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #3d2a2a 0%, #5a3a3a 100%);
+  box-shadow: 0 20px 30px -10px rgba(100, 30, 30, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.haganah-banner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 35px -12px rgba(150, 40, 40, 0.35);
+}
+
+.haganah-banner-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.haganah-banner-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.haganah-banner-image {
+  width: 280px;
+  height: 220px;
+  overflow: hidden;
+  background: #3d2a2a;
+}
+
+.haganah-banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.haganah-banner:hover .haganah-banner-image img {
+  transform: scale(1.05);
+}
+
+.haganah-banner-text {
+  flex: 1;
+  min-width: 300px;
+  padding: 2rem;
+  color: white;
+  background: linear-gradient(135deg, #3d2a2a 0%, #5a3a3a 100%);
+}
+
+.haganah-banner-tag {
+  display: inline-block;
+  background: rgba(196, 62, 62, 0.2);
+  border: 1px solid #c43e3e;
+  color: #ff9e9e;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.3rem 1.2rem;
+  border-radius: 30px;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.haganah-banner-text h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.haganah-banner-text p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.haganah-banner-meta {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.haganah-banner-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: #ffb3b3;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 30px;
+  backdrop-filter: blur(4px);
+}
+
+.haganah-banner-meta i {
+  font-size: 1.2rem;
+  color: #ffb3b3;
+}
+
+.haganah-banner-arrow {
+  margin-left: auto;
+  background: rgba(196, 62, 62, 0.2);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(196, 62, 62, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+.haganah-banner:hover .haganah-banner-arrow {
+  background: #c43e3e;
+  transform: translateX(6px);
+}
+
+.haganah-banner-arrow i {
+  font-size: 1.4rem;
+  color: white;
+  transition: color 0.2s ease;
+}
+
+.haganah-banner:hover .haganah-banner-arrow i {
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .haganah-banner-image {
+    width: 220px;
+    height: 200px;
+  }
+  
+  .haganah-banner-text h3 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .haganah-banner-content {
+    flex-direction: column;
+  }
+  
+  .haganah-banner-image {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .haganah-banner-text {
+    padding: 1.5rem;
+  }
+  
+  .haganah-banner-meta {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+/* RTL adjustments */
+body.rtl .haganah-banner-arrow {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+body.rtl .haganah-banner:hover .haganah-banner-arrow {
+  transform: translateX(-6px);
+}
+
+    /* ---------- FEATURED ARTICLES ---------- */
     .featured-section {
       margin: 3.5rem 0 2rem;
     }
@@ -156,13 +493,26 @@
     }
 
     .featured-img {
-      background: #ebdfd6;
+      position: relative;
+      width: 100%;
       height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3.2rem;
-      color: #7c5e4a;
+      overflow: hidden;
+      background: #ebdfd6;
+    }
+
+    .featured-img img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease;
+    }
+
+    .featured-card:hover .featured-img img {
+      transform: scale(1.05);
     }
 
     .featured-content {
@@ -180,6 +530,7 @@
       color: #485c64;
       font-size: 0.95rem;
       margin-bottom: 0.8rem;
+      line-height: 1.5;
     }
 
     .featured-meta {
@@ -209,11 +560,13 @@
       font-size: 1.9rem;
       font-weight: 700;
       margin-bottom: 0.4rem;
+      color: white;
     }
 
     .cta-banner p {
       font-size: 1.1rem;
       opacity: 0.9;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     .cta-btn {
@@ -226,6 +579,9 @@
       text-decoration: none;
       transition: 0.15s;
       border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .cta-btn:hover {
@@ -249,6 +605,36 @@
     @media (max-width: 980px) {
       .featured-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .prisoners-banner-image {
+        flex: 0 0 220px;
+        height: 200px;
+      }
+      
+      .prisoners-banner-text h3 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .prisoners-banner-content {
+        flex-direction: column;
+      }
+      
+      .prisoners-banner-image {
+        flex: 0 0 auto;
+        width: 100%;
+        height: 200px;
+      }
+      
+      .prisoners-banner-text {
+        padding: 1.5rem;
+      }
+      
+      .prisoners-banner-meta {
+        flex-wrap: wrap;
+        gap: 1rem;
       }
     }
 
@@ -277,7 +663,7 @@
       }
     }
 
-    /* RTL adjustments */
+    /* ---------- RTL ADJUSTMENTS ---------- */
     body.rtl .hero h2 i {
       margin-left: 12px;
       margin-right: 0;
@@ -293,12 +679,23 @@
     body.rtl .view-all i {
       transform: scaleX(-1);
     }
-  </style>
+    
+    body.rtl .prisoners-banner-arrow {
+      margin-left: 0;
+      margin-right: auto;
+    }
+    
+    body.rtl .prisoners-banner:hover .prisoners-banner-arrow {
+      transform: translateX(-6px);
+    }
+    
+    body.rtl .cta-btn i {
+      transform: scaleX(-1);
+    }
+</style>
 </head>
 
 <body>
-
-
 
   <!-- ============ TOP HEADER ============ -->
   <div class="top-header">
@@ -342,12 +739,15 @@
     </div>
   </div>
 
-
-
-
-
   <!-- ============ MAIN CONTENT ============ -->
   <div class="container">
+
+
+
+
+
+
+    
 
     <!-- ***** HERO / PROJECT IMPORTANCE ***** -->
     <section class="hero fade-in-section">
@@ -380,19 +780,70 @@
           <p data-key="imp3Desc">B'Tselem, HRW, Amnesty, Al Mezan, Yesh Din — cross-referenced reports from Israeli and
             international organizations.</p>
         </div>
-        <div class="importance-card">
-          <i class="fas fa-book-open"></i>
-          <h3 data-key="imp4Title">Academic consensus</h3>
-          <p data-key="imp4Desc">Ilan Pappé, Yehouda Shenhav, Rashid Khalidi, Robert Malley, Jerusalem Declaration —
-            scholarship that refuses to be silenced.</p>
-        </div>
       </div>
     </section>
+
+
+
+    <!-- ***** PRISONERS BANNER (FULL WIDTH - TOP SPOT) ***** -->
+<div class="prisoners-banner fade-in-section">
+  <a href="articles/prisoners.html" class="prisoners-banner-link">
+    <div class="prisoners-banner-content">
+      <div class="prisoners-banner-image">
+        <img src="assets/img/prisoners.jpg" alt="Political prisoners">
+      </div>
+      <div class="prisoners-banner-text">
+        <span class="prisoners-banner-tag"><i class="fas fa-exclamation-triangle"></i> <span data-key="prisonersBannerTag">URGENT · 2024 REPORT</span></span>
+        <h3 data-key="prisonersBannerTitle">Political prisoners: 5,000+ detained</h3>
+        <p data-key="prisonersBannerDesc">Over 5,000 Palestinians in Israeli jails, including 200 children and 32 women. Administrative detention without charge or trial — systematic policy documented by Addameer, B'Tselem, and UN experts.</p>
+        <div class="prisoners-banner-meta">
+          <span><i class="fas fa-handcuffs"></i> <span data-key="prisonersBannerMeta1">Addameer 2024</span></span>
+          <span><i class="fas fa-calendar"></i> <span data-key="prisonersBannerMeta2">Updated monthly</span></span>
+          <span><i class="fas fa-child"></i> <span data-key="prisonersBannerMeta3">200 children</span></span>
+          <div class="prisoners-banner-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+
+
+
+<!-- ***** HAGANAH CRIMES BANNER (FULL WIDTH - TOP SPOT) ***** -->
+<div class="haganah-banner fade-in-section">
+  <a href="articles/haganah.html" class="haganah-banner-link">
+    <div class="haganah-banner-content">
+      <div class="haganah-banner-image">
+        <img src="assets/img/haganah-crimes.jpg" alt="Haganah crimes during Nakba">
+      </div>
+      <div class="haganah-banner-text">
+        <span class="haganah-banner-tag"><i class="fas fa-skull"></i> <span data-key="haganahBannerTag">WAR CRIMES · 1947-1948</span></span>
+        <h3 data-key="haganahBannerTitle">Haganah Massacres: 800+ Civilians Killed</h3>
+        <p data-key="haganahBannerDesc">Documented massacres by Haganah forces during the Nakba: Semiramis Hotel (24 killed), Balad al-Shaykh (60-70 killed), Deir Yassin (250 killed), and systematic destruction of 400+ villages. Evidence from Israeli historians Benny Morris and Ilan Pappé.</p>
+        <div class="haganah-banner-meta">
+          <span><i class="fas fa-bomb"></i> <span data-key="haganahBannerMeta1">15+ massacres</span></span>
+          <span><i class="fas fa-book"></i> <span data-key="haganahBannerMeta2">Benny Morris</span></span>
+          <span><i class="fas fa-un"></i> <span data-key="haganahBannerMeta3">UN records 1948</span></span>
+          <div class="haganah-banner-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+
+
+
+
+
 
     <!-- ***** FEATURED ARTICLES (teasers linking to listing.html) ***** -->
     <section class="featured-section fade-in-section">
       <div class="section-title">
-        <h2 data-key="featuredTitle"><i class="fas fa-star"></i> Featured articles</h2>
+        <h2 data-key="featuredTitle"><i class="fas fa-star"></i> More featured articles</h2>
         <a href="listing.html" class="view-all" data-key="viewAll">
           View all cards <i class="fas fa-arrow-right"></i>
         </a>
@@ -402,7 +853,7 @@
         <!-- Card 1 - Nakba (teaser) -->
         <a href="lists/nakba.html" class="featured-card">
           <div class="featured-img">
-            <img src="lists/img/nakba.jpg" alt="1948 Nakba">
+            <img src="assets/img/nakba.jpg" alt="1948 Nakba">
           </div>
           <div class="featured-content">
             <h3 data-key="featured1Title">1948 Nakba</h3>
@@ -418,7 +869,7 @@
         <!-- Card 2 - Water apartheid -->
         <a href="lists/watdis.html" class="featured-card">
           <div class="featured-img">
-            <img src="lists/img/watdis.jpg" alt="Water discrimination">
+            <img src="assets/img/watdis.jpg" alt="Water discrimination">
           </div>
           <div class="featured-content">
             <h3 data-key="featured2Title">Water discrimination</h3>
@@ -434,7 +885,7 @@
         <!-- Card 3 - Oslo betrayal -->
         <a href="lists/osbet.html" class="featured-card">
           <div class="featured-img">
-            <img src="lists/img/osbet.jpg" alt="Oslo betrayal">
+            <img src="assets/img/osbet.jpg" alt="Oslo betrayal">
           </div>
           <div class="featured-content">
             <h3 data-key="featured3Title">Oslo betrayal</h3>

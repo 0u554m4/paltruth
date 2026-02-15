@@ -710,7 +710,110 @@
             related2Oslo: "False 'No Partner'",
             related2DescOslo: "Narrative that Israel made unprecedented offers – omits continued colonization.",
             related3Oslo: "Military Justice Apartheid",
-            related3DescOslo: "Palestinians in military courts, settlers in civilian courts."
+            related3DescOslo: "Palestinians in military courts, settlers in civilian courts.",
+
+
+
+
+
+            // prisoners article page
+              // ... existing translations ...
+  
+  // PRISONERS PAGE
+  backToCards: "Back to all cards",
+  urgentBanner: "⚠️ URGENT: 1,200 administrative detainees on mass hunger strike ⚠️",
+  prisonersDeepTitle: "Palestinian Prisoners: Administrative Detention",
+  statTotal: "Total prisoners",
+  statAdmin: "Admin detainees",
+  statChildren: "Children",
+  prisonersSection1: "Administrative Detention",
+  prisonersQuote1: "\"Administrative detention violates Article 9 of UDHR.\" — B'Tselem",
+  prisonersText1: "Imprisonment without charge based on secret evidence. 300% increase since Oct 7.",
+  prisonersText2: "Journalists, medics, students held — defense impossible with secret files.",
+  prisonersText3: "Some held 5+ years without trial, orders renewed 10+ times.",
+  prisonersSection2: "Children in Prison",
+  prisonersText4: "200+ children detained, 850 in 2023 — highest since 2008. Age 12+.",
+  prisonersText5: "70% report violence during arrest. \"Stone-throwing\" carries 20 years.",
+  prisonersText6: "UNICEF: Only country prosecuting children in military courts, 99% conviction.",
+  prisonersSection3: "Torture",
+  prisonersQuote2: "\"Dramatic rise in torture since Oct 2023.\" — PCATI",
+  prisonersText7: "Detainees beaten, hooded, forced to crawl on broken glass.",
+  prisonersText8: "Fractures, kidney failure, denied medical care — Physicians for Human Rights.",
+  prisonersText9: "UN: Conditions in Sde Teiman constitute degrading treatment.",
+  prisonersSection4: "Hunger Strikes",
+  prisonersText10: "1,200 on strike demanding: end admin detention, family visits, medical care.",
+  prisonersText11: "23 hospitalized with organ failure. Force-feeding reported.",
+  prisonersText12: "Khader Adnan died 2023 after 87 days. Harshest conditions in decades.",
+  prisonersSection5: "International Law",
+  prisonersQuote3: "\"Transfer of prisoners inside Israel breaches Geneva Convention.\" — ICRC",
+  prisonersText13: "ICRC denied access to hundreds. Article 76 violated.",
+  prisonersText14: "Amnesty: Admin detention + torture = war crimes.",
+  prisonersText15: "UNSCR 242 affirms Geneva Conventions apply in OPT.",
+  deathThreatStatement: "<strong>DEATH THREAT:</strong> 1,200 strikers beyond 100 days face organ failure. 6 died since Oct 7. Intervention needed within days.",
+  actionUrgent: "Sign Appeal",
+  actionParliament: "Contact Parliament",
+  downloadTextPrisoners: "Full dossier (47 testimonies)",
+  downloadBtn: "Download",
+  prisonersCitation1: "B'Tselem 2024",
+  prisonersCitation2: "Addameer",
+  prisonersCitation3: "PHR-Israel",
+  prisonersCitation4: "UNHRC",
+  prisonersCitation5: "DCI-Palestine",
+  relatedCards: "Related Evidence",
+  related1Prisoners: "Systematic Torture",
+  related1DescPrisoners: "Testimonies since Oct 2023",
+  related2Prisoners: "Child Detention",
+  related2DescPrisoners: "Military courts targeting children",
+  related3Prisoners: "History of Arrests",
+  related3DescPrisoners: "1M+ detained since 1967",
+
+    // ... existing translations ...
+  
+  // PRISONERS BANNER
+  prisonersBannerTag: "URGENT · 2024 REPORT",
+  prisonersBannerTitle: "Political prisoners: 5,000+ detained",
+  prisonersBannerDesc: "Over 5,000 Palestinians in Israeli jails, including 200 children and 32 women. Administrative detention without charge or trial — systematic policy documented by Addameer, B'Tselem, and UN experts.",
+  prisonersBannerMeta1: "Addameer 2024",
+  prisonersBannerMeta2: "Updated monthly",
+  prisonersBannerMeta3: "200 children",
+
+
+
+
+  // Add to your 'en' section in script.js
+
+// HAGANAH CRIMES ARTICLE - ENGLISH
+haganahTag: "War Crimes · 1947-1948",
+haganahTitle: "Haganah Crimes: Systematic Massacres During the Nakba",
+haganahIntro: "The Haganah, which later became the core of the Israeli army, committed numerous massacres against Palestinian civilians during the 1947-1948 Nakba. These attacks were systematic, targeting villages, hotels, and civilian neighborhoods.",
+
+haganahSemiramisTitle: "⚡ Semiramis Hotel Bombing (January 5, 1948)",
+haganahSemiramisText: "Haganah forces bombed the Christian-owned Semiramis Hotel in Jerusalem's Katamon neighborhood, killing 24-26 civilians including women, children, and the Spanish vice-consul. The British authorities condemned it as 'wholesale murder of innocent people.'",
+
+haganahBaladTitle: "⚡ Balad al-Shaykh Massacre (December 31, 1947 - January 1, 1948)",
+haganahBaladText: "Palmach units attacked the village while residents slept, with orders to 'kill maximum adult males.' Between 60-70 villagers—men, women, and children—were killed in their homes. The attack destroyed dozens of houses.",
+
+haganahDeirYassinTitle: "⚡ Deir Yassin Massacre (April 9, 1948)",
+haganahDeirYassinText: "Irgun and Lehi forces, with Haganah support, attacked Deir Yassin, killing approximately 250 Palestinians—including women, children, and elderly. Survivors reported rapes, mutilations, and mass executions. The International Red Cross described finding 150 bodies in one cave. A British report called it 'circumstances of great savagery.'",
+
+haganahOperationsTitle: "⚡ Systematic Village Destruction",
+haganahOperationsText: "Operation Nachshon (April 1948) cleared villages along the Tel Aviv-Jerusalem highway. Benny Morris describes it as 'clearing a whole area permanently of Arab villages.' Qalunya was destroyed with 'a score of houses blown up, leaving the entire village ablaze.'",
+
+haganahCitation1: "Morris, Benny. 'The Birth of the Palestinian Refugee Problem.'",
+haganahCitation2: "Pappé, Ilan. 'The Ethnic Cleansing of Palestine.'",
+haganahCitation3: "UN Palestine Commission Records 1948",
+
+
+// haganah banner
+// Add to 'en' section
+haganahBannerTag: "WAR CRIMES · 1947-1948",
+haganahBannerTitle: "Haganah Massacres: 800+ Civilians Killed",
+haganahBannerDesc: "Documented massacres by Haganah forces during the Nakba: Semiramis Hotel (24 killed), Balad al-Shaykh (60-70 killed), Deir Yassin (250 killed), and systematic destruction of 400+ villages. Evidence from Israeli historians Benny Morris and Ilan Pappé.",
+haganahBannerMeta1: "15+ massacres",
+haganahBannerMeta2: "Benny Morris",
+haganahBannerMeta3: "UN records 1948",
+            
+
 
 
 
@@ -1421,7 +1524,111 @@
             related2Oslo: "لا شريك' كاذب'",
             related2DescOslo: "رواية أن إسرائيل قدمت عروضاً غير مسبوقة – تتجاهل الاستعمار المستمر.",
             related3Oslo: "أبرتهايد القضاء العسكري",
-            related3DescOslo: "فلسطينيون أمام محاكم عسكرية، مستوطنون أمام محاكم مدنية."
+            related3DescOslo: "فلسطينيون أمام محاكم عسكرية، مستوطنون أمام محاكم مدنية.",
+
+
+
+
+
+            // prisoners page
+              // ... existing translations ...
+  
+  // PRISONERS PAGE
+  backToCards: "العودة إلى جميع البطاقات",
+  urgentBanner: "⚠️ عاجل: ١٢٠٠ معتقل إداري في إضراب مفتوح عن الطعام ⚠️",
+  prisonersDeepTitle: "الأسرى الفلسطينيون: الاعتقال الإداري",
+  statTotal: "إجمالي الأسرى",
+  statAdmin: "معتقلون إداريون",
+  statChildren: "أطفال",
+  prisonersSection1: "الاعتقال الإداري",
+  prisonersQuote1: "\"الاعتقال الإداري ينتهك المادة ٩ من الإعلان العالمي لحقوق الإنسان.\" — بتسيلم",
+  prisonersText1: "سجن بدون تهمة بناء على أدلة سرية. زيادة ٣٠٠٪ منذ ٧ أكتوبر.",
+  prisonersText2: "صحفيون، مسعفون، طلاب معتقلون — الاستحالة الدفاع مع ملفات سرية.",
+  prisonersText3: "بعضهم معتقل ٥+ سنوات بدون محاكمة، تجديد الأوامر ١٠+ مرات.",
+  prisonersSection2: "الأطفال في السجون",
+  prisonersText4: "٢٠٠+ طفل معتقل، ٨٥٠ في ٢٠٢٣ — الأعلى منذ ٢٠٠٨. من عمر ١٢ سنة.",
+  prisonersText5: "٧٠٪ يبلغون عن عنف أثناء الاعتقال. \"رمي الحجارة\" عقوبته ٢٠ سنة.",
+  prisonersText6: "اليونيسف: الدولة الوحيدة التي تحاكم الأطفال في محاكم عسكرية، ٩٩٪ إدانة.",
+  prisonersSection3: "التعذيب",
+  prisonersQuote2: "\"ارتفاع حاد في التعذيب منذ أكتوبر ٢٠٢٣.\" — اللجنة العامة لمناهضة التعذيب",
+  prisonersText7: "معتقلون يتعرضون للضرب، التغطية، الزحف على زجاج مكسور.",
+  prisonersText8: "كسور، فشل كلوي، حرمان من الرعاية الطبية — أطباء لحقوق الإنسان.",
+  prisonersText9: "الأمم المتحدة: الظروف في سدي تيمان تشكل معاملة مهينة.",
+  prisonersSection4: "الإضراب عن الطعام",
+  prisonersText10: "١٢٠٠ مضرب يطالبون بإنهاء الاعتقال الإداري، زيارة العائلة، رعاية طبية.",
+  prisonersText11: "٢٣ في المستشفى بفشل عضوي. تغذية قسرية.",
+  prisonersText12: "خضر عدنان توفي ٢٠٢٣ بعد ٨٧ يوماً. أقسى ظروف منذ عقود.",
+  prisonersSection5: "القانون الدولي",
+  prisonersQuote3: "\"نقل الأسرى داخل إسرائيل ينتهك اتفاقية جنيف.\" — الصليب الأحمر",
+  prisonersText13: "الصليب الأحمر مُنع من الوصول. المادة ٧٦ منتهكة.",
+  prisonersText14: "العفو الدولية: اعتقال إداري + تعذيب = جرائم حرب.",
+  prisonersText15: "قرار مجلس الأمن ٢٤٢ يؤكد تطبيق اتفاقيات جنيف في الأراضي المحتلة.",
+  deathThreatStatement: "<strong>خطر موت:</strong> ١٢٠٠ مضرب تجاوزوا ١٠٠ يوم يواجهون فشلاً عضوياً. ٦ توفوا منذ ٧ أكتوبر. تدخل مطلوب خلال أيام.",
+  actionUrgent: "وقع على النداء",
+  actionParliament: "اتصل بالبرلمان",
+  downloadTextPrisoners: "ملف كامل (٤٧ شهادة)",
+  downloadBtn: "تحميل",
+  prisonersCitation1: "بتسيلم ٢٠٢٤",
+  prisonersCitation2: "نادي الأسير",
+  prisonersCitation3: "أطباء لحقوق الإنسان",
+  prisonersCitation4: "مجلس حقوق الإنسان",
+  prisonersCitation5: "منظمة الدفاع عن الأطفال",
+  relatedCards: "أدلة ذات صلة",
+  related1Prisoners: "التعذيب المنهجي",
+  related1DescPrisoners: "شهادات منذ أكتوبر ٢٠٢٣",
+  related2Prisoners: "اعتقال الأطفال",
+  related2DescPrisoners: "محاكم عسكرية تستهدف الأطفال",
+  related3Prisoners: "تاريخ الاعتقالات",
+  related3DescPrisoners: "أكثر من مليون معتقل منذ ١٩٦٧",
+
+
+
+   // ... existing translations ...
+  
+  // PRISONERS BANNER
+  prisonersBannerTag: "عاجل · تقرير ٢٠٢٤",
+  prisonersBannerTitle: "أسرى سياسيون: أكثر من ٥٠٠٠ معتقل",
+  prisonersBannerDesc: "أكثر من ٥٠٠٠ فلسطيني في السجون الإسرائيلية، بينهم ٢٠٠ طفل و٣٢ امرأة. اعتقال إداري بدون تهمة أو محاكمة — سياسة منهجية توثقها Addameer وB'Tselem وخبراء الأمم المتحدة.",
+  prisonersBannerMeta1: "نادي الأسير ٢٠٢٤",
+  prisonersBannerMeta2: "تحديث شهري",
+  prisonersBannerMeta3: "٢٠٠ طفل",
+
+
+
+  // Add to your 'ar' section in script.js
+
+// HAGANAH CRIMES ARTICLE - ARABIC
+haganahTag: "جرائم حرب · ١٩٤٧-١٩٤٨",
+haganahTitle: "جرائم الهاغاناه: مجازر منهجية خلال النكبة",
+haganahIntro: "ارتكب الهاغاناه، الذي أصبح لاحقاً نواة الجيش الإسرائيلي، مجازر عديدة ضد المدنيين الفلسطينيين خلال نكبة ١٩٤٧-١٩٤٨. كانت هذه الهجمات منهجية، استهدفت القرى والفنادق والأحياء المدنية.",
+
+haganahSemiramisTitle: "⚡ تفجير فندق سميراميس (٥ يناير ١٩٤٨)",
+haganahSemiramisText: "فجرت قوات الهاغاناه فندق سميراميس المملوك لمسيحيين في حي قطامون بالقدس، مما أسفر عن مقتل ٢٤-٢٦ مدنياً بينهم نساء وأطفال ونائب القنصل الإسباني. أدانت السلطات البريطانية الهجوم ووصفته بأنه 'قتل جماعي للأبرياء'.",
+
+haganahBaladTitle: "⚡ مجزرة بلد الشيخ (٣١ ديسمبر ١٩٤٧ - ١ يناير ١٩٤٨)",
+haganahBaladText: "هاجمت وحدات البلماخ القرية بينما كان السكان نائمين، بأوامر 'بقتل أكبر عدد من الذكور البالغين'. قُتل ٦٠-٧٠ قروياً - رجال ونساء وأطفال - في منازلهم. دمر الهجوم العشرات من المنازل.",
+
+haganahDeirYassinTitle: "⚡ مجزرة دير ياسين (٩ أبريل ١٩٤٨)",
+haganahDeirYassinText: "هاجمت قوات الإرجون وليحي، بدعم من الهاغاناه، دير ياسين، مما أسفر عن مقتل حوالي ٢٥٠ فلسطينياً - بينهم نساء وأطفال وشيوخ. أفاد الناجون باغتصابات وتشويه وإعدامات جماعية. وصف الصليب الأحمر الدولي العثور على ١٥٠ جثة في كهف واحد. وصف تقرير بريطاني الواقعة بأنها 'ظروف وحشية للغاية'.",
+
+haganahOperationsTitle: "⚡ تدمير منهجي للقرى",
+haganahOperationsText: "عملية نحشون (أبريل ١٩٤٨) طهرت القرى على طول طريق تل أبيب-القدس. يصف المؤرخ الإسرائيلي بيني موريس العملية بأنها 'تطهير منطقة بأكملها بشكل دائم من القرى العربية'. دمرت قرية قالونيا حيث 'فجرت العشرات من المنازل، تاركة القرية بأكملها مشتعلة'.",
+
+haganahCitation1: "موريس، بيني. 'ميلاد مشكلة اللاجئين الفلسطينيين'",
+haganahCitation2: "بابيه، إيلان. 'التطهير العرقي لفلسطين'",
+haganahCitation3: "سجلات لجنة الأمم المتحدة لفلسطين ١٩٤٨",
+
+
+
+
+//haganah banner
+// Add to 'ar' section
+haganahBannerTag: "جرائم حرب · ١٩٤٧-١٩٤٨",
+haganahBannerTitle: "مجازر الهاغاناه: مقتل ٨٠٠+ مدني",
+haganahBannerDesc: "مجازر موثقة ارتكبتها قوات الهاغاناه خلال النكبة: فندق سميراميس (مقتل ٢٤)، بلد الشيخ (مقتل ٦٠-٧٠)، دير ياسين (مقتل ٢٥٠)، وتدمير منهجي لأكثر من ٤٠٠ قرية. أدلة من المؤرخين الإسرائيليين بيني موريس وإيلان بابيه.",
+haganahBannerMeta1: "١٥+ مجزرة",
+haganahBannerMeta2: "بيني موريس",
+haganahBannerMeta3: "وثائق الأمم المتحدة ١٩٤٨",
 
 
 
