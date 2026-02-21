@@ -692,6 +692,320 @@ body.rtl .haganah-banner:hover .haganah-banner-arrow {
     body.rtl .cta-btn i {
       transform: scaleX(-1);
     }
+
+
+
+
+
+
+    /* ---------- YOUTUBE VIDEO SECTION ---------- */
+.video-section {
+  margin: 3rem 0;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #efe3db;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-caption {
+  margin-top: 1rem;
+  color: #3b4a54;
+  font-style: italic;
+  text-align: center;
+}
+
+/* RTL adjustment for YouTube icon */
+body.rtl .section-title i.fab.fa-youtube {
+  margin-left: 8px;
+  margin-right: 0;
+}
+
+
+
+/* Video thumbnail styles for non-embeddable videos */
+.video-thumbnail-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.video-thumbnail-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #efe3db;
+  transition: all 0.3s ease;
+  background: #1a2c3a; /* fallback color */
+}
+
+.video-thumbnail-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.25);
+  border-color: #bb9e8c;
+}
+
+.video-thumbnail-wrapper img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.video-thumbnail-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.play-button-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 5rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+  transition: all 0.2s ease;
+  z-index: 2;
+  line-height: 1;
+}
+
+.video-thumbnail-wrapper:hover .play-button-overlay {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+  color: #e6b17e;
+}
+
+.video-duration {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.video-info {
+  margin-top: 1rem;
+  text-align: left;
+  padding: 0 0.5rem;
+}
+
+.video-info h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1f313a;
+  margin-bottom: 0.3rem;
+}
+
+.video-info p {
+  color: #485c64;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.video-info p i {
+  color: #e6b17e;
+  font-size: 0.9rem;
+}
+
+/* External link icon for view-all button */
+.view-all i.fa-external-link-alt {
+  font-size: 0.9rem;
+}
+
+/* RTL support */
+body.rtl .video-duration {
+  right: auto;
+  left: 12px;
+}
+
+body.rtl .video-info {
+  text-align: right;
+}
+
+
+
+
+/* ---------- VIDEOS GRID SECTION ---------- */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.video-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #ede3db;
+  box-shadow: 0 8px 18px -6px rgba(60, 45, 35, 0.06);
+  transition: 0.2s;
+}
+
+.video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 28px -10px rgba(80, 60, 40, 0.12);
+  border-color: #bb9e8c;
+}
+
+.video-embed-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  background: #ebdfd6;
+}
+
+.video-embed-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-thumbnail-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.video-thumbnail-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #1a2c3a;
+}
+
+.video-thumbnail-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.video-card:hover .video-thumbnail-wrapper img {
+  transform: scale(1.05);
+}
+
+.play-button-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3.5rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+  transition: all 0.2s ease;
+  z-index: 2;
+  line-height: 1;
+}
+
+.video-card:hover .play-button-overlay {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+  color: #e6b17e;
+}
+
+.video-duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.video-card-info {
+  padding: 1rem 1.2rem 1.2rem;
+}
+
+.video-card-info h3 {
+  font-size: 1.1rem;
+  font-weight: 650;
+  margin-bottom: 0.4rem;
+  color: #1f313a;
+}
+
+.video-card-info p {
+  color: #485c64;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.video-card-info p i {
+  color: #e6b17e;
+  font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .videos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .videos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* RTL support */
+body.rtl .video-duration {
+  right: auto;
+  left: 8px;
+}
+
+body.rtl .play-button-overlay {
+  transform: translate(-50%, -50%) scaleX(-1);
+}
+
+body.rtl .video-card-info p i {
+  margin-left: 0;
+  margin-right: 0.4rem;
+}
 </style>
 </head>
 
@@ -782,6 +1096,92 @@ body.rtl .haganah-banner:hover .haganah-banner-arrow {
         </div>
       </div>
     </section>
+
+
+
+
+
+
+
+<!-- ***** YOUTUBE VIDEOS SECTION (MULTIPLE VIDEOS) ***** -->
+<section class="video-section fade-in-section">
+  <div class="section-title">
+    <h2 data-key="videoTitle"><i class="fab fa-youtube"></i> Featured documentaries</h2>
+    <a href="https://youtube.com/@yourchannel" target="_blank" class="view-all" data-key="watchMore">
+      Watch more <i class="fas fa-external-link-alt"></i>
+    </a>
+  </div>
+  
+  <div class="videos-grid">
+    <!-- Video 1: The embeddable one (Vox) -->
+    <div class="video-card">
+      <a href="https://www.youtube.com/watch?v=vI64Vo7ucDg" target="_blank" rel="noopener noreferrer" class="video-thumbnail-link">
+        <div class="video-thumbnail-wrapper">
+          <img 
+            src="https://img.youtube.com/vi/vI64Vo7ucDg/maxresdefault.jpg" 
+            alt="Video thumbnail"
+            onerror="this.src='https://img.youtube.com/vi/Nc_fVP68U3I/hqdefault.jpg'"
+          >
+          <div class="play-button-overlay">
+            <i class="fas fa-play-circle"></i>
+          </div>
+          <div class="video-duration">18:45</div>
+        </div>
+        <div class="video-card-info">
+          <h3>Real Crimes Against Prisoners</h3>
+          <p>Click to watch on YouTube <i class="fas fa-external-link-alt"></i></p>
+        </div>
+      </a>
+    </div>
+    
+    <!-- Video 2: New video (embed-disabled) -->
+    <div class="video-card">
+      <a href="https://www.youtube.com/watch?v=Nc_fVP68U3I" target="_blank" rel="noopener noreferrer" class="video-thumbnail-link">
+        <div class="video-thumbnail-wrapper">
+          <img 
+            src="https://img.youtube.com/vi/Nc_fVP68U3I/maxresdefault.jpg" 
+            alt="Video thumbnail"
+            onerror="this.src='https://img.youtube.com/vi/Nc_fVP68U3I/hqdefault.jpg'"
+          >
+          <div class="play-button-overlay">
+            <i class="fas fa-play-circle"></i>
+          </div>
+          <div class="video-duration">18:45</div>
+        </div>
+        <div class="video-card-info">
+          <h3>Real Confution about terrorising</h3>
+          <p>Click to watch on YouTube <i class="fas fa-external-link-alt"></i></p>
+        </div>
+      </a>
+    </div>
+    
+    <!-- Video 3: Your original video (61MmsY9bYQQ) -->
+    <div class="video-card">
+      <a href="https://www.youtube.com/watch?v=61MmsY9bYQQ" target="_blank" rel="noopener noreferrer" class="video-thumbnail-link">
+        <div class="video-thumbnail-wrapper">
+          <img 
+            src="https://img.youtube.com/vi/61MmsY9bYQQ/maxresdefault.jpg" 
+            alt="Video thumbnail"
+            onerror="this.src='https://img.youtube.com/vi/61MmsY9bYQQ/hqdefault.jpg'"
+          >
+          <div class="play-button-overlay">
+            <i class="fas fa-play-circle"></i>
+          </div>
+          <div class="video-duration">22:14</div>
+        </div>
+        <div class="video-card-info">
+          <h3>The True Disgusting face of zionisme</h3>
+          <p>Click to watch on YouTube <i class="fas fa-external-link-alt"></i></p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
 
 
 
